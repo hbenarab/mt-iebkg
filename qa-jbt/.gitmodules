@@ -1,0 +1,12 @@
+[submodule "openie"]
+	path = openie
+	url = https://github.com/mithrial/openie.git
+[submodule "ext2rdf"]
+	path = ext2rdf
+	url = https://github.com/Weissger/ext2rdf.git
+[submodule "wikipedia_wrapper"]
+	path = wikipedia_wrapper
+	url = https://github.com/mithrial/wikipedia_wrapper.git
+[submodule "jbt_berkeley_coref_resolution"]
+	path = jbt_berkeley_coref_resolution
+	url = https://github.com/nate331/jbt_berkeley_coref_resolution.git

@@ -1,0 +1,10 @@
+pandas
+flask
+flask_restful
+wikipedia
+nltk
+tornado
+rdflib
+ipython
+numpy
+datetime
