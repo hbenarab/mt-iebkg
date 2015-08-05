@@ -1,3 +1,6 @@
 [submodule "qa-jbt"]
 	path = qa-jbt
 	url = https://github.com/mithrial/qa-jbt.git
+[submodule "is13"]
+	path = is13
+	url = https://github.com/mesnilgr/is13.git
