@@ -1,2 +1,2 @@
 # mt-iebkg
-IE to build KG
+Information extraction to build a Knowledge Graph
