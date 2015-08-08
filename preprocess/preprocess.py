@@ -27,4 +27,4 @@ def get_openie(article_name):
 
 
 get_openie('Sfax')
-
+print ('over')
