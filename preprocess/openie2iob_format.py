@@ -15,6 +15,7 @@ def find_label(element, labels):
     return labels[c]
 
 
+# this function returns a stop-index for a sentence elements
 def notLabeledElement_index(elements,labels):
     index=0
     not_relation=False
@@ -33,6 +34,7 @@ def notLabeledElement_index(elements,labels):
 
     assert index<len(elements)
     return index
+
 
 # This function convert the label from openIE output to english part-of-sentence label
 def convert_label(openIE_label, elementInd, relationInd, myLabels):
@@ -123,6 +125,3 @@ def convert_openie2iob(article_name):
     else:
         print('The IOB file for the article %s has been previously created. No need to do so again !!' % article_name)
     return
-
-
-convert_openie2iob('Paris')
