@@ -15,6 +15,25 @@ def find_label(element, labels):
     return labels[c]
 
 
+def notLabeledElement_index(elements,labels):
+    index=0
+    not_relation=False
+    while index<len(elements) and not not_relation:
+        i=0
+        found=False
+        while i<len(labels) and not found:
+            if labels[i] in elements[index]:
+                found=True
+            else:
+                i+=1
+        if found:
+            index+=1
+        else:
+            not_relation=True
+
+    assert index<len(elements)
+    return index
+
 # This function convert the label from openIE output to english part-of-sentence label
 def convert_label(openIE_label, elementInd, relationInd, myLabels):
     if openIE_label == 'SimpleArgument(':
@@ -52,9 +71,16 @@ def write_element_to_iob_file(element, new_label, old_label):
 # This function takes as input an openIE file of the article
 # it returns an output file under the IOB format
 def convert_openie2iob(article_name):
-    article = open('../qa-jbt/data/openie' + str(article_name) + '.openie')
+    # global article
+    try:
+        article = open('../qa-jbt/data/openie/' + str(article_name) + '.openie')
+    except:
+        print('The wikipedia article %s has not been processed by openIE' %article_name)
+
+    print('The openIE file of %s has been found and opened' %article_name)
     lines = article.readlines()[1:]  # the first line containing the date of the file's creation is ignored
     iob_path = '../data/iob/' + str(article_name) + '.iob'
+    print('Output IOB file for %s has been created' %article_name)
     if not os.path.isfile(iob_path):
         iob_file = open(iob_path, 'w')  # open new .iob file to write
         simpleArg_label = 'SimpleArgument('
@@ -71,14 +97,17 @@ def convert_openie2iob(article_name):
         location = 'LOC'
         my_labels = [subject, predicate, obj, context, time, location]
         for i in range(0, len(lines)):
+            if i%100==0:
+                print ('Line %d is beeing processed' %i)
             line_elements = lines[i].split('\t')[2:]
-            iob_file.write(line_elements[-1])
+            iob_file.write(str(i)+'\t'+line_elements[-1])
             try:
                 relation_index = [i for i, s in enumerate(line_elements) if relation_label in s][0]
             except:
                 print('Relation label not found in the sentence number %d' % i)
-
-            for j in range(0, len(line_elements) - 2):
+            last_index=notLabeledElement_index(line_elements,labels)
+            line_elements=line_elements[:last_index]
+            for j in range(0, len(line_elements)):
                 element = line_elements[j]
                 element_label = find_label(element, labels)
                 new_label = convert_label(element_label, j, relation_index, my_labels)
@@ -94,3 +123,6 @@ def convert_openie2iob(article_name):
     else:
         print('The IOB file for the article %s has been previously created. No need to do so again !!' % article_name)
     return
+
+
+convert_openie2iob('Paris')
