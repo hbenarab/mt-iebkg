@@ -75,7 +75,7 @@ def write_element_to_iob_file(element, new_label, old_label):
 def convert_openie2iob(article_name):
     # global article
     try:
-        article = open('../qa-jbt/data/openie/' + str(article_name) + '.openie')
+        article = open('../qa-jbt/data/openie/' + str(article_name) + '.openie','r')
     except:
         print('The wikipedia article %s has not been processed by openIE' %article_name)
 
