@@ -117,7 +117,7 @@ def convert_openie2iob(article_name):
                 for c in range(0, len(to_write)):
                     iob_file.write(to_write[c])
 
-            iob_file.write('\n')
+            # iob_file.write('\n')
 
         article.close()
         iob_file.close()
