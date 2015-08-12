@@ -30,8 +30,6 @@ def create_network(settings,classes_number,vocab_size,folder):
     rnn_fold=os.path.join('./data/rnnElman',folder)
     rnn.save(rnn_fold)
 
-    return settings
-
 
 def get_data_from_iob(article_name,labeled_data):
     try:
@@ -171,14 +169,18 @@ def run_process(articles):
         train_labels=labels_list[0:training_size]
         print('Testing size: [{0}:{1}] = {2}'.format(training_size, training_size+testing_size, testing_size))
         test_sentences=sentences_list[training_size:training_size+testing_size]
-        test_labels=sentences_list[training_size:training_size+testing_size]
+        test_labels=labels_list[training_size:training_size+testing_size]
 
         ####################
         # training process #
         ####################
         number_train_sentences=len(train_sentences)
-        best_f1=-numpy.inf
+        number_train_labels_toGuess=sum([len(x) for x in test_labels])
+        print('Starting training with {0} labeled sentences in total for {1} epochs.'.
+              format(number_train_sentences, settings['nepochs']))
+        best_accuracy=-numpy.inf
         current_learning_rate=settings['lr']
+        best_epoch=0
         for e in range(0,settings['nepochs']):
             print('Epoch {0}'.format(e))
             print('----------------------------------------------')
@@ -206,20 +208,20 @@ def run_process(articles):
                 print('Pred: %s' %pred)
                 print('Orig: %s' %lab)
 
+            correctGuesses_list = [[1 if pred_val == exp_val else 0 for pred_val, exp_val in zip(pred, exp)]
+                                   for pred, exp in zip(predictions_test, test_labels)]
 
+            correct_guesses = (sum([sum(x) for x in correctGuesses_list]))
+            accuracy = correct_guesses*100./number_train_labels_toGuess
+            print('Accuracy (number of correct guessed labels) at %2.2f%%.'% accuracy)
 
+            # check if current epoch is the best
+            if accuracy>best_accuracy:
+                best_accuracy=accuracy
+                best_epoch=e
 
-
-
-
-
-
-
-
-
-
-
-
+        print ('BEST RESULT: epoch ', best_epoch, 'with best accuracy: ', best_accuracy, '.')
+        rnn.save(model_folder)
 
 
 
