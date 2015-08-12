@@ -5,6 +5,8 @@ import pickle
 import numpy
 import datetime
 import math
+import time
+import sys
 from preprocess.wordemb import WordEmbeddings,create_word_index
 from preprocess.preprocess import get_iob
 from rnn.elman_model import Elman
@@ -85,8 +87,8 @@ def get_dict_from_iob(article_name,dictionary):
 
 # main process: taking as input a list of articles to be processed
 def run_process(articles):
-    settings = {'partial_training':0.95,
-                'partial_testing':0.05,
+    settings = {'partial_training':0.7,
+                'partial_testing':0.3,
                 'fold':3, # 5 folds 0,1,2,3,4
                 'lr':0.0627142536696559,
                 'verbose':1,
@@ -175,6 +177,38 @@ def run_process(articles):
         # training process #
         ####################
         number_train_sentences=len(train_sentences)
+        best_f1=-numpy.inf
+        current_learning_rate=settings['lr']
+        for e in range(0,settings['nepochs']):
+            print('Epoch {0}'.format(e))
+            print('----------------------------------------------')
+            shuffle([train_sentences,train_labels],settings['seed'])
+            tic=time.time()
+            for i in range(0,len(train_sentences)):
+                indexed_sentence=[word2index[w] for w in train_sentences[i]]
+                indexed_labels=[label2index[l] for l in train_labels[i]]
+                cs_window=contextwin(indexed_sentence,settings['win'])
+                words=map(lambda x:numpy.asarray(x).astype('int32'),minibatch(cs_window,settings['bs']))
+                for word,label in zip(words,indexed_labels):
+                    rnn.train(word,label,current_learning_rate)
+                    rnn.normalize()
+                if settings['verbose']:
+                    print('[learning] epoch %i >> %2.2f%%' % (e,(i+1)*100./number_train_sentences),
+                          'completed in %.2f (sec) <<\r' %(time.time()-tic),sys.stdout.flush())
+            print('\n')
+
+            # evaluation // back into the real world : idx -> words
+            predictions_test=[map(lambda x:index2label[x],
+                                  rnn.classify(numpy.asarray(cs_window(x,settings['win'])).astype('int32')))
+                              for x in [[word2index[word] for word in sentence] for sentence in test_sentences]]
+            for sen, pred, lab in zip(test_sentences,predictions_test,test_labels):
+                print(sen)
+                print('Pred: %s' %pred)
+                print('Orig: %s' %lab)
+
+
+
+
 
 
 
