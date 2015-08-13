@@ -25,7 +25,7 @@ class LabeledText(object):
     def addData(self, labeledData):
         if len(labeledData) is not 2:
             raise Exception('Expecting labeled data to contain exactly two lists (with corresponding pairs)')
-        if len(labeledData[0]) is not len(labeledData[1]):
+        if len(labeledData[0]) != len(labeledData[1]):
             raise Exception('Given lists of sentences and associated labels do not match in length.')
         self.data[0].extend(labeledData[0])
         self.data[1].extend(labeledData[1])

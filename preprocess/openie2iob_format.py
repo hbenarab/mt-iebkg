@@ -73,15 +73,16 @@ def write_element_to_iob_file(element, new_label, old_label):
 # This function takes as input an openIE file of the article
 # it returns an output file under the IOB format
 def convert_openie2iob(article_name):
-    # global article
+
+    #global article
     try:
-        article = open('../qa-jbt/data/openie/' + str(article_name) + '.openie','r')
+        article = open('qa-jbt/data/openie/' + str(article_name) + '.openie','r')
     except:
-        print('The wikipedia article %s has not been processed by openIE' %article_name)
+        raise Exception('The wikipedia article %s has not been processed by openIE' % article_name)
 
     print('The openIE file of %s has been found and opened' %article_name)
     lines = article.readlines()[1:]  # the first line containing the date of the file's creation is ignored
-    iob_path = '../data/iob/' + str(article_name) + '.iob'
+    iob_path = 'data/iob/' + str(article_name) + '.iob'
     print('Output IOB file for %s has been created' %article_name)
     if not os.path.isfile(iob_path):
         iob_file = open(iob_path, 'w')  # open new .iob file to write

@@ -11,7 +11,7 @@ from preprocess.wordemb import WordEmbeddings,create_word_index
 from preprocess.preprocess import get_iob
 from rnn.elman_model import Elman
 from preprocess.labeledText import LabeledText
-from is13.utils.tools import contextwin,minibatch,shuffle
+from utils.tools import shuffle,minibatch,contextwin
 
 
 # this function aims to train a RNN
@@ -28,36 +28,38 @@ def create_network(settings,classes_number,vocab_size,folder):
               cs=settings['win'])
     rnn.setup()
     rnn_fold=os.path.join('./data/rnnElman',folder)
+    os.makedirs(rnn_fold)
     rnn.save(rnn_fold)
 
 
-def get_data_from_iob(article_name,labeled_data):
+def get_data_from_iob(article_name):
     try:
         article = open('./data/iob/' + str(article_name) + '.iob','r')
     except:
-        print('No .iob file found for: %s .' % article_name)
+        raise Exception('No .iob file found for: %s .' % article_name)
     # labeled_data=[[],[]]
     lines=article.readlines()
     # beg=0
     # end=lines.index('\n')
-    labeled_data[0].append([])
-    labeled_data[1].append([])
+    data_to_add=[[],[]]
+    data_to_add[0].append([])
+    data_to_add[1].append([])
     for i in range(0,len(lines)):
         line=lines[i]
         if line=='\n': # new sentence
-            labeled_data[0].append([])
-            labeled_data[1].append([])
-            assert len(labeled_data[0])==len(labeled_data[1])
+            data_to_add[0].append([])
+            data_to_add[1].append([])
+            assert len(data_to_add[0])==len(data_to_add[1])
             continue
         if '\t\t' not in line:
             continue
         w_l=line.split('\t\t')
-        labeled_data[0][len(labeled_data[0])-1].append(w_l[0])
-        labeled_data[1][len(labeled_data[1])-1].append(w_l[1].replace('\n',''))
-        assert len(labeled_data[0])==len(labeled_data[1])
+        data_to_add[0][len(data_to_add[0])-1].append(w_l[0])
+        data_to_add[1][len(data_to_add[1])-1].append(w_l[1].replace('\n',''))
+        assert len(data_to_add[0])==len(data_to_add[1])
 
-    assert len(labeled_data[0])==len(labeled_data[1])
-    return labeled_data
+    assert len(data_to_add[0])==len(data_to_add[1])
+    return data_to_add
 
 
 # This function allows to create a dictionary from an already generated .iob file
@@ -103,6 +105,7 @@ def run_process(articles):
     }
     indices_dict_path='./data/word2indices/indices.pickle'
     labeled_data=LabeledText()
+    # labeled_data_list=labeled_data.getData()
     # In this part, we will check if a word dictionary is already created.
     # Otherwise, we create a new one
     # PS: a new dictionary should be created only for the first article.
@@ -155,7 +158,8 @@ def run_process(articles):
         print('RNN model successfully loaded from "%s" ' % model_folder)
 
         # create labeled data
-        labeled_data.addData(get_data_from_iob(article,labeled_data))
+        data_to_add=get_data_from_iob(article)
+        labeled_data.addData(data_to_add)
         print('Labeled data successfully generated')
         sentences_list,labels_list=labeled_data.getData()
         number_labeled_sentences=len(sentences_list)
@@ -224,4 +228,4 @@ def run_process(articles):
         rnn.save(model_folder)
 
 
-
+run_process(['Paris'])
