@@ -56,6 +56,9 @@ class WordEmbeddings(object):
     # add A SINGLE WORD to the current dictionary
     def add_word(self, word):
         currentMax = len(self.words2index)
+        if currentMax==0:
+            currentMax=1
+
 
         if not word in self.words2index:
             self.words2index[word] = currentMax

@@ -24,8 +24,8 @@ def minibatch(l, bs):
     will output:
     [[0],[0,1],[0,1,2],[1,2,3]]
     '''
-    out  = [l[:i] for i in xrange(1, min(bs,len(l)+1) )]
-    out += [l[i-bs:i] for i in xrange(bs,len(l)+1) ]
+    out  = [l[:i] for i in range(1, min(bs,len(l)+1) )]
+    out += [l[i-bs:i] for i in range(bs,len(l)+1) ]
     assert len(l) == len(out)
     return out
 
