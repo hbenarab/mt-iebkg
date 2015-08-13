@@ -12,7 +12,7 @@ from preprocess.preprocess import get_iob
 from rnn.elman_model import Elman
 from preprocess.labeledText import LabeledText
 from utils.tools import shuffle, minibatch, contextwin
-from is13.metrics.accuracy import conlleval
+
 
 
 # this function aims to train a RNN
@@ -99,7 +99,7 @@ def run_process(articles):
                 'nhidden': 100,  # number of hidden units
                 'seed': 345,
                 'emb_dimension': 100,  # dimension of word embedding
-                'nepochs': 1}
+                'nepochs': 10}
     indices = {
         'wordIndex': WordEmbeddings(),
         'labelIndex': WordEmbeddings()
@@ -217,9 +217,9 @@ def run_process(articles):
             predictions_test = [map(lambda x: index2label[x],
                                     rnn.classify(numpy.asarray(contextwin(x, settings['win'])).astype('int32')))
                                 for x in [[word2index[word] for word in sentence] for sentence in test_sentences]]
-            groundTruth_test=[ map(lambda x: index2label[x], y) for y in test_labels ]
-            words_test = [ map(lambda x: index2word[x], w)
-                           for w in [[word2index[word] for word in sentence] for sentence in test_sentences]]
+            # groundTruth_test=[ map(lambda x: index2label[x], y) for y in test_labels ]
+            # words_test = [ map(lambda x: index2word[x], w)
+            #                for w in [[word2index[word] for word in sentence] for sentence in test_sentences]]
 
             # evaluation // compute the accuracy using conlleval.pl
 
@@ -236,9 +236,10 @@ def run_process(articles):
             if accuracy > best_accuracy:
                 best_accuracy = accuracy
                 best_epoch = e
+                rnn.save(model_folder)
 
         print('BEST RESULT: epoch ', best_epoch, 'with best accuracy: ', best_accuracy, '.')
-        rnn.save(model_folder)
+        # rnn.save(model_folder)
 
 
-run_process(['Paris'])
+run_process(['Paris','Obama','Jupiter'])
