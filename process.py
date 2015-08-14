@@ -106,6 +106,7 @@ def run_process(articles):
     }
     indices_dict_path = './data/word2indices/indices.pickle'
     labeled_data = LabeledText()
+    labeled_data_path='./data/labeled_data/labeled_data.pickle'
     # labeled_data_list=labeled_data.getData()
     # In this part, we will check if a word dictionary is already created.
     # Otherwise, we create a new one
@@ -117,10 +118,13 @@ def run_process(articles):
         if os.path.isfile(indices_dict_path):
             print('Loading indices dictionary from %s' % indices_dict_path)
             existent_indices_dict = pickle.load(open(indices_dict_path, 'rb'))
+            print(len(existent_indices_dict['wordIndex'].getCurrentIndex()))
             indices['wordIndex'].merge(existent_indices_dict['wordIndex'])
             indices['labelIndex'].merge(existent_indices_dict['labelIndex'])
+            print(len(indices['wordIndex'].getCurrentIndex()))
             indices['wordIndex'].merge(get_dict_from_iob(article, indices)['wordIndex'])
             indices['labelIndex'].merge(get_dict_from_iob(article, indices)['labelIndex'])
+            print(len(indices['wordIndex'].getCurrentIndex()))
         else:
             if i > 0:
                 raise Exception('INDICES DICTIONARY ALREADY CREATED. NO NEED TO CREATE IT AGAIN !!!!!!')
@@ -161,8 +165,9 @@ def run_process(articles):
         # create labeled data
         data_to_add = get_data_from_iob(article)
         labeled_data.addData(data_to_add)
-        print('Labeled data successfully generated')
         sentences_list, labels_list = labeled_data.getData()
+        print(len(sentences_list))
+        print(len(labels_list))
         number_labeled_sentences = len(sentences_list)
         # shuffle before splitting up to train & test set
         shuffle([sentences_list, labels_list], settings['seed'])
@@ -237,9 +242,10 @@ def run_process(articles):
                 best_accuracy = accuracy
                 best_epoch = e
                 rnn.save(model_folder)
+                print('Better accuracy ====> New RNN saved')
 
         print('BEST RESULT: epoch ', best_epoch, 'with best accuracy: ', best_accuracy, '.')
         # rnn.save(model_folder)
 
 
-run_process(['Paris','Obama','Jupiter'])
+run_process(['Jupiter'])

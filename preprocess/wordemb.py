@@ -59,7 +59,6 @@ class WordEmbeddings(object):
         if currentMax==0:
             currentMax=1
 
-
         if not word in self.words2index:
             self.words2index[word] = currentMax
             currentMax += 1
