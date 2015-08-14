@@ -14,7 +14,6 @@ from preprocess.labeledText import LabeledText
 from utils.tools import shuffle, minibatch, contextwin
 
 
-
 # this function aims to train a RNN
 # it takes as input:
 #   network_path: path to folder containing specific RNN configuration
@@ -27,10 +26,10 @@ def create_network(settings, classes_number, vocab_size, folder):
                 ne=vocab_size,
                 de=settings['emb_dimension'],
                 cs=settings['win'])
-    rnn.setup()
     rnn_fold = os.path.join('./data/rnnElman', folder)
     os.makedirs(rnn_fold)
     rnn.save(rnn_fold)
+    return rnn,rnn_fold
 
 
 def get_data_from_iob(article_name):
@@ -45,6 +44,7 @@ def get_data_from_iob(article_name):
     data_to_add = [[], []]
     data_to_add[0].append([])
     data_to_add[1].append([])
+    print('Getting labeled data from the Wikipedia article: %s' % article_name)
     for i in range(0, len(lines)):
         line = lines[i]
         if line == '\n':  # new sentence
@@ -64,7 +64,7 @@ def get_data_from_iob(article_name):
 
 
 # This function allows to create a dictionary from an already generated .iob file
-def get_dict_from_iob(article_name, dictionary):
+def get_dict_from_iob(article_name, wordEmb):
     try:
         article = open('./data/iob/' + str(article_name) + '.iob', 'r')
     except:
@@ -77,13 +77,38 @@ def get_dict_from_iob(article_name, dictionary):
         line = lines[i]
         if '\t\t' in line:
             w_l = line.split('\t\t')
-            dictionary['wordIndex'].add_word(w_l[0])
-            dictionary['labelIndex'].add_word(w_l[1].replace('\n', ''))
+            wordEmb['wordIndex'].add_word(w_l[0])
+            wordEmb['labelIndex'].add_word(w_l[1].replace('\n', ''))
             i += 1
         else:
             i += 1
 
-    return dictionary
+    return wordEmb
+
+
+def create_word2ind(articles):
+    indices={
+        'wordIndex': WordEmbeddings(),
+        'labelIndex': WordEmbeddings()
+    }
+    for i in range(0,len(articles)):
+        article=articles[i]
+        get_iob(article)
+        print('Creating word embeddings for the article %s' %article)
+        indices['wordIndex'].merge(get_dict_from_iob(article,indices)['wordIndex'])
+        indices['wordIndex'].merge(get_dict_from_iob(article,indices)['labelIndex'])
+    print('Word embeddings dictionary created for input the %i input article' % len(articles))
+    return indices
+
+
+def get_labeled_data(articles):
+    labeled_data=LabeledText()
+    for i in range(0,len(articles)):
+        article=articles[i]
+        data_to_add = get_data_from_iob(article)
+        labeled_data.addData(data_to_add)
+    print('Labeled data for the %i articles is created' % len(articles))
+    return labeled_data
 
 
 # main process: taking as input a list of articles to be processed
@@ -100,76 +125,29 @@ def run_process(articles):
                 'seed': 345,
                 'emb_dimension': 100,  # dimension of word embedding
                 'nepochs': 10}
-    indices = {
-        'wordIndex': WordEmbeddings(),
-        'labelIndex': WordEmbeddings()
-    }
-    indices_dict_path = './data/word2indices/indices.pickle'
-    labeled_data = LabeledText()
-    labeled_data_path='./data/labeled_data/labeled_data.pickle'
-    # labeled_data_list=labeled_data.getData()
-    # In this part, we will check if a word dictionary is already created.
-    # Otherwise, we create a new one
-    # PS: a new dictionary should be created only for the first article.
-    # For further articles, we use a merge function to append the dictionary created while processing the 1st article
+
+    indices=create_word2ind(articles)
+    word_index = indices['wordIndex']
+    label_index = indices['labelIndex']
+    word2index = word_index.getCurrentIndex()
+    index2word = word_index.getIndex2Word()
+    label2index = label_index.getCurrentIndex()
+    index2label = label_index.getIndex2Word()
+    vocsize = len(word2index)
+    nclasses = len(label2index)
+
+    new_network_folder = datetime.datetime.now().strftime('%Y-%m-%d_%Hh%M')
+    rnn,model_folder=create_network(settings,nclasses,vocsize,new_network_folder)
+    print('RNN model created and saved under %s' % model_folder)
+
+    labeled_data=get_labeled_data(articles)
+    sentences_list, labels_list = labeled_data.getData()
+    number_labeled_sentences = len(sentences_list)
+
     for i in range(0, len(articles)):
         article = articles[i]
-        get_iob(article)
-        if os.path.isfile(indices_dict_path):
-            print('Loading indices dictionary from %s' % indices_dict_path)
-            existent_indices_dict = pickle.load(open(indices_dict_path, 'rb'))
-            print(len(existent_indices_dict['wordIndex'].getCurrentIndex()))
-            indices['wordIndex'].merge(existent_indices_dict['wordIndex'])
-            indices['labelIndex'].merge(existent_indices_dict['labelIndex'])
-            print(len(indices['wordIndex'].getCurrentIndex()))
-            indices['wordIndex'].merge(get_dict_from_iob(article, indices)['wordIndex'])
-            indices['labelIndex'].merge(get_dict_from_iob(article, indices)['labelIndex'])
-            print(len(indices['wordIndex'].getCurrentIndex()))
-        else:
-            if i > 0:
-                raise Exception('INDICES DICTIONARY ALREADY CREATED. NO NEED TO CREATE IT AGAIN !!!!!!')
-            print('No indices dictionary found. This will be created based on the first article: %s' % str(article))
-            indices['wordIndex'].merge(get_dict_from_iob(article, indices)['wordIndex'])
-            indices['labelIndex'].merge(get_dict_from_iob(article, indices)['labelIndex'])
-            print('The created dictionary is going to be stored.')
-            with open(indices_dict_path, 'wb') as indices_dict:
-                pickle.dump(indices, indices_dict)
-            print('The dictionary was successfully saved. Path: %s' % indices_dict_path)
-
-        word_index = indices['wordIndex']
-        label_index = indices['labelIndex']
-        word2index = word_index.getCurrentIndex()
-        index2word = word_index.getIndex2Word()
-        label2index = label_index.getCurrentIndex()
-        index2label = label_index.getIndex2Word()
-
-        vocsize = len(word2index)
-        nclasses = len(label2index)
-
-        # In this part, we check if a RNN is already created.
-        # Otherwise, we create a new one
-
-        rnn_folder = './data/rnnElman'
-        if not os.listdir(rnn_folder):
-            if i > 0:
-                raise Exception('RNN MODEL ALREADY CREATED. NO NEED TO CREATE IT AGAIN !!!!!')
-            new_network_folder = datetime.datetime.now().strftime('%Y-%m-%d_%Hh%M')
-            create_network(settings, nclasses, vocsize, new_network_folder)
-
-        # rnn=None
-        model_folder = os.path.join(rnn_folder, os.listdir(rnn_folder)[0])
-        print('Loading RNN model from "%s" ' % model_folder)
-        rnn = Elman.load(model_folder)
-        print('RNN model successfully loaded from "%s" ' % model_folder)
-
-        # create labeled data
-        data_to_add = get_data_from_iob(article)
-        labeled_data.addData(data_to_add)
-        sentences_list, labels_list = labeled_data.getData()
-        print(len(sentences_list))
-        print(len(labels_list))
-        number_labeled_sentences = len(sentences_list)
-        # shuffle before splitting up to train & test set
+        print('Training for article %s will begin now' % article)
+        rnn=rnn.load(model_folder)
         shuffle([sentences_list, labels_list], settings['seed'])
 
         training_size = int(math.floor(settings['partial_training'] * number_labeled_sentences))
@@ -210,7 +188,6 @@ def run_process(articles):
                 # assert len(words)==len(indexed_labels)
                 for word, label in zip(words, indexed_labels):
                     rnn.train(word, label, current_learning_rate)
-
                     rnn.normalize()
                 # print(str(i)+' trained and normalized')
                 if settings['verbose'] and i==len(train_sentences)-1:
@@ -219,16 +196,10 @@ def run_process(articles):
                           'completed in %.2f (sec) <<\r' % (time.time() - tic),flush=True)
 
             # evaluation // back into the real world : idx -> words
-            predictions_test = [map(lambda x: index2label[x],
-                                    rnn.classify(numpy.asarray(contextwin(x, settings['win'])).astype('int32')))
-                                for x in [[word2index[word] for word in sentence] for sentence in test_sentences]]
-            # groundTruth_test=[ map(lambda x: index2label[x], y) for y in test_labels ]
-            # words_test = [ map(lambda x: index2word[x], w)
-            #                for w in [[word2index[word] for word in sentence] for sentence in test_sentences]]
 
-            # evaluation // compute the accuracy using conlleval.pl
-
-
+            predictions_test=[map(lambda x:index2label[x],
+                                  rnn.classify(numpy.asarray(contextwin(x,settings['win'])).astype('int32')))
+                              for x in [[word2index[word] for word in sentence] for sentence in test_sentences]]
 
             correctGuesses_list = [[1 if pred_val == exp_val else 0 for pred_val, exp_val in zip(pred, exp)]
                                    for pred, exp in zip(predictions_test, test_labels)]
@@ -248,4 +219,5 @@ def run_process(articles):
         # rnn.save(model_folder)
 
 
+# run_process(['Obama','Jupiter','Paris'])
 run_process(['Jupiter'])
