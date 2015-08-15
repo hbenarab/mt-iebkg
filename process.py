@@ -113,8 +113,8 @@ def get_labeled_data(articles):
 
 # main process: taking as input a list of articles to be processed
 def run_process(articles):
-    settings = {'partial_training': 0.7,
-                'partial_testing': 0.3,
+    settings = {'partial_training': 0.8,
+                'partial_testing': 0.2,
                 'fold': 3,  # 5 folds 0,1,2,3,4
                 'lr': 0.0627142536696559,
                 'verbose': 1,
@@ -142,94 +142,111 @@ def run_process(articles):
 
     labeled_data=get_labeled_data(articles)
     sentences_list, labels_list = labeled_data.getData()
+    while [] in sentences_list:
+        print('Empty sentences found. They will be removed')
+        empty=sentences_list.index([])
+        sentences_list.pop(empty)
+        labels_list.pop(empty)
+    assert len(sentences_list)==len(labels_list)
     number_labeled_sentences = len(sentences_list)
 
-    for i in range(0, len(articles)):
-        article = articles[i]
-        print('Training for article %s will begin now' % article)
-        rnn=rnn.load(model_folder)
-        shuffle([sentences_list, labels_list], settings['seed'])
+    # for i in range(0, len(articles)):
+    # article = articles[i]
+    # print('Training for article %s will begin now' % article)
+    rnn=rnn.load(model_folder)
+    shuffle([sentences_list, labels_list], settings['seed'])
 
-        training_size = int(math.floor(settings['partial_training'] * number_labeled_sentences))
-        testing_size = int(math.floor(settings['partial_testing'] * number_labeled_sentences))
-        print('Training size: [0:{0}] = {0}'.format(training_size))
-        train_sentences = sentences_list[0:training_size]
-        train_labels = labels_list[0:training_size]
-        print('Testing size: [{0}:{1}] = {2}'.format(training_size, training_size + testing_size, testing_size))
-        test_sentences = sentences_list[training_size:training_size + testing_size]
-        test_labels = labels_list[training_size:training_size + testing_size]
+    training_size = int(math.floor(settings['partial_training'] * number_labeled_sentences))
+    testing_size = int(math.floor(settings['partial_testing'] * number_labeled_sentences))
+    print('Training size: [0:{0}] = {0}'.format(training_size))
+    train_sentences = sentences_list[0:training_size]
+    train_labels = labels_list[0:training_size]
+    print('Testing size: [{0}:{1}] = {2}'.format(training_size, training_size + testing_size, testing_size))
+    test_sentences = sentences_list[training_size:training_size + testing_size]
+    test_labels = labels_list[training_size:training_size + testing_size]
 
-        ####################
-        # training process #
-        ####################
-        number_train_sentences = len(train_sentences)
-        number_train_labels_toGuess = sum([len(x) for x in test_labels])
-        print('Starting training with {0} labeled sentences in total for {1} epochs.'.
-              format(number_train_sentences, settings['nepochs']))
-        best_accuracy = -numpy.inf
-        current_learning_rate = settings['lr']
-        best_epoch = 0
-        for e in range(0, settings['nepochs']):
-            print('Epoch {0}'.format(e))
-            print('----------------------------------------------')
-            shuffle([train_sentences, train_labels], settings['seed'])
-            tic = time.time()
-            for i in range(0, len(train_sentences)):
-                # print(i)
-                indexed_sentence = [word2index[w] for w in train_sentences[i]]
-                indexed_labels = [label2index[l] for l in train_labels[i]]
-                cs_window = contextwin(indexed_sentence, settings['win'])
-                words = map(lambda x: numpy.asarray(x).astype('int32'), minibatch(cs_window, settings['bs']))
-                # words=[]
-                # mini_batch=minibatch(cs_window,settings['bs'])
-                # to_array=lambda x:numpy.asarray(x).astype('int32')
-                # for i in range(0,len(mini_batch)):
-                #     words.append(to_array(mini_batch[i]))
-                # assert len(words)==len(indexed_labels)
-                for word, label in zip(words, indexed_labels):
-                    rnn.train(word, label, current_learning_rate)
-                    rnn.normalize()
-                # print(str(i)+' trained and normalized')
-                if settings['verbose'] and i==len(train_sentences)-1:
-                    # print('verbose')
-                    print('[learning] epoch %i >> %2.2f%%' % (e, (i + 1) * 100. / number_train_sentences),
-                          'completed in %.2f (sec) <<\r' % (time.time() - tic),flush=True)
+    ####################
+    # training process #
+    ####################
+    number_train_sentences = len(train_sentences)
+    number_train_labels_toGuess = sum([len(x) for x in test_labels])
+    print('Starting training with {0} labeled sentences in total for {1} epochs.'.
+          format(number_train_sentences, settings['nepochs']))
+    best_accuracy = -numpy.inf
+    current_learning_rate = settings['lr']
+    best_epoch = 0
+    for e in range(0, settings['nepochs']):
+        print('Epoch {0}'.format(e))
+        print('----------------------------------------------')
+        shuffle([train_sentences, train_labels], settings['seed'])
+        tic = time.time()
+        for i in range(0, len(train_sentences)):
+            # print(i)
+            indexed_sentence = [word2index[w] for w in train_sentences[i]]
+            indexed_labels = [label2index[l] for l in train_labels[i]]
+            cs_window = contextwin(indexed_sentence, settings['win'])
+            words = map(lambda x: numpy.asarray(x).astype('int32'), minibatch(cs_window, settings['bs']))
+            # words=[]
+            # mini_batch=minibatch(cs_window,settings['bs'])
+            # to_array=lambda x:numpy.asarray(x).astype('int32')
+            # for i in range(0,len(mini_batch)):
+            #     words.append(to_array(mini_batch[i]))
+            # assert len(words)==len(indexed_labels)
+            for word, label in zip(words, indexed_labels):
+                rnn.train(word, label, current_learning_rate)
+                rnn.normalize()
+            # print(str(i)+' trained and normalized')
+            if settings['verbose'] and i==len(train_sentences)-1:
+                # print('verbose')
+                print('[learning] epoch %i >> %2.2f%%' % (e, (i + 1) * 100. / number_train_sentences),
+                      'completed in %.2f (sec) <<\r' % (time.time() - tic),flush=True)
 
-            # evaluation // back into the real world : idx -> words
+        # evaluation // back into the real world : idx -> words
 
-            predictions_test=[map(lambda x:index2label[x],
-                                  rnn.classify(numpy.asarray(contextwin(x,settings['win'])).astype('int32')))
-                              for x in [[word2index[word] for word in sentence] for sentence in test_sentences]]
-            # all_sentences_indices=[]
-            # for sentence in test_sentences:
-            #     sentence_indices=[]
-            #     for word in sentence:
-            #         sentence_indices.append(word2index[word])
-            #     all_sentences_indices.append(sentence_indices)
-            # predictions_test=[]
-            # for x in all_sentences_indices:
-            #
+        predictions_test=list(map(lambda x:index2label[x],
+                              rnn.classify(numpy.asarray(contextwin(x,settings['win'])).astype('int32')))
+                          for x in [[word2index[word] for word in sentence] for sentence in test_sentences])
 
-            correctGuesses_list = [[1 if pred_val == exp_val else 0 for pred_val, exp_val in zip(pred, exp)]
-                                   for pred, exp in zip(predictions_test, test_labels)]
+        # all_sent_list=[]
+        # for sentence in test_sentences:
+        #     sentence_indices_list=[]
+        #     for word in sentence:
+        #         sentence_indices_list.append(word2index[word])
+        #     all_sent_list.append(sentence_indices_list)
+        # predictions_test=[]
+        # for sent in all_sent_list:
+        #     arr=numpy.asarray(contextwin(sent,settings['win'])).astype('int32')
+        #     print('sentence: ', sent)
+        #     print('array: ',arr)
+        #     print('shape: ',arr.shape)
+        #     first_shape=arr.shape[0]
+        #     try:
+        #         resh_array=arr.reshape((first_shape,1))
+        #     except:
+        #         resh_array=arr
+        #
+        #     predictions_test.append(rnn.classify(resh_array))
 
-            correct_guesses = (sum([sum(x) for x in correctGuesses_list]))
-            accuracy = correct_guesses * 100. / number_train_labels_toGuess
-            print('Accuracy (number of correct guessed labels) at %2.2f%%.' % accuracy)
+        correctGuesses_list = [[1 if pred_val == exp_val else 0 for pred_val, exp_val in zip(pred, exp)]
+                               for pred, exp in zip(predictions_test, test_labels)]
 
-            # check if current epoch is the best
-            if accuracy > best_accuracy:
-                best_accuracy = accuracy
-                best_epoch = e
-                rnn.save(model_folder)
-                print('Better accuracy ====> New RNN saved')
-            else:
-                current_learning_rate*=0.5
-            if current_learning_rate<1e-5: break
+        correct_guesses = (sum([sum(x) for x in correctGuesses_list]))
+        accuracy = correct_guesses * 100. / number_train_labels_toGuess
+        print('Accuracy (number of correct guessed labels) at %2.2f%%.' % accuracy)
 
-        print('BEST RESULT: epoch ', best_epoch, 'with best accuracy: ', best_accuracy, '.')
-        # rnn.save(model_folder)
+        # check if current epoch is the best
+        if accuracy > best_accuracy:
+            best_accuracy = accuracy
+            best_epoch = e
+            rnn.save(model_folder)
+            print('Better accuracy ====> New RNN saved')
+        else:
+            current_learning_rate*=0.5
+        if current_learning_rate<1e-5: break
+
+    print('BEST RESULT: epoch ', best_epoch, 'with best accuracy: ', best_accuracy, '.')
+    # rnn.save(model_folder)
 
 
 # run_process(['Obama','Jupiter','Paris'])
-run_process(['Jupiter','Paris'])
+run_process(['Obama'])
