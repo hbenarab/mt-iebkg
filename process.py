@@ -200,6 +200,15 @@ def run_process(articles):
             predictions_test=[map(lambda x:index2label[x],
                                   rnn.classify(numpy.asarray(contextwin(x,settings['win'])).astype('int32')))
                               for x in [[word2index[word] for word in sentence] for sentence in test_sentences]]
+            # all_sentences_indices=[]
+            # for sentence in test_sentences:
+            #     sentence_indices=[]
+            #     for word in sentence:
+            #         sentence_indices.append(word2index[word])
+            #     all_sentences_indices.append(sentence_indices)
+            # predictions_test=[]
+            # for x in all_sentences_indices:
+            #
 
             correctGuesses_list = [[1 if pred_val == exp_val else 0 for pred_val, exp_val in zip(pred, exp)]
                                    for pred, exp in zip(predictions_test, test_labels)]
@@ -214,10 +223,13 @@ def run_process(articles):
                 best_epoch = e
                 rnn.save(model_folder)
                 print('Better accuracy ====> New RNN saved')
+            else:
+                current_learning_rate*=0.5
+            if current_learning_rate<1e-5: break
 
         print('BEST RESULT: epoch ', best_epoch, 'with best accuracy: ', best_accuracy, '.')
         # rnn.save(model_folder)
 
 
 # run_process(['Obama','Jupiter','Paris'])
-run_process(['Jupiter'])
+run_process(['Jupiter','Paris'])
