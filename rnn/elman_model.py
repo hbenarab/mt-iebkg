@@ -104,6 +104,7 @@ class Elman(object):
             loadedParams.append(param)
             setattr(elman, name, param)
         elman.params = loadedParams
+        #print(elman.params)
 
         # elman.buildModel()
 

@@ -103,12 +103,16 @@ def create_word2ind(articles):
 
 def get_labeled_data(articles):
     labeled_data=LabeledText()
+    data_length=[]
     for i in range(0,len(articles)):
         article=articles[i]
         data_to_add = get_data_from_iob(article)
         labeled_data.addData(data_to_add)
+        print ('labeled_data for %s: ' % article,len(data_to_add[0]))
+        data_length.append(len(labeled_data.getData()[0]))
+
     print('Labeled data for the %i articles is created' % len(articles))
-    return labeled_data
+    return labeled_data,data_length
 
 
 # main process: taking as input a list of articles to be processed
@@ -124,7 +128,7 @@ def run_process(articles):
                 'nhidden': 100,  # number of hidden units
                 'seed': 345,
                 'emb_dimension': 100,  # dimension of word embedding
-                'nepochs': 10}
+                'nepochs': 50}
 
     indices=create_word2ind(articles)
     word_index = indices['wordIndex']
@@ -140,7 +144,9 @@ def run_process(articles):
     rnn,model_folder=create_network(settings,nclasses,vocsize,new_network_folder)
     print('RNN model created and saved under %s' % model_folder)
 
-    labeled_data=get_labeled_data(articles)
+    labeled_data=get_labeled_data(articles)[0]
+    labeled_data_size_for_each_article=get_labeled_data(articles)[1]
+    print('Labeled data sizes for articles: ',labeled_data_size_for_each_article)
     sentences_list, labels_list = labeled_data.getData()
     while [] in sentences_list:
         print('Empty sentences found. They will be removed')
@@ -152,18 +158,32 @@ def run_process(articles):
 
     # for i in range(0, len(articles)):
     # article = articles[i]
-    # print('Training for article %s will begin now' % article)
+    print('Training for ', articles,' will begin now')
     rnn=rnn.load(model_folder)
-    shuffle([sentences_list, labels_list], settings['seed'])
+    ###############################################
+    # specific articles for training and testing #
+    ###############################################
+    train_sentences = sentences_list[0:labeled_data_size_for_each_article[2]]
+    train_labels = labels_list[0:labeled_data_size_for_each_article[2]]
 
-    training_size = int(math.floor(settings['partial_training'] * number_labeled_sentences))
-    testing_size = int(math.floor(settings['partial_testing'] * number_labeled_sentences))
-    print('Training size: [0:{0}] = {0}'.format(training_size))
-    train_sentences = sentences_list[0:training_size]
-    train_labels = labels_list[0:training_size]
-    print('Testing size: [{0}:{1}] = {2}'.format(training_size, training_size + testing_size, testing_size))
-    test_sentences = sentences_list[training_size:training_size + testing_size]
-    test_labels = labels_list[training_size:training_size + testing_size]
+    test_sentences = sentences_list[labeled_data_size_for_each_article[2]:]
+    test_labels = labels_list[labeled_data_size_for_each_article[2]:]
+    print('Training size: [0:{0}]={0}'.format(labeled_data_size_for_each_article[2]))
+    print('Testing size: [{0}:{1}]={2}'.format(labeled_data_size_for_each_article[2],len(sentences_list),
+                                               len(sentences_list)-labeled_data_size_for_each_article[2]))
+
+    ############################################################
+    # training and testing according to parameters in settings #
+    ############################################################
+    # shuffle([sentences_list, labels_list], settings['seed'])
+    # training_size = int(math.floor(settings['partial_training'] * number_labeled_sentences))
+    # testing_size = int(math.floor(settings['partial_testing'] * number_labeled_sentences))
+    # print('Training size: [0:{0}] = {0}'.format(training_size))
+    # train_sentences = sentences_list[0:training_size]
+    # train_labels = labels_list[0:training_size]
+    # print('Testing size: [{0}:{1}] = {2}'.format(training_size, training_size + testing_size, testing_size))
+    # test_sentences = sentences_list[training_size:training_size + testing_size]
+    # test_labels = labels_list[training_size:training_size + testing_size]
 
     ####################
     # training process #
@@ -239,6 +259,7 @@ def run_process(articles):
             best_accuracy = accuracy
             best_epoch = e
             rnn.save(model_folder)
+            rnn=rnn.load(model_folder)
             print('Better accuracy ====> New RNN saved')
         else:
             current_learning_rate*=0.5
@@ -248,5 +269,5 @@ def run_process(articles):
     # rnn.save(model_folder)
 
 
-# run_process(['Obama','Jupiter','Paris'])
-run_process(['Obama'])
+# run_process(['Obama','Paris','Jupiter'])
+run_process(['Obama','Paris','Shoulder','Jupiter'])
