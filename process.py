@@ -290,6 +290,7 @@ def run_process(articles):
 
 
 
+
         print('Accuracy (number of correct guessed labels) at %2.2f%%.' % accuracy)
 
         # check if current epoch is the best
