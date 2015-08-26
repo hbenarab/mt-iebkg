@@ -149,8 +149,9 @@ def get_accuracy(rnn,train_set,test_set,word2index,label2index,settings,learning
         # print('verbose')
         print('[learning] epoch %i >> %2.2f%%' % (e, (i + 1) * 100. / len(train_sentences)),
               'completed in %.2f (sec) <<\r' % (time.time() - tic),flush=True)
-    if is_validation:
-        print('[Validation] training done. Accuracy is being calculated')
+    if settings['verbose'] and is_validation:
+        print('[Validation] epoch %i >> %2.2f%%' % (e, (i + 1) * 100. / len(train_sentences)),
+              'completed in %.2f (sec) <<\r. Validation accuracy is being calculated' % (time.time() - tic),flush=True)
 
     predictions_test=list(map(lambda x:index2label[x],
                       rnn.classify(numpy.asarray(contextwin(x,settings['win'])).astype('int32')))
@@ -218,7 +219,7 @@ def run_process(articles):
 
     test_sentences = sentences_list[labeled_data_size_for_each_article[2]:]
     test_labels = labels_list[labeled_data_size_for_each_article[2]:]
-    print('Training size: [0:{0}]={0}'.format(labeled_data_size_for_each_article[2]))
+    print('Training + validation size: [0:{0}]={0}'.format(labeled_data_size_for_each_article[2]))
     print('Testing size: [{0}:{1}]={2}'.format(labeled_data_size_for_each_article[2],len(sentences_list),
                                                len(sentences_list)-labeled_data_size_for_each_article[2]))
 
@@ -242,7 +243,8 @@ def run_process(articles):
     number_train_labels_toGuess = sum([len(x) for x in test_labels])
     print('Starting training with {0} labeled sentences in total for {1} epochs.'.
           format(number_train_sentences, settings['nepochs']))
-    best_accuracy = -numpy.inf
+    best_test_accuracy = -numpy.inf
+    best_validation_accuracy = -numpy.inf
     current_learning_rate = settings['lr']
     best_epoch = 0
     for e in range(0, settings['nepochs']):
@@ -285,26 +287,44 @@ def run_process(articles):
             current_validation_accuracy=get_accuracy(rnn,train_dict,validation_dict,word2index,label2index,settings,
                                                      current_learning_rate,e,index2label,is_validation=True)
 
+            all_validation_accuracies.append(current_validation_accuracy)
 
+        assert len(all_validation_accuracies)==settings['fold']
+        mean_validation=sum(all_validation_accuracies)/len(all_validation_accuracies)
+        if mean_validation>best_validation_accuracy:
+            best_validation_accuracy=mean_validation
+            print('New best validation accuracy: %2.2f%%' % best_validation_accuracy)
+            rnn.save(model_folder)
+            print('A new RNN has been saved. Training process will begin now')
+        else:
+            print('Validation phase did not come up with a better accuracy. Training won\'t be made. '
+                  'A new epoch will begin')
+            continue
 
+        # Training phase
+        print('Training in progress')
+        rnn=rnn.load(model_folder)
+        print('RNN saved during the validation phase has been loaded')
+        training_dict={'sentences':train_sentences,'labels':train_labels}
+        testing_dict={'sentences':test_sentences,'labels':test_labels}
+        testing_accuracy=get_accuracy(rnn,training_dict,testing_dict,word2index,label2index,settings,
+                                      current_learning_rate,e,index2label,is_validation=False)
 
-
-
-
-        print('Accuracy (number of correct guessed labels) at %2.2f%%.' % accuracy)
+        print('Accuracy during the testing phase (number of correct guessed labels) at %2.2f%%.' % testing_accuracy)
 
         # check if current epoch is the best
-        if accuracy > best_accuracy:
-            best_accuracy = accuracy
+        if testing_accuracy> best_test_accuracy:
+            best_test_accuracy = testing_accuracy
             best_epoch = e
-            rnn.save(model_folder)
-            rnn=rnn.load(model_folder)
-            print('Better accuracy ====> New RNN saved')
-        else:
+            print('Better testing accuracy !!')
+
+        if abs(best_epoch-e)>=10:
             current_learning_rate*=0.5
+
         if current_learning_rate<1e-5: break
 
-    print('BEST RESULT: epoch ', best_epoch, 'with best accuracy: ', best_accuracy, '.')
+    print('BEST RESULT: epoch ', best_epoch, 'with best accuracy: ', best_test_accuracy, '.',)
+    print('BEST VALIDATION ACCURACY: %2.2f%%' % best_validation_accuracy)
     # rnn.save(model_folder)
 
 
