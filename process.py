@@ -151,7 +151,7 @@ def get_accuracy(rnn,train_set,test_set,word2index,label2index,settings,learning
               'completed in %.2f (sec) <<\r' % (time.time() - tic),flush=True)
     if settings['verbose'] and is_validation:
         print('[Validation] epoch %i >> %2.2f%%' % (e, (i + 1) * 100. / len(train_sentences)),
-              'completed in %.2f (sec) <<\r. Validation accuracy is being calculated' % (time.time() - tic),flush=True)
+              'completed in %.2f (sec) <<\r' % (time.time() - tic),flush=True)
 
     predictions_test=list(map(lambda x:index2label[x],
                       rnn.classify(numpy.asarray(contextwin(x,settings['win'])).astype('int32')))
@@ -214,27 +214,27 @@ def run_process(articles):
     ###############################################
     # specific articles for training and testing #
     ###############################################
-    train_sentences = sentences_list[0:labeled_data_size_for_each_article[2]]
-    train_labels = labels_list[0:labeled_data_size_for_each_article[2]]
-
-    test_sentences = sentences_list[labeled_data_size_for_each_article[2]:]
-    test_labels = labels_list[labeled_data_size_for_each_article[2]:]
-    print('Training + validation size: [0:{0}]={0}'.format(labeled_data_size_for_each_article[2]))
-    print('Testing size: [{0}:{1}]={2}'.format(labeled_data_size_for_each_article[2],len(sentences_list),
-                                               len(sentences_list)-labeled_data_size_for_each_article[2]))
+    # train_sentences = sentences_list[0:labeled_data_size_for_each_article[2]]
+    # train_labels = labels_list[0:labeled_data_size_for_each_article[2]]
+    #
+    # test_sentences = sentences_list[labeled_data_size_for_each_article[2]:]
+    # test_labels = labels_list[labeled_data_size_for_each_article[2]:]
+    # print('Training + validation size: [0:{0}]={0}'.format(labeled_data_size_for_each_article[2]))
+    # print('Testing size: [{0}:{1}]={2}'.format(labeled_data_size_for_each_article[2],len(sentences_list),
+    #                                            len(sentences_list)-labeled_data_size_for_each_article[2]))
 
     ############################################################
     # training and testing according to parameters in settings #
     ############################################################
-    # shuffle([sentences_list, labels_list], settings['seed'])
-    # training_size = int(math.floor(settings['partial_training'] * number_labeled_sentences))
-    # testing_size = int(math.floor(settings['partial_testing'] * number_labeled_sentences))
-    # print('Training size: [0:{0}] = {0}'.format(training_size))
-    # train_sentences = sentences_list[0:training_size]
-    # train_labels = labels_list[0:training_size]
-    # print('Testing size: [{0}:{1}] = {2}'.format(training_size, training_size + testing_size, testing_size))
-    # test_sentences = sentences_list[training_size:training_size + testing_size]
-    # test_labels = labels_list[training_size:training_size + testing_size]
+    shuffle([sentences_list, labels_list], settings['seed'])
+    training_size = int(math.floor(settings['partial_training'] * number_labeled_sentences))
+    testing_size = int(math.floor(settings['partial_testing'] * number_labeled_sentences))
+    print('Training size: [0:{0}] = {0}'.format(training_size))
+    train_sentences = sentences_list[0:training_size]
+    train_labels = labels_list[0:training_size]
+    print('Testing size: [{0}:{1}] = {2}'.format(training_size, training_size + testing_size, testing_size))
+    test_sentences = sentences_list[training_size:training_size + testing_size]
+    test_labels = labels_list[training_size:training_size + testing_size]
 
     ####################
     # training process #
@@ -264,16 +264,17 @@ def run_process(articles):
         tr_labels_in_folds=divide_in_folds(train_labels,size_of_fold)
         assert len(tr_sent_in_folds)==settings['fold']
         assert len(tr_sent_in_folds)==len(tr_labels_in_folds)
-        for i in range(0,len(tr_sent_in_folds)):
-            ex_tr_sent=tr_sent_in_folds
-            ex_tr_labels=tr_labels_in_folds
+        all_validation_accuracies=[]
+        for j in range(0,len(tr_sent_in_folds)):
+            ex_tr_sent=tr_sent_in_folds[:]
+            ex_tr_labels=tr_labels_in_folds[:]
 
-            val_sent=tr_sent_in_folds[i]
-            val_labels=tr_labels_in_folds[i]
+            val_sent=tr_sent_in_folds[j]
+            val_labels=tr_labels_in_folds[j]
             assert len(val_sent)==len(val_labels)
 
-            ex_tr_sent.pop(i)
-            ex_tr_labels.pop(i)
+            ex_tr_sent.pop(j)
+            ex_tr_labels.pop(j)
             assert len(ex_tr_sent)==len(ex_tr_labels)
 
             tr_sent=[]
@@ -287,13 +288,13 @@ def run_process(articles):
             train_dict={'sentences':tr_sent,'labels':tr_labels}
             validation_dict={'sentences':val_sent,'labels':val_labels}
 
-            all_validation_accuracies=[]
-            print('Training the fold number %i will begin now' % (i+1))
+            print('Training the fold number %i will begin now' % (j+1))
             current_validation_accuracy=get_accuracy(rnn,train_dict,validation_dict,word2index,label2index,settings,
                                                      current_learning_rate,e,index2label,is_validation=True)
 
             all_validation_accuracies.append(current_validation_accuracy)
-
+        print(all_validation_accuracies)
+        print(len(all_validation_accuracies))
         assert len(all_validation_accuracies)==settings['fold']
         mean_validation=sum(all_validation_accuracies)/len(all_validation_accuracies)
         if mean_validation>best_validation_accuracy:
@@ -335,4 +336,4 @@ def run_process(articles):
 
 
 # run_process(['Obama','Paris','Jupiter'])
-run_process(['Obama','Paris','Shoulder','Jupiter'])
+run_process(['Aikido'])
