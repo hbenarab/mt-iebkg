@@ -251,10 +251,15 @@ def run_process(articles):
         print('Epoch {0}'.format(e))
         print('----------------------------------------------')
         shuffle([train_sentences, train_labels], settings['seed'])
-        # validation phase
+        ####################
+        # validation phase #
+        ####################
         print('Validation phase in process')
         divide_in_folds=lambda lst,sz:[lst[i:i+sz] for i in range(0,len(lst),sz)]
-        size_of_fold=math.floor(len(train_sentences)/settings['fold'])
+        if len(train_sentences)%settings['fold']==0:
+            size_of_fold=math.floor(len(train_sentences)/settings['fold'])
+        else:
+            size_of_fold=(math.floor(len(train_sentences)/settings['fold']))+1
         tr_sent_in_folds=divide_in_folds(train_sentences,size_of_fold)
         tr_labels_in_folds=divide_in_folds(train_labels,size_of_fold)
         assert len(tr_sent_in_folds)==settings['fold']
@@ -283,7 +288,7 @@ def run_process(articles):
             validation_dict={'sentences':val_sent,'labels':val_labels}
 
             all_validation_accuracies=[]
-            print('Training the fold number %i will begin now' % i+1)
+            print('Training the fold number %i will begin now' % (i+1))
             current_validation_accuracy=get_accuracy(rnn,train_dict,validation_dict,word2index,label2index,settings,
                                                      current_learning_rate,e,index2label,is_validation=True)
 
@@ -300,8 +305,9 @@ def run_process(articles):
             print('Validation phase did not come up with a better accuracy. Training won\'t be made. '
                   'A new epoch will begin')
             continue
-
-        # Training phase
+        ##################
+        # Training phase #
+        ##################
         print('Training in progress')
         rnn=rnn.load(model_folder)
         print('RNN saved during the validation phase has been loaded')
