@@ -333,5 +333,5 @@ def run_process(articles):
     # rnn.save(model_folder)
 
 
-# run_process(['Obama','Paris','Jupiter'])
-run_process(['Aikido'])
+run_process(['Obama','Paris','Jupiter'])
+#run_process(['Aikido'])
