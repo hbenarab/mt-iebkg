@@ -168,8 +168,8 @@ def get_accuracy(rnn,train_set,test_set,word2index,label2index,settings,learning
 
 # main process: taking as input a list of articles to be processed
 def run_process(articles):
-    settings = {'partial_training': 0.8,
-                'partial_testing': 0.2,
+    settings = {'partial_training': 0.9,
+                'partial_testing': 0.1,
                 'fold': 9,  # 5 folds 0,1,2,3,4
                 'lr': 0.0627142536696559,
                 'verbose': 1,
@@ -293,8 +293,6 @@ def run_process(articles):
                                                      current_learning_rate,e,index2label,is_validation=True)
 
             all_validation_accuracies.append(current_validation_accuracy)
-        print(all_validation_accuracies)
-        print(len(all_validation_accuracies))
         assert len(all_validation_accuracies)==settings['fold']
         mean_validation=sum(all_validation_accuracies)/len(all_validation_accuracies)
         if mean_validation>best_validation_accuracy:
@@ -303,8 +301,8 @@ def run_process(articles):
             rnn.save(model_folder)
             print('A new RNN has been saved. Training process will begin now')
         else:
-            print('Validation phase did not come up with a better accuracy. Training won\'t be made. '
-                  'A new epoch will begin')
+            print('Validation phase did not come up with a better accuracy (only %2.2f%%).'
+                  'Training won\'t be made. A new epoch will begin' % mean_validation)
             continue
         ##################
         # Training phase #
