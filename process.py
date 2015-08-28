@@ -168,9 +168,9 @@ def get_accuracy(rnn,train_set,test_set,word2index,label2index,settings,learning
 
 # main process: taking as input a list of articles to be processed
 def run_process(articles):
-    settings = {'partial_training': 0.9,
-                'partial_testing': 0.1,
-                'fold': 9,  # 5 folds 0,1,2,3,4
+    settings = {'partial_training': 0.8,
+                'partial_testing': 0.2,
+                'fold': 4,  # 5 folds 0,1,2,3,4
                 'lr': 0.0627142536696559,
                 'verbose': 1,
                 'decay': False,  # decay on the learning rate if improvement stops
@@ -308,8 +308,8 @@ def run_process(articles):
         # Training phase #
         ##################
         print('Training in progress')
-        rnn=rnn.load(model_folder)
-        print('RNN saved during the validation phase has been loaded')
+        # rnn=rnn.load(model_folder)
+        # print('RNN saved during the validation phase has been loaded')
         training_dict={'sentences':train_sentences,'labels':train_labels}
         testing_dict={'sentences':test_sentences,'labels':test_labels}
         testing_accuracy=get_accuracy(rnn,training_dict,testing_dict,word2index,label2index,settings,
@@ -323,7 +323,7 @@ def run_process(articles):
             best_epoch = e
             print('Better testing accuracy !!')
 
-        if abs(best_epoch-e)>=10:
+        if abs(best_epoch-e)>=5:
             current_learning_rate*=0.5
 
         if current_learning_rate<1e-5: break

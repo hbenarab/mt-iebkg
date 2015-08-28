@@ -50,9 +50,7 @@ class Elman(object):
             s_t = T.nnet.softmax(T.dot(h_t, self.W) + self.b)
             return [h_t, s_t]
 
-        [h, s], _ = theano.scan(fn=recurrence, \
-            sequences=x, outputs_info=[self.h0, None], \
-            n_steps=x.shape[0])
+        [h, s], _ = theano.scan(fn=recurrence,sequences=x, outputs_info=[self.h0, None],n_steps=x.shape[0])
 
         p_y_given_x_lastword = s[-1,0,:]
         p_y_given_x_sentence = s[:,0,:]
