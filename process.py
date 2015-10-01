@@ -171,7 +171,7 @@ def run_process(articles):
     settings = {'partial_training': 0.8,
                 'partial_testing': 0.2,
                 'fold': 4,  # 5 folds 0,1,2,3,4
-                'lr': 0.0627142536696559,
+                'lr': 0.05,
                 'verbose': 1,
                 'decay': False,  # decay on the learning rate if improvement stops
                 'win': 7,  # number of words in the context window
@@ -303,6 +303,7 @@ def run_process(articles):
         else:
             print('Validation phase did not come up with a better accuracy (only %2.2f%%).'
                   'Training won\'t be made. A new epoch will begin' % mean_validation)
+            rnn=rnn.load(model_folder)
             continue
         ##################
         # Training phase #
