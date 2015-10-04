@@ -6,13 +6,13 @@ import numpy
 import datetime
 import math
 import time
+import sklearn.metrics
 
 from preprocess.wordemb import WordEmbeddings, create_word_index
 from preprocess.preprocess import get_iob
 from rnn.elman_model import Elman
 from preprocess.labeledText import LabeledText
 from utils.tools import shuffle, minibatch, contextwin
-
 
 # this function aims to train a RNN
 # it takes as input:
@@ -157,20 +157,26 @@ def get_accuracy(rnn,train_set,test_set,word2index,label2index,settings,learning
                       rnn.classify(numpy.asarray(contextwin(x,settings['win'])).astype('int32')))
                   for x in [[word2index[word] for word in sentence] for sentence in test_sentences])
 
-    correctGuesses_list = [[1 if pred_val == exp_val else 0 for pred_val, exp_val in zip(pred, exp)]
-                           for pred, exp in zip(predictions_test, test_labels)]
+    # correctGuesses_list = [[1 if pred_val == exp_val else 0 for pred_val, exp_val in zip(pred, exp)]
+    #                        for pred, exp in zip(predictions_test, test_labels)]
+    #
+    # correct_guesses = (sum([sum(x) for x in correctGuesses_list]))
+    # accuracy = correct_guesses * 100. / number_train_labels_toGuess
+    assert len(predictions_test)==len(test_labels)
 
-    correct_guesses = (sum([sum(x) for x in correctGuesses_list]))
-    accuracy = correct_guesses * 100. / number_train_labels_toGuess
+    flat_truth=[item for sublist in test_labels for item in sublist]
+    flat_predictions=[item for sublist in predictions_test for item in sublist]
+    assert len(flat_predictions)==len(flat_truth)
 
+    accuracy=sklearn.metrics.accuracy_score(flat_truth,flat_predictions)
     return accuracy
 
 
 # main process: taking as input a list of articles to be processed
-def run_process(articles):
+def run_process(articles,use_cross_validation):
     settings = {'partial_training': 0.8,
                 'partial_testing': 0.2,
-                'fold': 4,  # 5 folds 0,1,2,3,4
+                'fold': 10,  # 5 folds 0,1,2,3,4
                 'lr': 0.05,
                 'verbose': 1,
                 'decay': False,  # decay on the learning rate if improvement stops
@@ -211,6 +217,7 @@ def run_process(articles):
     # article = articles[i]
     print('Training for ', articles,' will begin now')
     rnn=rnn.load(model_folder)
+    #use_cross_validation=False
     ###############################################
     # specific articles for training and testing #
     ###############################################
@@ -226,15 +233,17 @@ def run_process(articles):
     ############################################################
     # training and testing according to parameters in settings #
     ############################################################
-    shuffle([sentences_list, labels_list], settings['seed'])
-    training_size = int(math.floor(settings['partial_training'] * number_labeled_sentences))
-    testing_size = int(math.floor(settings['partial_testing'] * number_labeled_sentences))
-    print('Training size: [0:{0}] = {0}'.format(training_size))
-    train_sentences = sentences_list[0:training_size]
-    train_labels = labels_list[0:training_size]
-    print('Testing size: [{0}:{1}] = {2}'.format(training_size, training_size + testing_size, testing_size))
-    test_sentences = sentences_list[training_size:training_size + testing_size]
-    test_labels = labels_list[training_size:training_size + testing_size]
+    if not use_cross_validation:
+        print('No cross-validation techniques will be used in this training process')
+        shuffle([sentences_list, labels_list], settings['seed'])
+        training_size = int(math.floor(settings['partial_training'] * number_labeled_sentences))
+        testing_size = int(math.floor(settings['partial_testing'] * number_labeled_sentences))
+        print('Training size: [0:{0}] = {0}'.format(training_size))
+        train_sentences = sentences_list[0:training_size]
+        train_labels = labels_list[0:training_size]
+        print('Testing size: [{0}:{1}] = {2}'.format(training_size, training_size + testing_size, testing_size))
+        test_sentences = sentences_list[training_size:training_size + testing_size]
+        test_labels = labels_list[training_size:training_size + testing_size]
 
     ####################
     # training process #
@@ -243,96 +252,99 @@ def run_process(articles):
     number_train_labels_toGuess = sum([len(x) for x in test_labels])
     print('Starting training with {0} labeled sentences in total for {1} epochs.'.
           format(number_train_sentences, settings['nepochs']))
-    best_test_accuracy = -numpy.inf
-    best_validation_accuracy = -numpy.inf
+
+    best_accuracy = -numpy.inf
     current_learning_rate = settings['lr']
     best_epoch = 0
     for e in range(0, settings['nepochs']):
         print('Epoch {0}'.format(e))
         print('----------------------------------------------')
         shuffle([train_sentences, train_labels], settings['seed'])
-        ####################
-        # validation phase #
-        ####################
-        print('Validation phase in process')
-        divide_in_folds=lambda lst,sz:[lst[i:i+sz] for i in range(0,len(lst),sz)]
-        if len(train_sentences)%settings['fold']==0:
-            size_of_fold=math.floor(len(train_sentences)/settings['fold'])
-        else:
-            size_of_fold=(math.floor(len(train_sentences)/settings['fold']))+1
-        tr_sent_in_folds=divide_in_folds(train_sentences,size_of_fold)
-        tr_labels_in_folds=divide_in_folds(train_labels,size_of_fold)
-        assert len(tr_sent_in_folds)==settings['fold']
-        assert len(tr_sent_in_folds)==len(tr_labels_in_folds)
-        all_validation_accuracies=[]
-        for j in range(0,len(tr_sent_in_folds)):
-            ex_tr_sent=tr_sent_in_folds[:]
-            ex_tr_labels=tr_labels_in_folds[:]
+        if use_cross_validation:
+            ####################
+            # validation phase #
+            ####################
+            print('Validation phase in process')
+            shuffle([sentences_list, labels_list], settings['seed'])
+            divide_in_folds=lambda lst,sz:[lst[i:i+sz] for i in range(0,len(lst),sz)]
+            if len(sentences_list)%settings['fold']==0:
+                size_of_fold=math.floor(len(sentences_list)/settings['fold'])
+            else:
+                size_of_fold=(math.floor(len(sentences_list)/settings['fold']))+1
+            sentences_in_folds=divide_in_folds(sentences_list,size_of_fold)
+            labels_in_folds=divide_in_folds(labels_list,size_of_fold)
+            assert len(sentences_in_folds)==settings['fold']
+            assert len(sentences_in_folds)==len(labels_in_folds)
+            all_validation_accuracies=[]
+            for j in range(0,len(sentences_in_folds)):
+                ex_tr_sent=sentences_in_folds[:]
+                ex_tr_labels=labels_in_folds[:]
 
-            val_sent=tr_sent_in_folds[j]
-            val_labels=tr_labels_in_folds[j]
-            assert len(val_sent)==len(val_labels)
+                val_sent=sentences_in_folds[j]
+                val_labels=labels_in_folds[j]
+                assert len(val_sent)==len(val_labels)
 
-            ex_tr_sent.pop(j)
-            ex_tr_labels.pop(j)
-            assert len(ex_tr_sent)==len(ex_tr_labels)
+                ex_tr_sent.pop(j)
+                ex_tr_labels.pop(j)
+                assert len(ex_tr_sent)==len(ex_tr_labels)
 
-            tr_sent=[]
-            tr_labels=[]
-            for c in range(0,len(ex_tr_sent)):
-                tr_sent.extend(ex_tr_sent[c])
-                tr_labels.extend(ex_tr_labels[c])
+                tr_sent=[]
+                tr_labels=[]
+                for c in range(0,len(ex_tr_sent)):
+                    tr_sent.extend(ex_tr_sent[c])
+                    tr_labels.extend(ex_tr_labels[c])
 
-            assert len(tr_sent)==len(tr_labels)
+                assert len(tr_sent)==len(tr_labels)
 
-            train_dict={'sentences':tr_sent,'labels':tr_labels}
-            validation_dict={'sentences':val_sent,'labels':val_labels}
+                train_dict={'sentences':tr_sent,'labels':tr_labels}
+                validation_dict={'sentences':val_sent,'labels':val_labels}
 
-            print('Training the fold number %i will begin now' % (j+1))
-            current_validation_accuracy=get_accuracy(rnn,train_dict,validation_dict,word2index,label2index,settings,
-                                                     current_learning_rate,e,index2label,is_validation=True)
+                print('Training the fold number %i will begin now' % (j+1))
+                current_validation_accuracy=get_accuracy(rnn,train_dict,validation_dict,word2index,label2index,settings,
+                                                         current_learning_rate,e,index2label,is_validation=True)
 
-            all_validation_accuracies.append(current_validation_accuracy)
-        assert len(all_validation_accuracies)==settings['fold']
-        mean_validation=sum(all_validation_accuracies)/len(all_validation_accuracies)
-        if mean_validation>best_validation_accuracy:
-            best_validation_accuracy=mean_validation
-            print('New best validation accuracy: %2.2f%%' % best_validation_accuracy)
-            rnn.save(model_folder)
-            print('A new RNN has been saved. Training process will begin now')
-        else:
-            print('Validation phase did not come up with a better accuracy (only %2.2f%%).'
-                  'Training won\'t be made. A new epoch will begin' % mean_validation)
-            rnn=rnn.load(model_folder)
-            continue
+                all_validation_accuracies.append(current_validation_accuracy)
+            assert len(all_validation_accuracies)==settings['fold']
+            mean_validation=sum(all_validation_accuracies)/len(all_validation_accuracies)
+            if mean_validation>best_accuracy:
+                best_accuracy=mean_validation
+                print('New best validation accuracy: %2.2f%%' % best_accuracy)
+                rnn.save(model_folder)
+                print('A new RNN has been saved.')
+            else:
+                print('Validation phase did not come up with a better accuracy (only %2.2f%%).'
+                      '. A new epoch will begin' % mean_validation)
+                rnn=rnn.load(model_folder)
+                #continue
         ##################
         # Training phase #
         ##################
-        print('Training in progress')
-        # rnn=rnn.load(model_folder)
-        # print('RNN saved during the validation phase has been loaded')
-        training_dict={'sentences':train_sentences,'labels':train_labels}
-        testing_dict={'sentences':test_sentences,'labels':test_labels}
-        testing_accuracy=get_accuracy(rnn,training_dict,testing_dict,word2index,label2index,settings,
-                                      current_learning_rate,e,index2label,is_validation=False)
+        else:
+            print('Training in progress')
+            # rnn=rnn.load(model_folder)
+            # print('RNN saved during the validation phase has been loaded')
+            training_dict={'sentences':train_sentences,'labels':train_labels}
+            testing_dict={'sentences':test_sentences,'labels':test_labels}
+            testing_accuracy=get_accuracy(rnn,training_dict,testing_dict,word2index,label2index,settings,
+                                          current_learning_rate,e,index2label,is_validation=False)
 
-        print('Accuracy during the testing phase (number of correct guessed labels) at %2.2f%%.' % testing_accuracy)
+            print('Accuracy during the testing phase (number of correct guessed labels) at %2.2f%%.' % testing_accuracy)
 
-        # check if current epoch is the best
-        if testing_accuracy> best_test_accuracy:
-            best_test_accuracy = testing_accuracy
-            best_epoch = e
-            print('Better testing accuracy !!')
+            # check if current epoch is the best
+            if testing_accuracy> best_accuracy:
+                best_accuracy = testing_accuracy
+                best_epoch = e
+                print('Better testing accuracy !!')
 
         if abs(best_epoch-e)>=5:
             current_learning_rate*=0.5
 
         if current_learning_rate<1e-5: break
 
-    print('BEST RESULT: epoch ', best_epoch, 'with best accuracy: ', best_test_accuracy, '.',)
-    print('BEST VALIDATION ACCURACY: %2.2f%%' % best_validation_accuracy)
+    print('BEST RESULT: epoch ', best_epoch, 'with best accuracy: ', best_accuracy, '.',)
+    # print('BEST VALIDATION ACCURACY: %2.2f%%' % best_validation_accuracy)
     # rnn.save(model_folder)
 
 
-run_process(['Obama','Paris','Alcohol'])
-#run_process(['Aikido'])
+#run_process(['Obama','Paris','Alcohol'])
+run_process(['Aikido'],use_cross_validation=False)
