@@ -153,22 +153,33 @@ def get_accuracy(rnn,train_set,test_set,word2index,label2index,settings,learning
         print('[Validation] epoch %i >> %2.2f%%' % (e, (i + 1) * 100. / len(train_sentences)),
               'completed in %.2f (sec) <<\r' % (time.time() - tic),flush=True)
 
-    predictions_test=list(map(lambda x:index2label[x],
-                      rnn.classify(numpy.asarray(contextwin(x,settings['win'])).astype('int32')))
-                  for x in [[word2index[word] for word in sentence] for sentence in test_sentences])
+    # test_predictions=list(map(lambda x:index2label[x],
+    #                   rnn.classify(numpy.asarray(contextwin(x,settings['win'])).astype('int32')))
+    #                       for x in [[word2index[word] for word in sentence] for sentence in test_sentences])
 
+    test_predictions=[]
+    for sent in test_sentences:
+        ind_sent=[word2index[w] for w in sent]
+        prediction=rnn.classify(numpy.asarray(contextwin(ind_sent,settings['win'])).astype('int32'))
+        #indexed_prediction=[index2label[p] for p in prediction]
+        test_predictions.append(prediction)
+
+
+
+    indexed_test_labels=[[label2index[w] for w in sent_labels] for sent_labels in test_labels]
     # correctGuesses_list = [[1 if pred_val == exp_val else 0 for pred_val, exp_val in zip(pred, exp)]
-    #                        for pred, exp in zip(predictions_test, test_labels)]
+    #                        for pred, exp in zip(test_predictions, test_labels)]
     #
     # correct_guesses = (sum([sum(x) for x in correctGuesses_list]))
     # accuracy = correct_guesses * 100. / number_train_labels_toGuess
-    assert len(predictions_test)==len(test_labels)
+    assert len(test_predictions)==len(test_labels)
+    assert len(test_predictions)==len(indexed_test_labels)
 
-    flat_truth=[item for sublist in test_labels for item in sublist]
-    flat_predictions=[item for sublist in predictions_test for item in sublist]
+    flat_truth=[item for sublist in indexed_test_labels for item in sublist]
+    flat_predictions=[item for sublist in test_predictions for item in sublist]
     assert len(flat_predictions)==len(flat_truth)
 
-    accuracy=sklearn.metrics.accuracy_score(flat_truth,flat_predictions)
+    accuracy=sklearn.metrics.accuracy_score(flat_truth,flat_predictions)*100
     return accuracy
 
 
