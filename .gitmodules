@@ -2,3 +2,6 @@
 	path = qa-jbt
 	url = https://github.com/mithrial/qa-jbt.git
 	ignore = dirty
+[submodule "OpenIE"]
+	path = OpenIE
+	url = https://github.com/hadyelsahar/OpenIE.git

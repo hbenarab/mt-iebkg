@@ -18,6 +18,8 @@ from utils.tools import shuffle, minibatch, contextwin
 # it takes as input:
 #   network_path: path to folder containing specific RNN configuration
 #   articles: list of articles on which the network will make his training
+
+
 def create_network(settings, classes_number, vocab_size, folder):
     print('Building RNN model...')
     numpy.random.seed(settings['seed'])
