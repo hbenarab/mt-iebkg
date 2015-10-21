@@ -1,0 +1,3445 @@
+In contrast , amphibians , lizards , snakes , turtles , many fishes , and most invertebrates are mainly ectothermic , meaning that they gain most of their heat from external sources .
+most		B-Subj
+of		I-Subj
+their		I-Subj
+heat		I-Subj
+be		B-Pred
+gain		I-Pred
+from		I-Pred
+external		B-Obj
+sources		I-Obj
+
+However , archaea share many aspects of the mechanisms of gene expression with eukaryotes , as well as a few with bacteria .
+No extractions found.
+
+Source C. S. Henry et al . , The inheritance of mating songs in two cryptic , sibling lacewing species , Genetica 116 :269-289 .
+songs		B-Subj
+be		B-Pred
+mating		I-Pred
+in		I-Pred
+two		B-Obj
+cryptic		I-Obj
+
+Matter is made up of elements .
+No extractions found.
+
+On the one hand , we cannot fully explain a higher level of order by breaking it down into its parts .
+we		B-Subj
+cannot		B-Pred
+fully		I-Pred
+explain		I-Pred
+a		B-Obj
+higher		I-Obj
+level		I-Obj
+of		I-Obj
+order		I-Obj
+
+Recall that the complete oxidation of a mole of glucose releases 686 kcal of energy under standard conditions .
+No extractions found.
+
+Capillaries in the brain , heart , kidneys , and liver are usually filled to capacity , but at many other sites the blood supply varies over time as blood is diverted from one destination to another .
+Capillaries		B-Subj
+in		I-Subj
+the		I-Subj
+brain		I-Subj
+,		O
+heart		I-Subj
+,		O
+kidneys		I-Subj
+,		O
+and		I-Subj
+liver		I-Subj
+are		B-Pred
+usually		I-Pred
+filled		I-Pred
+to		I-Pred
+capacity		B-Obj
+
+A seed is an embryo packaged with a supply of nutrients inside a protective coat .
+an		B-Subj
+embryo		I-Subj
+be		B-Pred
+packaged		I-Pred
+with		I-Pred
+a		B-Obj
+supply		I-Obj
+of		I-Obj
+nutrients		I-Obj
+
+G. Vogel and C. Holden , Field leaps forward with new stem cell advances , Science 318:1224-1225 .
+G.		O
+Vogel		I-Subj
+and		I-Subj
+C.		O
+Holden		I-Subj
+leaps		B-Pred
+forward		I-Pred
+with		I-Pred
+new		B-Obj
+stem		I-Obj
+cell		I-Obj
+advances		I-Obj
+
+The water was heated so that some vaporized and moved into a second , higher flask containing the "atmosphere " -- a mixture of gases .
+The		B-Subj
+water		I-Subj
+moved		B-Pred
+into		I-Pred
+a		B-Obj
+second		I-Obj
+
+The incidence of malaria was greatly diminished in the 1960s by insecticides that reduced carrier populations of Anopheles mosquitoes and by drugs that killed Plasmodium in humans .
+The		B-Subj
+incidence		I-Subj
+of		I-Subj
+malaria		I-Subj
+was		B-Pred
+greatly		I-Pred
+diminished		I-Pred
+by		I-Pred
+insecticides		B-Obj
+that		I-Obj
+reduced		I-Obj
+carrier		I-Obj
+populations		I-Obj
+of		I-Obj
+Anopheles		I-Obj
+mosquitoes		I-Obj
+and		I-Obj
+by		I-Obj
+drugs		I-Obj
+that		I-Obj
+killed		I-Obj
+Plasmodium		I-Obj
+in		I-Obj
+humans		I-Obj
+
+Differentiated cells from animals generally do not divide in culture , much less develop into the multiple cell types of a new organism .
+Differentiated		B-Subj
+cells		I-Subj
+generally		B-Pred
+do		I-Pred
+not		I-Pred
+divide		I-Pred
+in		I-Pred
+culture		B-Obj
+
+When the kidneys are conserving water , aquaporin channels in the collecting duct allow water molecules to cross the epithelium .
+water		B-Subj
+molecules		I-Subj
+to		B-Pred
+cross		I-Pred
+the		B-Obj
+epithelium		I-Obj
+
+Action potentials can therefore spread along axons , making them well suited for transmitting a signal over long distances .
+Action		B-Subj
+potentials		I-Subj
+can		B-Pred
+therefore		I-Pred
+spread		I-Pred
+along		I-Pred
+axons		B-Obj
+
+It is important to focus on features that result from common ancestry , because only such features reflect evolutionary relationships .
+such		B-Subj
+features		I-Subj
+reflect		B-Pred
+evolutionary		B-Obj
+relationships		I-Obj
+
+Later in this chapter , we will also examine how all of the biotic , or living , factors -- the other organisms that are part of an individual 's environment -- similarly influence the distribution and abundance of life on Earth .
+the		B-Subj
+other		I-Subj
+organisms		I-Subj
+are		B-Pred
+part		I-Pred
+of		I-Pred
+an		B-Obj
+individual		I-Obj
+'s		O
+environment		I-Obj
+
+In another example , the potentially fatal disease botulism is caused by botulinum toxin , an exotoxin secreted by the gram-positive bacterium Clostridium botulinum as it ferments various foods , including improperly canned meat , seafood , and vegetables .
+the		B-Subj
+potentially		I-Subj
+fatal		I-Subj
+disease		I-Subj
+botulism		I-Subj
+is		B-Pred
+caused		I-Pred
+an		B-Obj
+exotoxin		I-Obj
+secreted		I-Obj
+by		I-Obj
+the		I-Obj
+gram-positive		O
+bacterium		I-Obj
+Clostridium		I-Obj
+botulinum		I-Obj
+as		I-Obj
+it		I-Obj
+ferments		I-Obj
+various		I-Obj
+foods		I-Obj
+,		O
+including		I-Obj
+improperly		I-Obj
+canned		I-Obj
+meat		I-Obj
+,		O
+seafood		I-Obj
+,		O
+and		I-Obj
+vegetables		I-Obj
+
+Flagellated sperm swim through a film of water toward eggs , entering the archegonia in response to chemical attractants .
+Flagellated		B-Subj
+sperm		I-Subj
+swim		I-Subj
+entering		B-Pred
+the		I-Pred
+archegonia		I-Pred
+in		I-Pred
+response		B-Obj
+
+Both radial glia and astrocytes can also act as stem cells , generating new neurons and glia .
+Both		B-Subj
+radial		I-Subj
+glia		I-Subj
+and		I-Subj
+astrocytes		I-Subj
+can		B-Pred
+also		I-Pred
+act		I-Pred
+as		I-Pred
+stem		B-Obj
+cells		I-Obj
+
+To build the complex molecules it needs to grow , maintain itself , and reproduce , an animal must obtain two types of organic precursors from its food .
+an		B-Subj
+animal		I-Subj
+must		B-Pred
+obtain		I-Pred
+two		B-Obj
+types		I-Obj
+of		I-Obj
+organic		I-Obj
+precursors		I-Obj
+
+Among the extant taxa , sponges branch from the base of both animal trees .
+No extractions found.
+
+Relative to other mammals , primates have a large brain and short jaws , giving them a flat face .
+primates		B-Subj
+have		B-Pred
+a		B-Obj
+large		I-Obj
+brain		I-Obj
+and		I-Obj
+short		I-Obj
+jaws		I-Obj
+
+With such a large genome , researchers had to carry out several rounds of DNA cutting , cloning , and physical mapping .
+researchers		B-Subj
+had		B-Pred
+to		I-Pred
+carry		I-Pred
+out		I-Pred
+several		B-Obj
+rounds		I-Obj
+of		I-Obj
+DNA		I-Obj
+cutting		I-Obj
+
+Thus , the phloem can serve a nerve-like function , allowing for swift electrical communication between widely separated organs .
+the		B-Subj
+phloem		I-Subj
+Thus		B-Pred
+can		I-Pred
+serve		I-Pred
+a		I-Pred
+nerve-like		O
+function		I-Pred
+allowing		I-Pred
+for		I-Pred
+swift		B-Obj
+electrical		I-Obj
+communication		I-Obj
+
+This method is used to produce cloned animals whose nuclear genes are identical to those of the animal supplying the nucleus .
+This		B-Subj
+method		I-Subj
+to		B-Pred
+produce		I-Pred
+cloned		B-Obj
+animals		I-Obj
+whose		I-Obj
+nuclear		I-Obj
+genes		I-Obj
+are		I-Obj
+identical		I-Obj
+to		I-Obj
+those		I-Obj
+of		I-Obj
+the		I-Obj
+animal		I-Obj
+
+Now that you 've learned about restriction enzymes and DNA ligase , we can see how genes are cloned in plasmids .
+genes		B-Subj
+are		B-Pred
+cloned		I-Pred
+in		I-Pred
+plasmids		B-Obj
+we		B-attrib
+can		I-attrib
+see		I-attrib
+
+Using glass-walled observation hives , he and his students spent several decades observing these bees .
+he		B-Subj
+and		I-Subj
+his		I-Subj
+students		I-Subj
+spent		B-Pred
+several		B-Obj
+decades		I-Obj
+observing		I-Obj
+these		I-Obj
+bees		I-Obj
+
+Amoebozoans include slime molds , gymnamoebas , and entamoebas .
+Amoebozoans		B-Subj
+include		B-Pred
+slime		B-Obj
+molds		I-Obj
+
+First , a foreign molecule must be present that can bind specifically to the antigen receptor of the T cell .
+a		B-Subj
+foreign		I-Subj
+molecule		I-Subj
+First		B-Pred
+must		I-Pred
+be		I-Pred
+present		B-Obj
+
+For most terrestrial animals , the average daily rate of energy consumption is 2 to 4 times BMR .
+the		B-Subj
+average		I-Subj
+daily		I-Subj
+rate		I-Subj
+of		I-Subj
+energy		I-Subj
+consumption		I-Subj
+is		B-Pred
+2		B-Obj
+to		I-Obj
+4		I-Obj
+times		I-Obj
+BMR		I-Obj
+
+The continuing debate about GMOs in agriculture exemplifies one of this textbook 's recurring ideas : the relationship of science and technology to society .
+The		B-Subj
+continuing		I-Subj
+debate		I-Subj
+exemplifies		B-Pred
+one		B-Obj
+of		I-Obj
+this		I-Obj
+textbook		I-Obj
+'s		O
+recurring		I-Obj
+ideas		I-Obj
+
+The body of an arthropod is completely covered by the cuticle , an exoskeleton constructed from layers of protein and the polysaccharide chitin .
+The		B-Subj
+body		I-Subj
+of		I-Subj
+an		I-Subj
+arthropod		I-Subj
+is		B-Pred
+completely		I-Pred
+covered		I-Pred
+an		B-Obj
+exoskeleton		I-Obj
+constructed		I-Obj
+from		I-Obj
+layers		I-Obj
+of		I-Obj
+protein		I-Obj
+and		I-Obj
+the		I-Obj
+polysaccharide		I-Obj
+chitin		I-Obj
+
+The data support the hypothesis that garlic mustard suppresses growth of native trees by affecting the soil in a way that disrupts mutualistic associations between the trees and arbuscular mycorrhizal fungi .
+The		B-Subj
+data		I-Subj
+support		B-Pred
+the		B-Obj
+hypothesis		I-Obj
+
+As the trophoblast thickens through cell division , it extends finger-like projections into the surrounding maternal tissue .
+it		B-Subj
+extends		B-Pred
+finger-like		O
+projections		I-Pred
+into		I-Pred
+the		B-Obj
+surrounding		I-Obj
+maternal		I-Obj
+tissue		I-Obj
+As		B-enabler
+the		I-enabler
+trophoblast		I-enabler
+thickens		I-enabler
+through		I-enabler
+cell		I-enabler
+division		I-enabler
+
+Next we must choose a method of inferring phylogeny from these homologous characters .
+we		B-Subj
+must		B-Pred
+choose		I-Pred
+a		B-Obj
+method		I-Obj
+inferring		I-Obj
+phylogeny		I-Obj
+from		I-Obj
+these		I-Obj
+homologous		I-Obj
+characters		I-Obj
+
+For example , hybrid sterility between two subspecies of the fruit fly Drosophila pseudoobscura results from gene interactions among at least four loci , and postzygotic isolation in the sunflower hybrid zone discussed earlier is influenced by at least 26 chromosome segments .
+hybrid		B-Subj
+sterility		I-Subj
+pseudoobscura		B-Pred
+results		I-Pred
+from		I-Pred
+gene		I-Pred
+interactions		I-Pred
+among		I-Pred
+at		B-Obj
+least		I-Obj
+four		I-Obj
+loci		I-Obj
+
+Macromolecules translocated through the phloem include proteins and various types of RNA that enter the sieve tubes through plasmodesmata .
+Macromolecules		B-Subj
+translocated		I-Subj
+through		I-Subj
+the		I-Subj
+phloem		I-Subj
+include		B-Pred
+proteins		B-Obj
+and		I-Obj
+various		I-Obj
+types		I-Obj
+of		I-Obj
+RNA		I-Obj
+
+Although these percentages may seem small , such immigration is a meaningful biological exchange between populations over time .
+these		B-Subj
+percentages		I-Subj
+may		B-Pred
+seem		I-Pred
+small		B-Obj
+,		O
+such		I-Obj
+immigration		I-Obj
+
+His suspicions were confirmed in 1935 when the American scientist Wendell Stanley crystallized the infectious particle , now known as tobacco mosaic virus .
+His		B-Subj
+suspicions		I-Subj
+were		B-Pred
+confirmed		I-Pred
+in		I-Pred
+1935		B-Obj
+
+Land snails , for example , play a key role in nutrient cycling , while the filtering activities of freshwater bivalves purify the waters of streams , rivers , and lakes .
+Land		B-Subj
+snails		I-Subj
+play		B-Pred
+a		B-Obj
+key		I-Obj
+role		I-Obj
+while		B-enabler
+the		I-enabler
+filtering		I-enabler
+activities		I-enabler
+of		I-enabler
+freshwater		I-enabler
+bivalves		I-enabler
+purify		I-enabler
+the		I-enabler
+waters		I-enabler
+of		I-enabler
+streams		I-enabler
+,		O
+rivers		I-enabler
+,		O
+and		I-enabler
+lakes		I-enabler
+
+In the case of naked mole rats , DNA analyses have shown that all the individuals in a colony are closely related .
+DNA		B-Subj
+analyses		I-Subj
+have		B-Pred
+shown		I-Pred
+in		I-Pred
+the		B-Obj
+case		I-Obj
+of		I-Obj
+naked		I-Obj
+mole		I-Obj
+rats		I-Obj
+
+Therefore , scientists and the public must assess on a case-by-case basis the possible benefits of transgenic products versus the risks that society is willing to take .
+scientists		B-Subj
+and		I-Subj
+the		I-Subj
+public		I-Subj
+Therefore		B-Pred
+must		I-Pred
+assess		I-Pred
+the		B-Obj
+possible		I-Obj
+benefits		I-Obj
+of		I-Obj
+transgenic		I-Obj
+products		I-Obj
+
+However , the carbon-14 that it contains at the time of death slowly decays into another element , nitrogen-14 .
+the		B-Subj
+carbon-14		O
+that		I-Subj
+it		I-Subj
+contains		I-Subj
+at		I-Subj
+the		B-Subj
+time		I-Subj
+of		I-Subj
+death		I-Subj
+However		B-Pred
+slowly		I-Pred
+decays		I-Pred
+into		I-Pred
+another		B-Obj
+element		I-Obj
+
+Among nonsmokers , birth control pills slightly raise a woman 's risk of abnormal blood clotting , high blood pressure , heart attack , and stroke .
+birth		B-Subj
+control		I-Subj
+pills		I-Subj
+slightly		B-Pred
+raise		I-Pred
+a		B-Obj
+woman		I-Obj
+'s		O
+risk		I-Obj
+of		I-Obj
+abnormal		I-Obj
+blood		I-Obj
+clotting		I-Obj
+
+Consider the transfer of organic matter from primary producers to herbivores , the primary consumers .
+No extractions found.
+
+The first step after sequencing the molecules is to align comparable sequences from the species being studied .
+The		B-Subj
+first		I-Subj
+step		I-Subj
+is		B-Pred
+to		I-Pred
+align		B-Obj
+comparable		I-Obj
+sequences		I-Obj
+
+For example , you learned earlier that nervous reflexes stimulate the release of saliva when food enters the oral cavity and orchestrate swallowing when a bolus of food reaches the pharynx .
+a		B-Subj
+bolus		I-Subj
+of		I-Subj
+food		I-Subj
+reaches		B-Pred
+the		B-Obj
+pharynx		I-Obj
+
+Furthermore , paleontologists have found fossils of dinosaurs in both Antarctica and the Arctic ; although the climate in these areas was milder when dinosaurs existed than it is today , it was cool enough that small dinosaurs may have had difficulty maintaining a high body temperature through ectothermy .
+paleontologists		B-Subj
+Furthermore		B-Pred
+have		I-Pred
+found		I-Pred
+fossils		B-Obj
+of		I-Obj
+dinosaurs		I-Obj
+although		B-enabler
+the		I-enabler
+climate		I-enabler
+in		I-enabler
+these		I-enabler
+areas		I-enabler
+was		I-enabler
+milder		I-enabler
+when		I-enabler
+dinosaurs		I-enabler
+existed		I-enabler
+than		I-enabler
+it		I-enabler
+is		I-enabler
+today		I-enabler
+,		O
+it		I-enabler
+was		I-enabler
+cool		I-enabler
+enough		I-enabler
+that		I-enabler
+small		I-enabler
+dinosaurs		I-enabler
+may		I-enabler
+have		I-enabler
+had		I-enabler
+difficulty		I-enabler
+maintaining		I-enabler
+a		I-enabler
+high		I-enabler
+body		I-enabler
+temperature		I-enabler
+through		I-enabler
+ectothermy		I-enabler
+
+Certain species have an especially large impact on the structure of entire communities because they are highly abundant or play a pivotal role in community dynamics .
+Certain		B-Subj
+species		I-Subj
+have		B-Pred
+an		B-Obj
+especially		I-Obj
+large		I-Obj
+impact		I-Obj
+because		B-enabler
+they		I-enabler
+are		I-enabler
+highly		I-enabler
+abundant		I-enabler
+or		I-enabler
+play		I-enabler
+a		I-enabler
+pivotal		I-enabler
+role		I-enabler
+in		I-enabler
+community		I-enabler
+dynamics		I-enabler
+
+During the period between one cell division and the next , it appeared to Flemming that the cell was simply growing larger .
+it		B-Subj
+appeared		B-Pred
+to		I-Pred
+Flemming		B-Obj
+
+Such fibers are specialized in ways that enable them to make use of a steady energy supply : They have many mitochondria , a rich blood supply , and a large amount of an oxygen-storing protein called myoglobin .
+Such		B-Subj
+fibers		I-Subj
+are		B-Pred
+specialized		I-Pred
+in		I-Pred
+ways		B-Obj
+that		I-Obj
+enable		I-Obj
+them		I-Obj
+to		I-Obj
+make		I-Obj
+use		I-Obj
+of		I-Obj
+a		I-Obj
+steady		I-Obj
+energy		I-Obj
+supply		I-Obj
+
+Electromagnetic energy travels in rhythmic waves analogous to those created by dropping a pebble into a pond .
+a		B-Subj
+pebble		I-Subj
+be		B-Pred
+dropping		I-Pred
+into		I-Pred
+a		B-Obj
+pond		I-Obj
+
+Root apical meristems also produce auxin , although the root depends on the shoot for much of its auxin .
+the		B-Subj
+root		I-Subj
+depends		B-Pred
+on		I-Pred
+the		B-Obj
+shoot		I-Obj
+
+Read and analyze the original paper in Inquiry in Action : Interpreting Scientific Papers .
+the		B-Subj
+original		I-Subj
+paper		I-Subj
+be		B-Pred
+analyze		I-Pred
+in		I-Pred
+Inquiry		B-Obj
+
+WÃ¶hler was astonished to find that instead he had made urea , an organic compound present in the urine of animals .
+WÃ¶hler		O
+was		B-Pred
+astonished		I-Pred
+an		B-Obj
+organic		I-Obj
+compound		I-Obj
+present		I-Obj
+
+Pharyngeal slits function as suspension-feeding devices in many invertebrate chordates .
+Pharyngeal		B-Subj
+slits		I-Subj
+function		B-Pred
+as		I-Pred
+suspension-feeding		O
+devices		I-Obj
+
+In all these cases , researchers transformed the differentiated cells into ES cells by using retroviruses to introduce extra cloned copies of four " stem cell " master regulatory genes .
+researchers		B-Subj
+transformed		B-Pred
+the		I-Pred
+differentiated		I-Pred
+cells		I-Pred
+into		I-Pred
+ES		B-Obj
+cells		I-Obj
+
+The oldest widely accepted fossils of eukaryotic organisms are about 2.1 billion years old .
+old		B-Subj
+be		B-Pred
+The		I-Pred
+oldest		I-Pred
+widely		I-Pred
+accepted		I-Pred
+fossils		I-Pred
+of		I-Pred
+eukaryotic		B-Obj
+organisms		I-Obj
+
+Populations of all species have the potential to expand greatly when resources are abundant .
+Populations		B-Subj
+of		I-Subj
+all		I-Subj
+species		I-Subj
+have		B-Pred
+the		B-Obj
+potential		I-Obj
+
+There are approximately 1,000 known species of zygomycetes , fungi in the phylum Zygomycota .
+No extractions found.
+
+Cephalopods are the only molluscs with a closed circulatory system , in which the blood remains separate from fluid in the body cavity .
+Cephalopods		B-Subj
+are		B-Pred
+the		I-Pred
+only		I-Pred
+molluscs		I-Pred
+with		I-Pred
+a		B-Obj
+closed		I-Obj
+circulatory		I-Obj
+system		I-Obj
+in		I-Obj
+which		I-Obj
+the		I-Obj
+blood		I-Obj
+remains		I-Obj
+separate		I-Obj
+from		I-Obj
+fluid		I-Obj
+in		I-Obj
+the		I-Obj
+body		I-Obj
+cavity		I-Obj
+
+The disease kills corals by causing their tissue to slough off in a band from the base to the tip of the branches .
+The		B-Subj
+disease		I-Subj
+kills		B-Pred
+corals		B-Obj
+
+The term sensory receptor is used to describe a sensory cell or organ , as well as the subcellular structure that interacts directly with stimuli .
+the		B-Subj
+subcellular		I-Subj
+structure		I-Subj
+interacts		B-Pred
+directly		I-Pred
+with		I-Pred
+stimuli		B-Obj
+
+In addition , their kidneys have small glomeruli or lack glomeruli entirely .
+their		B-Subj
+kidneys		I-Subj
+have		B-Pred
+small		B-Obj
+glomeruli		I-Obj
+or		I-Obj
+lack		I-Obj
+glomeruli		I-Obj
+
+This hypothesis predicts that over many generations , a freely mating population will give rise to a uniform population of individuals .
+a		B-Subj
+freely		I-Subj
+mating		I-Subj
+population		I-Subj
+will		B-Pred
+give		I-Pred
+rise		I-Pred
+to		I-Pred
+a		B-Obj
+uniform		I-Obj
+population		I-Obj
+of		I-Obj
+individuals		I-Obj
+
+Animal reproduction , however , takes many forms .
+Animal		B-Subj
+reproduction		I-Subj
+however		B-Pred
+takes		I-Pred
+many		B-Obj
+forms		I-Obj
+
+Researchers with the Canadian Forest Service placed identical samples of organic material -- litter -- on the ground in 21 sites across Canada .
+Researchers		B-Subj
+placed		B-Pred
+identical		I-Pred
+samples		I-Pred
+of		I-Pred
+organic		I-Pred
+material		I-Pred
+--		O
+litter		I-Pred
+--		O
+on		I-Pred
+the		B-Obj
+ground		I-Obj
+
+Functional brain imaging has been applied to the study of human cognition , consciousness , and emotion .
+Functional		B-Subj
+brain		I-Subj
+imaging		I-Subj
+has		B-Pred
+been		I-Pred
+applied		I-Pred
+to		I-Pred
+the		B-Obj
+study		I-Obj
+of		I-Obj
+human		I-Obj
+cognition		I-Obj
+
+The normal allele for this gene codes for a membrane protein that functions in the transport of chloride ions between certain cells and the extracellular fluid .
+No extractions found.
+
+The other major communication and control system is the nervous system , a network of specialized cells -- neurons -- that transmit signals along dedicated pathways .
+The		B-Subj
+other		I-Subj
+major		I-Subj
+communication		I-Subj
+and		I-Subj
+control		I-Subj
+system		I-Subj
+is		B-Pred
+the		B-Obj
+nervous		I-Obj
+system		I-Obj
+
+In electroporation , a brief electrical pulse applied to a solution containing cells creates temporary holes in their plasma membranes , through which DNA can enter .
+a		B-Subj
+brief		I-Subj
+electrical		I-Subj
+pulse		I-Subj
+applied		B-Pred
+to		I-Pred
+a		B-Obj
+solution		I-Obj
+containing		I-Obj
+cells		I-Obj
+
+Cell walls were first seen by Robert Hooke in 1665 as he looked through a microscope at dead cells from the bark of an oak tree .
+he		B-Subj
+looked		B-Pred
+through		I-Pred
+a		B-Obj
+microscope		I-Obj
+
+In contrast , the right hemisphere appears to be dominant in the recognition of faces and patterns , spatial relations , and nonverbal thinking .
+the		B-Subj
+right		I-Subj
+hemisphere		I-Subj
+appears		B-Pred
+in		I-Pred
+contrast		B-Obj
+
+In the context of these challenges , adaptations have evolved that enable most aquatic animals to be very efficient in gas exchange .
+adaptations		B-Subj
+have		B-Pred
+evolved		I-Pred
+that		I-Pred
+enable		I-Pred
+most		I-Pred
+aquatic		I-Pred
+animals		I-Pred
+to		I-Pred
+be		I-Pred
+very		I-Pred
+efficient		I-Pred
+in		I-Pred
+gas		I-Pred
+exchange		I-Pred
+in		I-Pred
+the		B-Obj
+context		I-Obj
+of		I-Obj
+these		I-Obj
+challenges		I-Obj
+
+An aqueous solution is one in which water is the solvent .
+An		B-Subj
+aqueous		I-Subj
+solution		I-Subj
+is		B-Pred
+one		B-Obj
+
+Most coastal scyphozoans go through a stage as small polyps during their life cycle , whereas those that live in the open ocean generally lack the polyp stage altogether .
+Most		B-Subj
+coastal		I-Subj
+scyphozoans		I-Subj
+go		B-Pred
+through		I-Pred
+a		B-Obj
+stage		I-Obj
+
+The Cancer Genome Atlas is another example of systems biology in which a large group of interacting genes and gene products are analyzed together .
+The		B-Subj
+Cancer		I-Subj
+Genome		I-Subj
+Atlas		I-Subj
+is		B-Pred
+another		I-Pred
+example		I-Pred
+of		I-Pred
+systems		B-Obj
+biology		I-Obj
+in		I-Obj
+which		I-Obj
+a		I-Obj
+large		I-Obj
+group		I-Obj
+of		I-Obj
+interacting		I-Obj
+genes		I-Obj
+and		I-Obj
+gene		I-Obj
+products		I-Obj
+are		I-Obj
+analyzed		I-Obj
+together		I-Obj
+
+Bear in mind that such genomic differences -- and whatever derived phenotypic traits they code for -- separate humans from other living apes .
+No extractions found.
+
+But this approach , called reverse genetics , poses a new challenge : determining the phenotype from the genotype .
+this		B-Subj
+approach		I-Subj
+called		I-Subj
+reverse		I-Subj
+genetics		I-Subj
+poses		B-Pred
+a		B-Obj
+new		I-Obj
+challenge		I-Obj
+
+The discovery and early study of cells progressed with the invention of microscopes in 1590 and their refinement during the 1600s .
+No extractions found.
+
+Because of the high surface-to-volume ratio that goes with small size , deer mice lose body heat rapidly and must constantly generate metabolic heat to maintain body temperature .
+the		B-Subj
+high		I-Subj
+surface-to-volume		O
+ratio		I-Subj
+goes		B-Pred
+with		I-Pred
+small		B-Obj
+size		I-Obj
+
+The other route of viral infection is vertical transmission , in which a plant inherits a viral infection from a parent .
+The		B-Subj
+other		I-Subj
+route		I-Subj
+of		I-Subj
+viral		I-Subj
+infection		I-Subj
+is		B-Pred
+vertical		B-Obj
+transmission		I-Obj
+
+Rather , both M and N phenotypes are exhibited by heterozygotes , since both molecules are present .
+M		B-Subj
+and		I-Subj
+N		I-Subj
+phenotypes		I-Subj
+Rather		B-Pred
+are		I-Pred
+exhibited		I-Pred
+by		I-Pred
+heterozygotes		B-Obj
+since		B-enabler
+both		I-enabler
+molecules		I-enabler
+are		I-enabler
+present		I-enabler
+
+The upper layers of the soil , from which plants absorb nearly all of the water and minerals they require , contain a wide range of living organisms that interact with each other and with the physical environment .
+organisms		B-Subj
+be		B-Pred
+interact		I-Pred
+with		I-Pred
+each		B-Obj
+other		I-Obj
+and		I-Obj
+with		I-Obj
+the		I-Obj
+physical		I-Obj
+environment		I-Obj
+
+Although adaptive immunity offers significant protection against a wide range of pathogens , it is not fail-safe .
+adaptive		B-Subj
+immunity		I-Subj
+offers		B-Pred
+significant		I-Pred
+protection		I-Pred
+against		I-Pred
+a		B-Obj
+wide		I-Obj
+range		I-Obj
+of		I-Obj
+pathogens		I-Obj
+
+Collectively , the hydrogen bonds hold the substance together , a phenomenon called cohesion .
+the		B-Subj
+hydrogen		I-Subj
+bonds		I-Subj
+Collectively		B-Pred
+hold		I-Pred
+the		I-Pred
+substance		I-Pred
+together		I-Pred
+a		B-Obj
+phenomenon		I-Obj
+called		I-Obj
+cohesion		I-Obj
+
+The index , which uses a base of 1981 as 100 , was calculated at 140.91 points in October , from 140.74 in September .
+The		B-Subj
+index		I-Subj
+which		I-Subj
+uses		I-Subj
+a		I-Subj
+base		I-Subj
+of		I-Subj
+1981		I-Subj
+as		I-Subj
+100		I-Subj
+was		B-Pred
+calculated		I-Pred
+at		I-Pred
+140.91		O
+points		I-Obj
+
+The board expanded to 17 seats .
+The		B-Subj
+board		I-Subj
+expanded		B-Pred
+to		I-Pred
+17		B-Obj
+seats		I-Obj
+
+Some dealers said that the market 's strong reaction to Wall Street reflects a general uneasiness about the dollar .
+the		B-Subj
+market		I-Subj
+'s		O
+strong		I-Subj
+reaction		I-Subj
+reflects		B-Pred
+a		B-Obj
+general		I-Obj
+uneasiness		I-Obj
+Some		B-attrib
+dealers		I-attrib
+said		I-attrib
+
+Mark , an oil and gas concern , said the 15-year debentures are convertible before maturity at C$ 12.50 for each Mark common share , and can be redeemed at the company 's option , under certain conditions , after Nov. 30 , 1992 .
+the		B-Subj
+15-year		O
+debentures		I-Subj
+can		B-Pred
+be		I-Pred
+redeemed		I-Pred
+at		I-Pred
+the		B-Obj
+company		I-Obj
+'s		O
+option		I-Obj
+Mark		B-attrib
+said		I-attrib
+
+Interspec Inc. reported a net loss of $ 2.4 million for the fiscal third quarter ended Aug. 31 .
+Interspec		B-Subj
+In		I-Subj
+reported		B-Pred
+a		B-Obj
+net		I-Obj
+loss		I-Obj
+of		I-Obj
+$		O
+2.4		O
+million		I-Obj
+
+Mr. Hollander 's High Technology Holding Co. of Stamford , Conn . , acquired most of its stake last August in an $ 11-a-share tender offer for Newport , a maker of electronic-measuring devices .
+most		B-Subj
+of		I-Subj
+its		I-Subj
+stake		I-Subj
+be		B-Pred
+acquired		I-Pred
+in		I-Pred
+an		B-Obj
+$		O
+11-a-share		O
+tender		I-Obj
+offer		I-Obj
+
+Disappointment with the company 's earnings for the quarter led Prudential-Bache Securities to reduce its 1989 and 1990 earnings estimates , according to Dow Jones Professional Investor Report .
+Prudential-Bache		O
+Securities		I-Subj
+to		B-Pred
+reduce		I-Pred
+its		B-Obj
+1989		I-Obj
+and		I-Obj
+1990		I-Obj
+earnings		I-Obj
+estimates		I-Obj
+
+The companies are followed by at least three analysts , and had a minimum five-cent change in actual earnings per share .
+The		B-Subj
+companies		I-Subj
+are		B-Pred
+followed		I-Pred
+by		I-Pred
+at		B-Obj
+least		I-Obj
+three		I-Obj
+analysts		I-Obj
+
+The announcement follows a sharper $ 2.2 billion decline in the country 's foreign reserves in September to $ 86.12 billion .
+The		B-Subj
+announcement		I-Subj
+follows		B-Pred
+a		B-Obj
+sharper		I-Obj
+$		O
+2.2		O
+billion		I-Obj
+decline		I-Obj
+
+W. Ed Tyler , 37 years old , a senior vice president at this printing concern , was elected president of its technology group , a new position .
+W.		O
+Ed		I-Subj
+Tyler		I-Subj
+,		O
+37		I-Subj
+years		I-Subj
+old		I-Subj
+be		B-Pred
+a		I-Pred
+senior		I-Pred
+vice		I-Pred
+president		I-Pred
+at		I-Pred
+this		B-Obj
+printing		I-Obj
+concern		I-Obj
+
+Mrs. Coleman , 73 , who declined to be interviewed , is the Maidenform strategist .
+Mrs.		O
+Coleman		I-Subj
+is		B-Pred
+the		B-Obj
+Maidenform		I-Obj
+strategist		I-Obj
+
+The group 's Mark Cahoon says its efforts begun in 1989 have led to the introduction of bills in Massachusetts , Minnesota and Colorado to establish evenhanded procedures affecting all kinds of taxpayers .
+its		B-Subj
+efforts		I-Subj
+begun		I-Subj
+in		I-Subj
+1989		I-Subj
+have		B-Pred
+led		I-Pred
+to		I-Pred
+the		B-Obj
+introduction		I-Obj
+of		I-Obj
+bills		I-Obj
+to		I-Obj
+establish		I-Obj
+evenhanded		I-Obj
+procedures		I-Obj
+The		B-attrib
+group		I-attrib
+'s		O
+Mark		I-attrib
+Cahoon		I-attrib
+says		I-attrib
+
+Ford said owners should return the cars to dealers so the windshields can be removed and securely reinstalled .
+owners		B-Subj
+should		B-Pred
+return		I-Pred
+the		I-Pred
+cars		I-Pred
+to		I-Pred
+dealers		B-Obj
+Ford		B-attrib
+said		I-attrib
+
+East Rock Partners , which has indicated it might make a bid for the company , said A.P. Green , a refractory products maker , told the partnership it is n't for sale .
+it		B-Subj
+is		B-Pred
+n't		O
+for		I-Pred
+sale		B-Obj
+
+Jamaica , wary of upsetting its Caribbean Basin allies , has apparently instructed its lobbyist to abandon the provision initially drafted by Mr. Gray , but the greater question is whether Mr. Inouye , who has strong ties to the sugar industry , is able to insert a claim by the Philippines .
+Jamaica		B-Subj
+,		O
+wary		I-Subj
+has		B-Pred
+apparently		I-Pred
+instructed		I-Pred
+its		B-Obj
+lobbyist		I-Obj
+to		I-Obj
+abandon		I-Obj
+the		I-Obj
+provision		I-Obj
+
+Elsewhere , prices surged for a second day in Frankfurt , closed higher in Zurich , Stockholm and Amsterdam and were broadly lower in Milan , Paris and Brussels .
+prices		B-Subj
+Elsewhere		B-Pred
+surged		I-Pred
+for		I-Pred
+a		B-Obj
+second		I-Obj
+day		I-Obj
+
+The nation 's largest software company earned $ 9.6 million , or five cents a share , compared with $ 28 million , or 16 cents a share , a year earlier .
+No extractions found.
+
+Singer Bette Midler won a $ 400,000 federal court jury verdict against Young & Rubicam in a case that threatens a popular advertising industry practice of using `` sound-alike '' performers to tout products .
+Singer		B-Subj
+Bette		I-Subj
+Midler		I-Subj
+won		B-Pred
+a		I-Pred
+$		O
+400,000		O
+federal		I-Pred
+court		I-Pred
+jury		I-Pred
+verdict		I-Pred
+against		I-Pred
+Young		I-Pred
+&		O
+Rubicam		I-Pred
+in		I-Pred
+a		B-Obj
+case		I-Obj
+that		I-Obj
+threatens		I-Obj
+a		B-Obj
+popular		I-Obj
+advertising		I-Obj
+industry		I-Obj
+practice		I-Obj
+
+Federal Paper Board Co. said it completed the previously announced purchase of Imperial Cup Corp. , a closely held maker of paper cups based in Kenton , Ohio .
+Imperial		B-Subj
+Cup		I-Subj
+Cor		I-Subj
+be		B-Pred
+a		I-Pred
+closely		I-Pred
+held		I-Pred
+maker		I-Pred
+of		I-Pred
+paper		B-Obj
+cups		I-Obj
+based		I-Obj
+in		I-Obj
+Kenton		I-Obj
+,		O
+Ohio		I-Obj
+
+In a separate complaint also filed in federal court here , shareholder Max Grill of New York charged Imperial , its top executives and directors with breach of fiduciary duty and squandering the company 's assets .
+shareholder		B-Subj
+Max		I-Subj
+Grill		I-Subj
+of		I-Subj
+New		I-Subj
+York		I-Subj
+charged		B-Pred
+Imperial		I-Pred
+,		O
+its		I-Pred
+top		I-Pred
+executives		I-Pred
+and		I-Pred
+directors		I-Pred
+with		I-Pred
+breach		B-Obj
+of		I-Obj
+fiduciary		I-Obj
+duty		I-Obj
+
+Witnesses have said the grand jury has asked numerous questions about Jacob F. `` Jake '' Horton , the senior vice president of Gulf Power who died in the plane crash in April .
+the		B-Subj
+senior		I-Subj
+vice		I-Subj
+president		I-Subj
+of		I-Subj
+Gulf		I-Subj
+Power		I-Subj
+died		B-Pred
+in		I-Pred
+the		B-Obj
+plane		I-Obj
+crash		I-Obj
+
+Social Security benefits will rise 4.7 % next year to keep pace with inflation , boosting the average monthly benefit to $ 566 from $ 541 , the Department of Health and Human Services announced .
+Social		B-Subj
+Security		I-Subj
+benefits		I-Subj
+will		B-Pred
+rise		I-Pred
+4.7		O
+the		B-attrib
+Department		I-attrib
+of		I-attrib
+Health		I-attrib
+and		I-attrib
+Human		I-attrib
+Services		I-attrib
+announced		I-attrib
+
+Dominion Textile Inc. holders adopted a shareholder-rights plan at the annual meeting .
+Dominion		B-Subj
+Textile		I-Subj
+Inc.		O
+holders		I-Subj
+adopted		B-Pred
+a		I-Pred
+shareholder-rights		O
+plan		I-Pred
+at		I-Pred
+the		B-Obj
+annual		I-Obj
+meeting		I-Obj
+
+And on back-to-back roll calls , 206-199 and 223-178 , the Appropriations Committee leadership turned back efforts to weaken or strip the proposed restrictions first added by Sen. Warren Rudman -LRB- R. , N.H. -RRB-
+the		B-Subj
+Appropriations		I-Subj
+Committee		I-Subj
+leadership		I-Subj
+turned		B-Pred
+back		I-Pred
+efforts		B-Obj
+to		I-Obj
+weaken		I-Obj
+or		I-Obj
+strip		I-Obj
+the		I-Obj
+proposed		I-Obj
+restrictions		I-Obj
+first		I-Obj
+added		I-Obj
+by		I-Obj
+Sen.		O
+Warren		I-Obj
+Rudman		I-Obj
+-LRB-		O
+R.		O
+,		O
+N.H.		O
+
+Tell us about spending restraint .
+us		B-Subj
+be		B-Pred
+Tell		I-Pred
+about		I-Pred
+spending		B-Obj
+restraint		I-Obj
+
+Moody 's said it expects Valley National , of Phoenix , Ariz . , to make substantial further provisions against its real-estate portfolio , and that it continues to suffer from the high cost of carrying nonperforming assets , and from high loan-loss provisions .
+Valley		B-Subj
+National		I-Subj
+,		O
+of		I-Subj
+Phoenix		I-Subj
+to		B-Pred
+make		I-Pred
+substantial		B-Obj
+further		I-Obj
+provisions		I-Obj
+
+Florio Fiorini , managing director of Geneva-based Sasea , said the investors would pay only a symbolic one lira for the station , `` but we have agreed to raise the capital that will enable the company to continue operating .
+the		B-Subj
+investors		I-Subj
+would		B-Pred
+pay		I-Pred
+only		I-Pred
+a		I-Pred
+symbolic		I-Pred
+one		I-Pred
+lira		I-Pred
+for		I-Pred
+the		B-Obj
+station		I-Obj
+Florio		B-attrib
+Fiorini		I-attrib
+said		I-attrib
+
+CMS ENERGY Corp. said management would recommend to its board today that its common stock dividend be reinstated at a `` modest level '' later this year .
+its		B-Subj
+common		I-Subj
+stock		I-Subj
+dividend		I-Subj
+be		B-Pred
+reinstated		I-Pred
+at		I-Pred
+a		B-Obj
+``		O
+modest		I-Obj
+level		I-Obj
+
+Net proceeds from the offering are expected to be close to $ 200 million .
+No extractions found.
+
+Terry L. Haines , formerly general manager of Canadian operations , was elected to the new position of vice president , North American sales , of this plastics concern .
+Terry		B-Subj
+L.		O
+Haines		I-Subj
+was		B-Pred
+elected		I-Pred
+to		I-Pred
+the		B-Obj
+new		I-Obj
+position		I-Obj
+of		I-Obj
+vice		I-Obj
+president		I-Obj
+
+Mr. Bailey said he expects to name a new group president to head that operation following the Nov. 8 board meeting .
+he		B-Subj
+expects		B-Pred
+to		I-Pred
+name		I-Pred
+a		B-Obj
+new		I-Obj
+group		I-Obj
+president		I-Obj
+to		I-Obj
+head		I-Obj
+that		I-Obj
+operation		I-Obj
+Mr.		O
+Bailey		I-attrib
+said		I-attrib
+
+Harken , which owns about 800 retail gas stations , has said it is particularly interested in Tesoro 's refinery because it would fill a gap in its business .
+it		B-Subj
+is		B-Pred
+particularly		I-Pred
+interested		I-Pred
+in		I-Pred
+Tesoro		B-Obj
+'s		O
+refinery		I-Obj
+because		B-enabler
+it		I-enabler
+would		I-enabler
+fill		I-enabler
+a		I-enabler
+gap		I-enabler
+in		I-enabler
+its		I-enabler
+business		I-enabler
+
+Coca-Cola Enterprises blamed the lower volume on its soft-drink prices , which were about 3 % higher in the third quarter .
+Coca-Cola		O
+Enterprises		I-Subj
+blamed		B-Pred
+the		I-Pred
+lower		I-Pred
+volume		I-Pred
+on		I-Pred
+its		B-Obj
+soft-drink		O
+prices		I-Obj
+which		I-Obj
+were		I-Obj
+about		I-Obj
+3		I-Obj
+%		O
+higher		I-Obj
+in		I-Obj
+the		I-Obj
+third		I-Obj
+quarter		I-Obj
+
+They merely collect campaign contributions from developers that help keep them in office .
+They		B-Subj
+merely		B-Pred
+collect		I-Pred
+campaign		I-Pred
+contributions		I-Pred
+from		I-Pred
+developers		B-Obj
+that		I-Obj
+help		I-Obj
+keep		I-Obj
+them		I-Obj
+in		I-Obj
+office		I-Obj
+
+Each note is being offered at $ 308.32 per $ 1,000 principal amount at maturity , representing an 8 % yield to maturity .
+Each		B-Subj
+note		I-Subj
+is		B-Pred
+being		I-Pred
+offered		I-Pred
+at		I-Pred
+maturity		B-Obj
+
+Under the proposal by Equitec , a financially troubled real-estate syndicator , New York-based Hallwood Group Inc. would replace Equitec as the newly formed master limited partnership 's general partner and manager .
+Equitec		B-Subj
+would		B-Pred
+be		I-Pred
+replace		I-Pred
+as		I-Pred
+the		B-Obj
+newly		I-Obj
+formed		I-Obj
+master		I-Obj
+limited		I-Obj
+partnership		I-Obj
+'s		O
+general		I-Obj
+partner		I-Obj
+and		I-Obj
+manager		I-Obj
+
+In the second year , workers would receive a 3 % wage boost and a 3 % bonus , followed by a 3 % increase without a bonus in the third year .
+workers		B-Subj
+would		B-Pred
+receive		I-Pred
+a		B-Obj
+3		I-Obj
+%		O
+wage		I-Obj
+boost		I-Obj
+and		I-Obj
+a		B-Obj
+3		I-Obj
+%		O
+bonus		I-Obj
+,		O
+followed		I-Obj
+by		I-Obj
+a		B-Obj
+3		I-Obj
+%		O
+increase		I-Obj
+without		I-Obj
+a		B-Obj
+bonus		I-Obj
+in		I-Obj
+the		I-Obj
+third		I-Obj
+year		I-Obj
+
+Mr. Fournier said that as Navigation Mixte chairman , he is prohibited by takeover regulations from organizing his own defense or doing anything besides managing current company business .
+he		B-Subj
+is		B-Pred
+prohibited		I-Pred
+by		I-Pred
+takeover		B-Obj
+regulations		I-Obj
+Mr.		O
+Fournier		I-attrib
+said		I-attrib
+
+For the nine months , the mining company posted a 40 % drop in profit to $ 30.1 million , or 31 cents a share , from $ 50.6 million , or 52 cents a share , on a 6 % rise in revenue to $ 323.2 million from $ 305.7 million .
+the		B-Subj
+mining		I-Subj
+company		I-Subj
+posted		B-Pred
+a		B-Obj
+40		I-Obj
+%		O
+drop		I-Obj
+
+In September , the number of jobless rose 0.1 % from the previous month to 2.5 million on a seasonally adjusted basis .
+the		B-Subj
+number		I-Subj
+of		I-Subj
+jobless		I-Subj
+rose		B-Pred
+0.1		O
+%		O
+from		I-Pred
+the		B-Obj
+previous		I-Obj
+month		I-Obj
+
+`` I do n't know what it means over the long run , but for the short term , it appears that gold producers are grateful for the $ 10 or so that gold has risen over the past week or so , '' he said .
+it		B-Subj
+means		B-Pred
+over		I-Pred
+the		B-Obj
+long		I-Obj
+run		I-Obj
+
+When the company this month announced lower-than-forecast sales of Easy Eggs , the stock dropped nearly 19 % .
+the		B-Subj
+company		I-Subj
+announced		B-Pred
+lower-than-forecast		O
+sales		I-Obj
+of		I-Obj
+Easy		I-Obj
+Eggs		I-Obj
+
+Operating profit at Colgate 's U.S. household products and personal care businesses , which include such well-known brands as Colgate toothpaste and Fab laundry detergent , jumped more than 40 % , the company said .
+Operating		B-Subj
+profit		I-Subj
+jumped		B-Pred
+than		B-Obj
+40		I-Obj
+the		B-attrib
+company		I-attrib
+said		I-attrib
+
+Sony Columbia Acquisition Corp. , formed for the Columbia deal , will formally take ownership of the movie studio later this month , a spokesman said .
+Sony		B-Subj
+Columbia		I-Subj
+Acquisition		I-Subj
+Cor		I-Subj
+formed		B-Pred
+for		I-Pred
+the		B-Obj
+Columbia		I-Obj
+deal		I-Obj
+a		B-attrib
+spokesman		I-attrib
+said		I-attrib
+
+Among professionals , 76 % have a favorable opinion of her , compared to 62 % who approve of her husband 's performance .
+76		B-Subj
+have		B-Pred
+a		B-Obj
+favorable		I-Obj
+opinion		I-Obj
+of		I-Obj
+her		I-Obj
+
+Exclusive of the gain , operating profit declined 35 % to $ 16.4 million , or 21 cents a share , from $ 25.2 million , or 31 cents a share .
+operating		B-Subj
+profit		I-Subj
+declined		B-Pred
+35		B-Obj
+%		O
+
+It is a distinction that satisfies neither side in the debate .
+It		B-Subj
+is		B-Pred
+a		B-Obj
+distinction		I-Obj
+that		I-Obj
+satisfies		I-Obj
+neither		I-Obj
+side		I-Obj
+in		I-Obj
+the		I-Obj
+debate		I-Obj
+
+Bruno DeGol , chairman of DeGol Brothers Lumber , Gallitzin , Pa . , was named a director of this bank-holding company , expanding the board to 11 members .
+the		B-Subj
+board		I-Subj
+be		B-Pred
+expanding		I-Pred
+to		I-Pred
+11		B-Obj
+members		I-Obj
+
+He will succeed Arthur E. Himebaugh as general manager Feb. 1 , when Mr. Himebaugh retires .
+He		B-Subj
+will		B-Pred
+succeed		I-Pred
+Arthur		I-Pred
+E.		O
+Himebaugh		I-Pred
+as		I-Pred
+general		B-Obj
+manager		I-Obj
+
+Five million shares will be offered in the U.S. , and 3.4 million additional shares will be offered in concurrent international offerings outside the U.S. .
+3.4		O
+million		I-Subj
+additional		I-Subj
+shares		I-Subj
+will		B-Pred
+will		B-Pred
+be		I-Pred
+offered		I-Pred
+in		I-Pred
+concurrent		B-Obj
+international		I-Obj
+offerings		I-Obj
+
+Earlier this year , Cordis , a maker of medical devices , agreed to plead guilty to felony and misdemeanor charges related to the pacemakers and to pay the government about $ 5.7 million in fines and other costs .
+Cordis		B-Subj
+be		B-Pred
+a		I-Pred
+maker		I-Pred
+of		I-Pred
+medical		B-Obj
+devices		I-Obj
+
+Italy 's unemployment rate rose to 12 % of the labor force in July from 11.9 % in April , and was up from 11.7 % a year earlier , according to quarterly figures from the state statistical institute .
+Italy		B-Subj
+'s		O
+unemployment		I-Subj
+rate		I-Subj
+rose		B-Pred
+to		I-Pred
+12		B-Obj
+%		O
+of		I-Obj
+the		I-Obj
+labor		I-Obj
+force		I-Obj
+
+Currently , ShareData has about 4.1 million common shares outstanding .
+ShareData		B-Subj
+Currently		B-Pred
+has		I-Pred
+about		B-Obj
+4.1		O
+million		I-Obj
+common		I-Obj
+shares		I-Obj
+outstanding		I-Obj
+
+She has also served on several task forces on acquired immune deficiency syndrome .
+She		B-Subj
+has		B-Pred
+also		I-Pred
+served		I-Pred
+on		I-Pred
+several		B-Obj
+task		I-Obj
+forces		I-Obj
+
+Revenue dropped 5.4 % to $ 3.48 billion from $ 3.68 billion .
+Revenue		B-Subj
+dropped		B-Pred
+5.4		O
+%		O
+
+Cordis sold its pacemaker operations two years ago to Telectronics Holding Ltd. of Australia .
+Cordis		B-Subj
+sold		B-Pred
+its		I-Pred
+pacemaker		I-Pred
+operations		I-Pred
+two		I-Pred
+years		I-Pred
+ago		I-Pred
+to		I-Pred
+Telectronics		B-Obj
+Holding		I-Obj
+Ltd.		O
+of		I-Obj
+Australia		I-Obj
+
+In response to questions after the annual meeting , Mr. Miller said the company is no longer looking for an equity investor .
+Mr.		O
+Miller		I-Subj
+said		B-Pred
+in		I-Pred
+response		B-Obj
+
+Denis C. Smith was named to the new post of vice president of world-wide advanced materials operations for this chemicals concern .
+Denis		B-Subj
+C.		O
+Smith		I-Subj
+was		B-Pred
+named		I-Pred
+to		I-Pred
+the		B-Obj
+new		I-Obj
+post		I-Obj
+of		I-Obj
+vice		I-Obj
+president		I-Obj
+of		I-Obj
+world-wide		O
+advanced		I-Obj
+materials		I-Obj
+operations		I-Obj
+
+The issue 's smooth absorption eased fears that supply would overwhelm demand in coming sessions , traders said .
+The		B-Subj
+issue		I-Subj
+'s		O
+smooth		I-Subj
+absorption		I-Subj
+eased		B-Pred
+fears		B-Obj
+traders		B-attrib
+said		I-attrib
+
+Richard G. Sim , the man credited with transforming Applied Power Inc. from an underachiever into a feisty player in the global market for hydraulic tools , hopes to guide a similar turnaround at the company 's latest acquisition , Barry Wright Corp .
+Applied		B-Subj
+Power		I-Subj
+In		I-Subj
+be		B-Pred
+transforming		I-Pred
+in		I-Pred
+the		B-Obj
+global		I-Obj
+market		I-Obj
+
+Clarcor , a maker of packaging and filtration products , said the two companies could n't agree on terms of a definitive agreement .
+the		B-Subj
+two		I-Subj
+companies		I-Subj
+could		B-Pred
+n't		O
+agree		I-Pred
+on		I-Pred
+terms		B-Obj
+of		I-Obj
+a		I-Obj
+definitive		I-Obj
+agreement		I-Obj
+Clarcor		B-attrib
+said		I-attrib
+
+In Thursday 's edition , it was incorrectly indicated that the union had paid a fee to former House Speaker Jim Wright .
+the		B-Subj
+union		I-Subj
+had		B-Pred
+paid		I-Pred
+a		I-Pred
+fee		I-Pred
+to		I-Pred
+former		B-Obj
+House		I-Obj
+Speaker		I-Obj
+Jim		I-Obj
+Wright		I-Obj
+
+The certificates have an estimated average life of 1.8 years , assuming monthly prepayments at 1.3 % of the original balance .
+The		B-Subj
+certificates		I-Subj
+have		B-Pred
+an		B-Obj
+estimated		I-Obj
+average		I-Obj
+life		I-Obj
+of		I-Obj
+1.8		O
+years		I-Obj
+
+As it now stands , the U.S. can bomb Tripoli , but ca n't `` assassinate '' Colonel Gadhafi .
+the		B-Subj
+U.		O
+can		B-Pred
+bomb		I-Pred
+Tripoli		B-Obj
+As		B-enabler
+it		I-enabler
+now		I-enabler
+stands		I-enabler
+
+She said Wheeler Group was profitable but would n't give figures .
+Wheeler		B-Subj
+Group		I-Subj
+was		B-Pred
+profitable		B-Obj
+
+$ 100 million issue of collateralized mortgage obligations is being offered in four classes by a Morgan Stanley group .
+		O
+100		I-Subj
+million		I-Subj
+issue		I-Subj
+of		I-Subj
+collateralized		I-Subj
+mortgage		I-Subj
+obligations		I-Subj
+is		B-Pred
+being		I-Pred
+offered		I-Pred
+in		I-Pred
+four		B-Obj
+classes		I-Obj
+
+This year , Scorpio sales plummeted , and at the current sales pace it would take Ford 242 days to sell off the current Scorpio inventory of about 4,600 cars .
+Scorpio		B-Subj
+sales		I-Subj
+would		B-Pred
+take		I-Pred
+Ford		I-Pred
+at		I-Pred
+the		B-Obj
+current		I-Obj
+sales		I-Obj
+pace		I-Obj
+
+The Commodore 64 and 128 , mainly used for children 's educational software and games , had surprised market researchers by continuing to produce strong sales even though other low-profit personal computers now operate several times as fast and have much more memory .
+The		B-Subj
+Commodore		I-Subj
+64		I-Subj
+and		I-Subj
+128		I-Subj
+be		B-Pred
+mainly		I-Pred
+used		I-Pred
+for		I-Pred
+children		B-Obj
+'s		O
+educational		I-Obj
+software		I-Obj
+and		I-Obj
+games		I-Obj
+
+If she is nominated by President Bush and confirmed by the Senate , Dr. Novello would succeed C. Everett Koop , who rattled liberals and conservatives alike with his outspoken views on a range of health issues .
+Dr.		O
+Novello		I-Subj
+would		B-Pred
+succeed		I-Pred
+C.		O
+Everett		I-Obj
+Koop		I-Obj
+If		B-enabler
+she		I-enabler
+is		I-enabler
+nominated		I-enabler
+by		I-enabler
+President		I-enabler
+Bush		I-enabler
+and		I-enabler
+confirmed		I-enabler
+by		I-enabler
+the		I-enabler
+Senate		I-enabler
+
+GDP is the total value of a nation 's output of goods and services .
+GDP		B-Subj
+is		B-Pred
+the		I-Pred
+total		I-Pred
+value		I-Pred
+of		I-Pred
+a		B-Obj
+nation		I-Obj
+'s		O
+output		I-Obj
+of		I-Obj
+goods		I-Obj
+
+He increases the board to seven .
+He		B-Subj
+increases		B-Pred
+the		I-Pred
+board		I-Pred
+to		I-Pred
+seven		B-Obj
+
+The company said the restructuring is n't expected to have any impact , adverse or otherwise , on its financial results .
+the		B-Subj
+restructuring		I-Subj
+to		B-Pred
+have		I-Pred
+any		B-Obj
+impact		I-Obj
+,		O
+adverse		I-Obj
+
+The metal products concern currently has 7.2 million common shares outstanding .
+The		B-Subj
+metal		I-Subj
+products		I-Subj
+concern		I-Subj
+currently		B-Pred
+has		I-Pred
+7.2		O
+million		I-Obj
+common		I-Obj
+shares		I-Obj
+outstanding		I-Obj
+
+`` Tivoli Motel , '' I read a sign in the usual pronunciation of the name as we whoosh through .
+Tivoli		B-Subj
+Motel		I-Subj
+read		B-Pred
+a		I-Pred
+sign		I-Pred
+in		I-Pred
+the		B-Obj
+usual		I-Obj
+pronunciation		I-Obj
+of		I-Obj
+the		B-Obj
+name		I-Obj
+as		B-enabler
+we		I-enabler
+whoosh		I-enabler
+through		I-enabler
+
+`` The obligation is totally unwarranted , '' the statement said .
+The		B-Subj
+obligation		I-Subj
+is		B-Pred
+totally		I-Pred
+unwarranted		B-Obj
+
+Mr. Allday 's appointment is subject to confirmation by the Senate .
+Mr.		O
+Allday		I-Subj
+'s		O
+appointment		I-Subj
+is		B-Pred
+subject		I-Pred
+to		I-Pred
+confirmation		B-Obj
+
+Joseph Lombardo , who the government alleged was the `` captain '' of organized crime in Chicago , was one of numerous defendants in the government 's sweeping racketeering suit against the Teamsters .
+Joseph		B-Subj
+Lombardo		I-Subj
+was		B-Pred
+one		B-Obj
+of		I-Obj
+numerous		I-Obj
+defendants		I-Obj
+
+Before adjustment for inflation , the association said , orders were up a nominal 5 % .
+orders		B-Subj
+were		B-Pred
+up		I-Pred
+a		I-Pred
+nominal		I-Pred
+5		I-Pred
+%		O
+before		I-Pred
+adjustment		B-Obj
+
+The Phoenix-based holding company for Arizona 's largest bank said it added $ 121 million to its allowance for losses on loans and for real estate owned .
+it		B-Subj
+added		B-Pred
+$		O
+121		I-Pred
+million		I-Pred
+for		I-Pred
+losses		B-Obj
+The		B-attrib
+Phoenix-based		O
+holding		I-attrib
+company		I-attrib
+said		I-attrib
+
+He will remain chairman .
+He		B-Subj
+will		B-Pred
+remain		I-Pred
+chairman		B-Obj
+
+The failure in Oakland of the freeway segment known as the Cypress structure was the deadliest aspect of the quake , although officials were hopeful yesterday that the death toll there might be significantly lower than the 250 initially feared .
+The		B-Subj
+failure		I-Subj
+in		I-Subj
+Oakland		I-Subj
+of		I-Subj
+the		I-Subj
+freeway		I-Subj
+segment		I-Subj
+was		B-Pred
+the		I-Pred
+deadliest		I-Pred
+aspect		I-Pred
+of		I-Pred
+the		B-Obj
+quake		I-Obj
+although		B-enabler
+officials		I-enabler
+were		I-enabler
+hopeful		I-enabler
+yesterday		I-enabler
+that		I-enabler
+the		I-enabler
+death		I-enabler
+toll		I-enabler
+there		I-enabler
+might		I-enabler
+be		I-enabler
+significantly		I-enabler
+lower		I-enabler
+than		I-enabler
+the		I-enabler
+250		I-enabler
+initially		I-enabler
+feared		I-enabler
+
+It is the presence of internal and external `` enemies '' which justifies the need for a large , active army that Mikhail Gorbachev 's Soviet Union continues to supply with bullets .
+It		B-Subj
+is		B-Pred
+the		I-Pred
+presence		I-Pred
+of		I-Pred
+internal		B-Obj
+and		I-Obj
+external		I-Obj
+``		O
+enemies		I-Obj
+
+The university implied that it would drop its opposition to foreign ownership if Ciba-Geigy and Chiron are successful with their lower bid .
+it		B-Subj
+would		B-Pred
+drop		I-Pred
+its		B-Obj
+opposition		I-Obj
+if		B-enabler
+Ciba-Geigy		O
+and		I-enabler
+Chiron		I-enabler
+are		I-enabler
+successful		I-enabler
+with		I-enabler
+their		I-enabler
+lower		I-enabler
+bid		I-enabler
+
+After World War I , Trento and its Italian-speaking province , along with Bolzano and the part of Tyrol that stretched south of the Alpine watershed , were annexed by Italy .
+No extractions found.
+
+On June 10 , the Reds were playing the first place St . Louis Cardinals at Crosley Field and trailing 13-0 in the ninth inning when Manager Bill McKechnie called on Nuxhall to enter the game .
+Manager		B-Subj
+Bill		I-Subj
+McKechnie		I-Subj
+called		B-Pred
+on		I-Pred
+Nuxhall		B-Obj
+
+Now with Ian Butterworth on guitar and Roger Wikeley on bass and keyboards the band performed their first live show in nearly two decades at their hometown Poulton-Le-Fylde in May 2006 followed by dates in Blackpool , Paris , Brussels , Leicester , London and Athens .
+their		B-Subj
+first		I-Subj
+live		I-Subj
+show		I-Subj
+be		B-Pred
+Now		I-Pred
+with		I-Pred
+Ian		I-Pred
+Butterworth		I-Pred
+on		I-Pred
+guitar		I-Pred
+Roger		I-Pred
+Wikeley		I-Pred
+bass		I-Pred
+keyboards		I-Pred
+the		I-Pred
+band		I-Pred
+performed		I-Pred
+in		I-Pred
+nearly		B-Obj
+two		I-Obj
+decades		I-Obj
+
+FK Leotar is a football club from the city of Trebinje , entity Republika Srpska , of country Bosnia and Herzegovina .
+FK		B-Subj
+Leotar		I-Subj
+is		B-Pred
+a		I-Pred
+football		I-Pred
+club		I-Pred
+from		I-Pred
+the		B-Obj
+city		I-Obj
+of		I-Obj
+Trebinje		I-Obj
+
+He has made frequent trips to Laos and Vietnam and also met with Lao and Vietnamese leaders in Hanoi , Ho Chi Minh City , Jakarta , New York , Vientiane , and Paris .
+He		B-Subj
+has		B-Pred
+also		I-Pred
+met		I-Pred
+with		I-Pred
+Lao		B-Obj
+and		I-Obj
+Vietnamese		I-Obj
+leaders		I-Obj
+
+He was descended from the Bülow family , an old aristocratic family from Mecklenburg .
+He		B-Subj
+was		B-Pred
+descended		I-Pred
+an		I-Pred
+old		I-Pred
+aristocratic		I-Pred
+family		I-Pred
+from		I-Pred
+Mecklenburg		I-Pred
+from		I-Pred
+the		B-Obj
+Bülow		I-Obj
+family		I-Obj
+
+On April 29 , 1909 , Prince Kitashirakawa married Princess Kane-no-Miya Fusako , the seventh daughter of Emperor Meiji .
+Prince		B-Subj
+Kitashirakawa		I-Subj
+married		B-Pred
+Princess		B-Obj
+Kane-no-Miya		O
+Fusako		I-Obj
+
+In 2004 , Greyston Bakery moved to a larger facility designed by Maya Lin to accommodate growth .
+Greyston		B-Subj
+Bakery		I-Subj
+moved		B-Pred
+to		I-Pred
+a		B-Obj
+larger		I-Obj
+facility		I-Obj
+designed		I-Obj
+by		I-Obj
+Maya		I-Obj
+Lin		I-Obj
+to		I-Obj
+accommodate		I-Obj
+growth		I-Obj
+
+In 1972 he was a co-founder member , with Sir Ian McKellen and Edward Petherbridge , of the democratically run Actors ' Company , playing Vasques in ' Tis Pity She 's a Whore , Inspector of Police in Ruling the Roost and Okano in The Three Arrows at the Arts , Cambridge in October 1972 .
+Vasques		B-Subj
+be		B-Pred
+playing		I-Pred
+in		I-Pred
+Tis		B-Obj
+Pity		I-Obj
+
+Ji-an , Hualien , is a township near Hualien City , Taiwan .
+Ji-an		O
+is		B-Pred
+a		I-Pred
+township		I-Pred
+near		I-Pred
+Hualien		B-Obj
+City		I-Obj
+
+But when the Aetolians realised that Rome was to rule the Greek cities and asked Antiochus III the Great of Syria for help , the Roman general Manius Acilius Glabrio seized Lamia and advanced to Amfissa , where he conquered the Crissaean plain and besieged the town in 190 BC .
+the		B-Subj
+Roman		I-Subj
+general		I-Subj
+Manius		I-Subj
+Acilius		I-Subj
+Glabrio		I-Subj
+advanced		B-Pred
+to		I-Pred
+Amfissa		B-Obj
+
+On December 5 , 1984 , as a minor-leaguer , he was traded by the New York Yankees with Tim Birtsas , Jay Howell , Stan Javier , and Jose Rijo to the Oakland Athletics for Rickey Henderson , Bert Bradley , and cash .
+he		B-Subj
+was		B-Pred
+traded		I-Pred
+by		I-Pred
+the		B-Obj
+New		I-Obj
+York		I-Obj
+Yankees		I-Obj
+
+He captured the Parthian capital , Ctesiphon , before sailing downriver to the Persian Gulf .
+He		B-Subj
+captured		B-Pred
+the		B-Obj
+Parthian		I-Obj
+capital		I-Obj
+
+Also , although unreleased as of 2009 , Drop Trio was asked by SugarHill Recording Studios , in 2003 , to record a song by Destiny 's Child for an upcoming compilation CD to be released by the studio .
+Drop		B-Subj
+Trio		I-Subj
+was		B-Pred
+asked		I-Pred
+by		I-Pred
+SugarHill		B-Obj
+Recording		I-Obj
+Studios		I-Obj
+
+Lowery was elected Mayor on Feburay 6th 2001 in a special election to fill the unexpired term of James Eagan .
+Lowery		B-Subj
+was		B-Pred
+elected		I-Pred
+in		I-Pred
+a		B-Obj
+special		I-Obj
+election		I-Obj
+to		I-Obj
+fill		I-Obj
+the		I-Obj
+unexpired		I-Obj
+term		I-Obj
+of		I-Obj
+James		I-Obj
+Eagan		I-Obj
+
+Beecher began collecting fossils from local sandstones and shales when his family moved to northwestern Pennsylvania , resulting in a collection of fossil phyllocarids and freshwater unionids prior to his studying for an undergraduate degree from University of Michigan .
+his		B-Subj
+family		I-Subj
+moved		B-Pred
+to		I-Pred
+northwestern		B-Obj
+Pennsylvania		I-Obj
+
+However his father , Whitechapel , betrays his whereabouts , fearing that his son will die if he is not captured and returned home to the plantation .
+his		B-Subj
+father		I-Subj
+However		B-Pred
+betrays		I-Pred
+his		B-Obj
+whereabouts		I-Obj
+
+The song has two demo working titles : " Cheat " and " Drunk Girl " , which leaked on the internet in November 2007 .
+Drunk		B-Subj
+Girl		I-Subj
+leaked		B-Pred
+on		I-Pred
+the		B-Obj
+internet		I-Obj
+
+On July 16 2008 , Hezbollah transferred the coffins of captured Israeli soldiers , Ehud Goldwasser and Eldad Regev , in exchange for Samir Kuntar and four other Hezbollah members captured by Israel during the 2006 Lebanon War , as well as the remains of 199 Lebanese and Palestinians .
+Hezbollah		B-Subj
+be		B-Pred
+members		I-Pred
+during		I-Pred
+the		B-Obj
+2006		I-Obj
+Lebanon		I-Obj
+War		I-Obj
+
+After Jim stops by , Susan phones the real estate agency to tell Jerry that someone was looking for him , only to be informed that Jerry had quit several days ago .
+Susan		B-Subj
+phones		B-Pred
+the		B-Obj
+real		I-Obj
+estate		I-Obj
+agency		I-Obj
+
+In May 1918 , Lenin dispatched Stalin to the city of Tsaritsyn .
+Lenin		B-Subj
+dispatched		B-Pred
+Stalin		I-Pred
+to		I-Pred
+the		B-Obj
+city		I-Obj
+of		I-Obj
+Tsaritsyn		I-Obj
+
+He replaced Jonathan Groff in the Broadway production of the musical Spring Awakening , in the lead role of Melchior Gabor , on May 23 2008 .
+He		B-Subj
+replaced		B-Pred
+Jonathan		I-Pred
+Groff		I-Pred
+in		I-Pred
+the		B-Obj
+Broadway		I-Obj
+production		I-Obj
+of		I-Obj
+the		B-Obj
+musical		I-Obj
+Spring		I-Obj
+Awakening		I-Obj
+
+Amongst his victims in first-class cricket were the Pakistani pair of Zaheer Abbas and Mushtaq Mohammad , whom he dismissed in a tour match for Western Australia against the touring nation .
+he		B-Subj
+dismissed		B-Pred
+in		I-Pred
+a		B-Obj
+tour		I-Obj
+match		I-Obj
+
+He began to practice law in Montgomery and was elected a member of the Alabama House of Representatives in 1826 , serving until 1828 .
+He		B-Subj
+began		B-Pred
+to		I-Pred
+practice		I-Pred
+law		I-Pred
+in		I-Pred
+Montgomery		B-Obj
+
+Byrom was born at what is now the Wellington Inn , Manchester , in 1692 , The Wellington Inn is now a major tourist attraction , and his birth is commemorated by a plaque in the bar area .
+his		B-Subj
+birth		I-Subj
+is		B-Pred
+commemorated		I-Pred
+by		I-Pred
+a		B-Obj
+plaque		I-Obj
+
+His regiments had been decimated in earlier fighting , but Dean personally led tank-killer teams armed with the newly-arrived 3.5-inch rocket launchers to destroy the attacking North Korean T - 34 tanks .
+His		B-Subj
+regiments		I-Subj
+had		B-Pred
+been		I-Pred
+decimated		I-Pred
+in		I-Pred
+earlier		B-Obj
+fighting		I-Obj
+
+But Wolfowitz’s tenure as Ambassador was a notable success , largely owing to the fact that , in essence , he went native .
+Wolfowitz		B-Subj
+'s		O
+tenure		I-Subj
+was		B-Pred
+a		I-Pred
+notable		I-Pred
+success		I-Pred
+largely		I-Pred
+owing		I-Pred
+to		I-Pred
+the		B-Obj
+fact		I-Obj
+
+Umbriatico is a comune and town in the province of Crotone , in Calabria , southern Italy .
+Umbriatico		B-Subj
+is		B-Pred
+a		B-Obj
+comune		I-Obj
+and		I-Obj
+town		I-Obj
+in		I-Obj
+the		I-Obj
+province		I-Obj
+of		I-Obj
+Crotone		I-Obj
+,		O
+in		I-Obj
+Calabria		I-Obj
+,		O
+southern		I-Obj
+Italy		I-Obj
+
+In 2005 , Gruner + Jahr exited the U.S. magazine business , selling its women 's magazine portfolio to the Meredith Corporation and its business magazine portfolio to Mansueto Ventures .
+Gruner		B-Subj
++		O
+Jahr		I-Subj
+exited		B-Pred
+the		B-Obj
+U.S.		O
+magazine		I-Obj
+business		I-Obj
+
+The car has had two revisions since its inception in China , the first facelift borrowed spare grilles left around from the fourth generation Volkswagen Passat in 1997 .
+The		B-Subj
+car		I-Subj
+has		B-Pred
+had		I-Pred
+two		I-Pred
+revisions		I-Pred
+since		I-Pred
+its		B-Obj
+inception		I-Obj
+
+As a part of Jeff Bowden 's agreement with Florida State and Seminole Boosters , Inc. , he will receive an $ 107,500 annually , or $ 537,000 total , through August 2012 from the Booster club .
+he		B-Subj
+will		B-Pred
+receive		I-Pred
+an		I-Pred
+$		O
+107,500		O
+annually		I-Pred
+,		O
+or		I-Pred
+$		O
+537,000		O
+total		I-Pred
+,		O
+through		I-Pred
+August		B-Obj
+2012		I-Obj
+
+In South Africa , Blue Water High is aired twice a week on Go on the local satellite system , DSTV on channel 123 .
+Blue		B-Subj
+Water		I-Subj
+High		I-Subj
+is		B-Pred
+aired		I-Pred
+twice		I-Pred
+on		I-Pred
+Go		B-Obj
+
+Cordero was born Federico Arturo Cordero Salguero in Río Piedras , Puerto Rico , a town which is now part the San Juan , the capital of Puerto Rico .
+Cordero		B-Subj
+was		B-Pred
+born		I-Pred
+Federico		B-Obj
+Arturo		I-Obj
+Cordero		I-Obj
+Salguero		I-Obj
+
+Lenneth tells him to forget about her and kisses him before he departs but Lucian continues to brood upon Lenneth and Platina .
+Lucian		B-Subj
+continues		B-Pred
+to		I-Pred
+brood		B-Obj
+
+More recently , Maberly teamed up with a London area music producer to record several of her own songs for a new EP .
+No extractions found.
+
+His season was cut short when on September 1 , he was hit on the hand by Texas Rangers pitcher C.J. Wilson .
+he		B-Subj
+was		B-Pred
+hit		I-Pred
+on		I-Pred
+the		B-Obj
+hand		I-Obj
+
+The Space Between is a song written by the Dave Matthews Band .
+a		B-Subj
+song		I-Subj
+be		B-Pred
+written		I-Pred
+by		I-Pred
+the		B-Obj
+Dave		I-Obj
+Matthews		I-Obj
+Band		I-Obj
+
+Edison Stairs was elected as the Progressive Conservative Party member for Carleton in 1960 , 1963 , and 1967 , sitting as a member of the Official Opposition .
+Edison		B-Subj
+Stairs		I-Subj
+was		B-Pred
+elected		I-Pred
+as		I-Pred
+the		B-Obj
+Progressive		I-Obj
+Conservative		I-Obj
+Party		I-Obj
+member		I-Obj
+
+Dawes Township is one of eleven townships in Thurston County , Nebraska , United States .
+Dawes		B-Subj
+Township		I-Subj
+is		B-Pred
+one		B-Obj
+of		I-Obj
+eleven		I-Obj
+townships		I-Obj
+
+Lakitelek is a large village in Bács-Kiskun county , in the Southern Great Plain region of southern Hungary .
+Lakitelek		B-Subj
+is		B-Pred
+a		I-Pred
+large		I-Pred
+village		I-Pred
+in		I-Pred
+the		B-Obj
+Southern		I-Obj
+Great		I-Obj
+Plain		I-Obj
+region		I-Obj
+of		I-Obj
+southern		I-Obj
+Hungary		I-Obj
+
+The Dynix corporation was founded in 1983 , and SirsiDynix was formed by the merger of the Sirsi and Dynix corporations in June 2005 .
+SirsiDynix		B-Subj
+was		B-Pred
+formed		I-Pred
+by		I-Pred
+the		B-Obj
+merger		I-Obj
+of		I-Obj
+the		B-Obj
+Sirsi		I-Obj
+and		I-Obj
+Dynix		I-Obj
+corporations		I-Obj
+
+Christie made a splash with her extraordinary performance as Jane Bennet in ITV 's critically acclaimed miniseries Lost in Austen , a modern twist on Austen 's Pride & Prejudice .
+Christie		B-Subj
+made		B-Pred
+a		I-Pred
+splash		I-Pred
+with		I-Pred
+her		B-Obj
+extraordinary		I-Obj
+performance		I-Obj
+
+The band began recording demos for their next album at The Gallows Studio in Muncie , Indiana .
+The		B-Subj
+band		I-Subj
+began		B-Pred
+recording		I-Pred
+demos		I-Pred
+for		I-Pred
+their		B-Obj
+next		I-Obj
+album		I-Obj
+
+He reached the third round at the U.S. Open , where he lost to Thai Paradorn Srichaphan after defeating countryman Tommy Robredo in the first round and Italian Davide Sanguinetti in the second round .
+He		B-Subj
+reached		B-Pred
+the		B-Obj
+third		I-Obj
+round		I-Obj
+
+The Mount Royal Arena was an indoor arena located in Montreal , Canada at the corner of Mount Royal and St . Urbain Street .
+an		B-Subj
+indoor		I-Subj
+arena		I-Subj
+be		B-Pred
+located		I-Pred
+at		I-Pred
+the		B-Obj
+corner		I-Obj
+of		I-Obj
+Mount		I-Obj
+Royal		I-Obj
+
+While filming an item for Countryfile in 2002 , Strachan entered the World Gurning competition at Egremont Crab Fair .
+Strachan		B-Subj
+entered		B-Pred
+the		B-Obj
+World		I-Obj
+Gurning		I-Obj
+competition		I-Obj
+
+She was born April 3 , 1951 in Berkeley , California .
+She		B-Subj
+was		B-Pred
+born		I-Pred
+in		I-Pred
+Berkeley		B-Obj
+
+North Luffenham is a village in Rutland , in the East Midlands of England .
+North		B-Subj
+Luffenham		I-Subj
+is		B-Pred
+a		I-Pred
+village		I-Pred
+in		I-Pred
+the		B-Obj
+East		I-Obj
+Midlands		I-Obj
+of		I-Obj
+England		I-Obj
+
+WKY operated from the Skirvin Hotel in downtown Oklahoma City from 1936 to 1951 , and was contracted to broadcast live from the Venetian Room from 11:00 to Midnight every evening .
+WKY		B-Subj
+operated		B-Pred
+from		I-Pred
+1936		B-Obj
+
+Amuro returned to solo activities on her own with the single " Shine More " , released on March 6 , 2003 .
+Amuro		B-Subj
+returned		B-Pred
+to		I-Pred
+solo		I-Pred
+activities		I-Pred
+on		I-Pred
+her		B-Obj
+own		I-Obj
+
+They formed in the late 1950s in junior high school and consisted of Hightower , Davis , and three Brickley sisters : Shirley , Jean , and Audrey .
+They		B-Subj
+formed		B-Pred
+in		I-Pred
+the		B-Obj
+late		I-Obj
+1950s		I-Obj
+
+In 2008 he returned once again to perform as a part of a two-hander with John Robins in their show - Carl Donnelly Vs John Robins Vs Predator .
+he		B-Subj
+returned		B-Pred
+once		I-Pred
+again		I-Pred
+to		I-Pred
+perform		I-Pred
+as		I-Pred
+a		B-Obj
+part		I-Obj
+of		I-Obj
+a		B-Obj
+two-hander		O
+
+As Sid was about to powerbomb Vader , Vader 's manager Jim Cornette got on the ring apron to distract him .
+Vader		B-Subj
+got		B-Pred
+on		I-Pred
+the		B-Obj
+ring		I-Obj
+apron		I-Obj
+to		I-Obj
+distract		I-Obj
+him		I-Obj
+
+Guillermo Billinghurst was overthrown on February 4 , 1914 , in a military coup headed by colonel Oscar R. Benavides , Javier and Manuel Prado , and conservatives members of the Civilista Party .
+Guillermo		B-Subj
+Billinghurst		I-Subj
+was		B-Pred
+overthrown		I-Pred
+in		I-Pred
+a		B-Obj
+military		I-Obj
+coup		I-Obj
+headed		I-Obj
+by		I-Obj
+colonel		I-Obj
+Oscar		I-Obj
+R.		O
+Benavides		I-Obj
+,		O
+Javier		I-Obj
+and		I-Obj
+Manuel		I-Obj
+Prado		I-Obj
+
+Battaramulla has always been an adjunct to Kotte , which lay on the opposite side of the Diyawanna Oya .
+Kotte		B-Subj
+lay		B-Pred
+on		I-Pred
+the		B-Obj
+opposite		I-Obj
+side		I-Obj
+of		I-Obj
+the		B-Obj
+Diyawanna		I-Obj
+Oya		I-Obj
+
+On December 10 against the New England Patriots , he had three tackles including 1.5 sacks for a total of 10.5 yards in losses , tackling quarterback Tom Brady for a five-yard loss and sharing an 11-yard sack of Brady with defensive tackle Vonnie Holliday .
+an		B-Subj
+11-yard		O
+sack		I-Subj
+of		I-Subj
+Brady		I-Subj
+be		B-Pred
+sharing		I-Pred
+with		I-Pred
+defensive		B-Obj
+tackle		I-Obj
+Vonnie		I-Obj
+Holliday		I-Obj
+
+On October 26 , 1997 , he married natural resources attorney Susan Daggett in Marianna , Arkansas .
+he		B-Subj
+married		B-Pred
+natural		I-Pred
+resources		I-Pred
+attorney		I-Pred
+Susan		I-Pred
+Daggett		I-Pred
+in		I-Pred
+Marianna		B-Obj
+
+Achmat publicly refused to take AIDS medications until all who needed them had access to them , which drew former President Nelson Mandela to plead with Achmat at his home to begin drug therapy .
+Achmat		B-Subj
+publicly		B-Pred
+refused		I-Pred
+to		I-Pred
+take		I-Pred
+AIDS		B-Obj
+medications		I-Obj
+until		B-enabler
+all		I-enabler
+who		I-enabler
+needed		I-enabler
+them		I-enabler
+had		I-enabler
+access		I-enabler
+to		I-enabler
+them		I-enabler
+,		O
+which		I-enabler
+drew		I-enabler
+former		I-enabler
+President		I-enabler
+Nelson		I-enabler
+Mandela		I-enabler
+to		I-enabler
+plead		I-enabler
+with		I-enabler
+Achmat		I-enabler
+at		I-enabler
+his		I-enabler
+home		I-enabler
+to		I-enabler
+begin		I-enabler
+drug		I-enabler
+therapy		I-enabler
+
+The Skeleton King later merged with the demon Dark One , only to have him decapitated by the Hyperforce .
+The		B-Subj
+Skeleton		I-Subj
+King		I-Subj
+later		B-Pred
+merged		I-Pred
+with		I-Pred
+the		B-Obj
+demon		I-Obj
+
+Nero was born Francesco Sparanero in San Prospero , Emilia-Romagna , and grew up in Bedonia and in Milan .
+Nero		B-Subj
+was		B-Pred
+born		I-Pred
+Francesco		B-Obj
+Sparanero		I-Obj
+
+Chesler taught one of the first Women 's Studies classes at Richmond College in New York City during the 1969-1970 school year .
+Chesler		B-Subj
+taught		B-Pred
+one		I-Pred
+of		I-Pred
+the		I-Pred
+first		I-Pred
+Women		I-Pred
+'s		O
+Studies		I-Pred
+classes		I-Pred
+at		I-Pred
+Richmond		B-Obj
+College		I-Obj
+
+The coldest temperature ever recorded in the city was - 40°F , on January 17 , 1982 , also known as Cold Sunday .
+40°F		O
+be		B-Pred
+also		I-Pred
+known		I-Pred
+as		I-Pred
+Cold		B-Obj
+Sunday		I-Obj
+
+As if early elimination from the playoff race was n't enough , July saw the team suffer two 8-0 demolitions by Des Moines Menace and in the last game of the season at St . Louis Lions , bringing a difficult freshman year to an ignominious close .
+the		B-Subj
+team		I-Subj
+suffer		B-Pred
+two		I-Pred
+8-0		O
+demolitions		I-Pred
+by		I-Pred
+Des		B-Obj
+Moines		I-Obj
+Menace		I-Obj
+and		I-Obj
+in		I-Obj
+the		I-Obj
+last		I-Obj
+game		I-Obj
+of		I-Obj
+the		I-Obj
+season		I-Obj
+
+After a hiatus from the entertainment industry , Riley re-emerged in the early 2000s as a star in a number of gospel plays for best-selling playwright Tyler Perry , including Madea 's Class Reunion , Madea Goes to Jail , Why Did I Get Married ? , and the film version of Diary of a Mad Black Woman .
+Riley		B-Subj
+re-emerged		O
+in		I-Pred
+the		B-Obj
+early		I-Obj
+2000s		I-Obj
+
+Having met New Deal brain trust planner Rexford Tugwell in the late 1930s , he was invited to move to Puerto Rico in 1944 and collaborate in the design of post-war modern Puerto Rico .
+he		B-Subj
+to		B-Pred
+move		I-Pred
+to		B-Pred
+Puerto		B-Obj
+Rico		I-Obj
+
+Armed Forces of the Philippines chief of staff General Hermogenes Esperon , Jr. linked Senator Panfilo Lacson to the February 6 , 2005 Coup d 'état plot .
+J		B-Subj
+linked		B-Pred
+Senator		I-Pred
+Panfilo		I-Pred
+Lacson		I-Pred
+to		I-Pred
+the		B-Obj
+February		I-Obj
+6		I-Obj
+
+He was a producer on several Australian television series for Crawford Productions including soap opera The Box in 1976-77 , and police procedural drama series Bluey and Homicide .
+He		B-Subj
+was		B-Pred
+a		I-Pred
+producer		I-Pred
+on		I-Pred
+several		B-Obj
+Australian		I-Obj
+television		I-Obj
+series		I-Obj
+
+After the release of her album and a guest-appearance with Gang Starr alongside Kurupt in 1998 , Rage left Death Row Records and the music industry generally to focus on acting , appearing in an episode of Kenan & Kel .
+Rage		B-Subj
+left		B-Pred
+Death		B-Obj
+Row		I-Obj
+Records		I-Obj
+and		I-Obj
+the		I-Obj
+music		I-Obj
+industry		I-Obj
+generally		I-Obj
+to		I-Obj
+focus		I-Obj
+on		I-Obj
+acting		I-Obj
+,		O
+appearing		I-Obj
+in		I-Obj
+an		I-Obj
+episode		I-Obj
+of		I-Obj
+Kenan		I-Obj
+&		O
+Kel		I-Obj
+
+By January 27 , 1944 the squadron was operating from an airfield at Cape Torokina on Bougainville and from here the squadron began taking part in the air strikes against the Japanese garrison at Rabaul , the Japanese naval base at Kavieng , New Ireland and against Japanese shipping near the Bismarck Archipelago .
+the		B-Subj
+squadron		I-Subj
+began		B-Pred
+taking		I-Pred
+part		I-Pred
+in		I-Pred
+the		B-Obj
+air		I-Obj
+
+Hutt Park railway station was on the privately owned but government operated Hutt Park Railway in Petone , a suburb of the city of Lower Hutt in the Wellington region of New Zealand’s North Island .
+government		B-Subj
+operated		B-Pred
+Hutt		I-Pred
+Park		I-Pred
+Railway		I-Pred
+in		I-Pred
+Petone		B-Obj
+
+Spring Creek Township is one of thirty-one townships in Custer County , Nebraska , United States .
+Spring		B-Subj
+Creek		I-Subj
+Township		I-Subj
+is		B-Pred
+one		B-Obj
+of		I-Obj
+thirty-one		O
+townships		I-Obj
+
+The Notre Dame Academy and Convent is located at 3501 State Street in the Florence neighborhood on the north end of Omaha , Nebraska .
+The		B-Subj
+Notre		I-Subj
+Dame		I-Subj
+Academy		I-Subj
+and		I-Subj
+Convent		I-Subj
+is		B-Pred
+located		I-Pred
+at		I-Pred
+3501		B-Obj
+State		I-Obj
+Street		I-Obj
+
+Greatest Hits is a Best of compilation album by Will Smith released in January 2002 on Columbia Records .
+a		B-Subj
+Best		I-Subj
+of		I-Subj
+compilation		I-Subj
+album		I-Subj
+released		B-Pred
+in		I-Pred
+January		B-Obj
+2002		I-Obj
+
+During his time as a student in Berlin , he was involved in the building of the 145 m long " Tunnel 57 " below the Berlin Wall , which was the escape route of 57 people from East Berlin to the West .
+he		B-Subj
+was		B-Pred
+involved		I-Pred
+in		I-Pred
+the		B-Obj
+building		I-Obj
+of		I-Obj
+the		B-Obj
+145		I-Obj
+m		I-Obj
+long		I-Obj
+
+Carroll became an international cause célèbre when she was kidnapped in Baghdad on January 7 , 2006 .
+she		B-Subj
+was		B-Pred
+kidnapped		I-Pred
+in		I-Pred
+Baghdad		B-Obj
+
+In 1997 the band reached a wider audience supporting U.S. goth-metal act Type O Negative .
+the		B-Subj
+band		I-Subj
+reached		B-Pred
+a		B-Obj
+wider		I-Obj
+audience		I-Obj
+supporting		I-Obj
+U.S.		O
+goth-metal		O
+act		I-Obj
+Type		I-Obj
+O		I-Obj
+Negative		I-Obj
+
+After CSKA qualified for the round of 16 of the UEFA Cup 2008–09 , he was called back from the loan and on 12 March 2009 was registered as a CSKA player .
+he		B-Subj
+was		B-Pred
+called		I-Pred
+back		I-Pred
+from		I-Pred
+the		B-Obj
+loan		I-Obj
+CSKA		B-enabler
+qualified		I-enabler
+for		I-enabler
+the		I-enabler
+round		I-enabler
+of		I-enabler
+16		I-enabler
+of		I-enabler
+the		I-enabler
+UEFA		I-enabler
+Cup		I-enabler
+2008–09		O
+
+He came to Tehran in 1980 and continued studying traditional arrangements under Mohammad Reza Lotfi and his brother Pashang .
+He		B-Subj
+came		B-Pred
+continued		I-Pred
+to		I-Pred
+Tehran		B-Obj
+
+For fourteen years after graduating , Hatch worked as an Attorney at law in Pittsburgh and Utah .
+Hatch		B-Subj
+worked		B-Pred
+as		I-Pred
+an		B-Obj
+Attorney		I-Obj
+
+Dell Curry is the father of Stephen Curry , who played basketball at Davidson College in Davidson , North Carolina , and was chosen 7th overall by the Golden State Warriors in the 2009 NBA Draft .
+Dell		B-Subj
+Curry		I-Subj
+is		B-Pred
+the		I-Pred
+father		I-Pred
+of		I-Pred
+Stephen		B-Obj
+Curry		I-Obj
+
+Dhoni , when he was on 4 during his innings of 23 against Sri Lanka at R.Premadasa Stadium , Colombo on Saturday , completed his 4,000 runs in ODIs .
+he		B-Subj
+was		B-Pred
+on		I-Pred
+4		B-Obj
+
+Lorenzo R. Stone House is a historic house at 218 South Street in Southbridge , Massachusetts .
+Lorenzo		B-Subj
+R.		O
+Stone		I-Subj
+House		I-Subj
+is		B-Pred
+a		I-Pred
+historic		I-Pred
+house		I-Pred
+at		I-Pred
+218		B-Obj
+South		I-Obj
+Street		I-Obj
+
+Turner also starred in the film , portraying a young woman whose friends help her find a new girlfriend , Ely , portayed by VS Brodie .
+Turner		B-Subj
+also		B-Pred
+starred		I-Pred
+in		I-Pred
+the		B-Obj
+film		I-Obj
+
+Years after his marriage to Gemma , he met Beatrice again .
+Years		B-Subj
+met		B-Pred
+again		I-Pred
+Beatrice		B-Obj
+
+During his freshman year at Ohio State University , he had what is considered one of the greatest freshmen seasons in NCAA Division I-A history , and helped to lead the Buckeyes to a national championship .
+he		B-Subj
+helped		B-Pred
+to		I-Pred
+lead		I-Pred
+the		I-Pred
+Buckeyes		I-Pred
+to		I-Pred
+a		B-Obj
+national		I-Obj
+championship		I-Obj
+
+At the Southern Commercial Convention of 1854 , Pike said the South should remain in the Union and seek equality with the North , but if the South " were forced into an inferior status , she would be better out of the Union than in it . " .
+the		B-Subj
+South		I-Subj
+should		B-Pred
+remain		I-Pred
+in		I-Pred
+the		B-Obj
+Union		I-Obj
+Pike		B-attrib
+said		I-attrib
+
+Junge was originally drafted by the Los Angeles Dodgers in the 1999 amateur draft and was then traded to the Philadelphia Phillies in .
+Junge		B-Subj
+was		B-Pred
+originally		I-Pred
+drafted		I-Pred
+by		I-Pred
+the		B-Obj
+Los		I-Obj
+Angeles		I-Obj
+Dodgers		I-Obj
+
+The song was recorded in 2003 , and was supposed to be included on her third album " Still " , eventually released under the title " More " .
+The		B-Subj
+song		I-Subj
+was		B-Pred
+recorded		I-Pred
+in		I-Pred
+2003		B-Obj
+
+It takes encouragement from one of the schoolboys to persuade David to contemplate life without his wife , but he carries on for the sake of Grace .
+It		B-Subj
+takes		B-Pred
+encouragement		I-Pred
+from		I-Pred
+one		B-Obj
+of		I-Obj
+the		I-Obj
+schoolboys		I-Obj
+
+They headlined in late 2006 with Saosin and Bleeding Through as supporters .
+They		B-Subj
+headlined		B-Pred
+in		I-Pred
+late		B-Obj
+2006		I-Obj
+
+The Edward C. Peters House , also known as Ivy Hall , is a Queen Anne style house in Atlanta , Georgia .
+The		B-Subj
+Edward		I-Subj
+C.		O
+Peters		I-Subj
+House		I-Subj
+be		B-Pred
+also		I-Pred
+known		I-Pred
+as		I-Pred
+Ivy		B-Obj
+Hall		I-Obj
+
+She appears not to have recorded after 1935 , and spent some time managing her son 's jazz group , Bogan 's Birmingham Busters , before moving to Los Angeles , California shortly before her death from coronary sclerosis in 1948 .
+She		B-Subj
+spent		B-Pred
+some		B-Obj
+time		I-Obj
+
+He completed his move to Premier League side Fulham on 4 June 2008 , on a two-year deal , for an undisclosed fee .
+his		B-Subj
+move		I-Subj
+be		B-Pred
+completed		I-Pred
+for		I-Pred
+an		B-Obj
+undisclosed		I-Obj
+fee		I-Obj
+
+Visiting Germany in 1937 , he was hosted by an anti-Nazi Protestant family whose children had been required to join the Hitler Youth .
+he		B-Subj
+was		B-Pred
+hosted		I-Pred
+by		I-Pred
+an		B-Obj
+anti-Nazi		O
+Protestant		I-Obj
+family		I-Obj
+whose		I-Obj
+children		I-Obj
+had		I-Obj
+been		I-Obj
+required		I-Obj
+to		I-Obj
+join		I-Obj
+the		I-Obj
+Hitler		I-Obj
+Youth		I-Obj
+
+The Breitling watchmaking company was founded in Saint-Imier , but moved to Grenchen , Canton of Solothurn .
+The		B-Subj
+Breitling		I-Subj
+watchmaking		I-Subj
+company		I-Subj
+was		B-Pred
+founded		I-Pred
+in		I-Pred
+Saint-Imier		O
+
+7939 Asphaug is an asteroid named for Dr. Erik I. Asphaug , recipient of the 1998 H. C. Urey Prize and a professor at the University of California , Santa Cruz .
+7939		B-Subj
+Asphaug		I-Subj
+is		B-Pred
+an		B-Obj
+asteroid		I-Obj
+named		I-Obj
+for		I-Obj
+Dr.		O
+Erik		I-Obj
+I.		O
+Asphaug		I-Obj
+,		O
+recipient		I-Obj
+of		I-Obj
+the		I-Obj
+1998		I-Obj
+H.		O
+C.		O
+Urey		I-Obj
+Prize		I-Obj
+and		I-Obj
+a		I-Obj
+professor		I-Obj
+at		I-Obj
+the		I-Obj
+University		I-Obj
+of		I-Obj
+California		I-Obj
+,		O
+Santa		I-Obj
+Cruz		I-Obj
+
+Michael VIII struck back , by marrying his illegitimate daughter Euphrosyne to Nogai Khan of the Golden Horde , who pillaged Bulgaria as a Byzantine ally in 1274 .
+Bulgaria		B-Subj
+be		B-Pred
+pillaged		I-Pred
+as		I-Pred
+a		B-Obj
+Byzantine		I-Obj
+ally		I-Obj
+
+He was also featured in cover articles for TV Guide and Instinct .
+He		B-Subj
+was		B-Pred
+also		I-Pred
+featured		I-Pred
+in		I-Pred
+cover		B-Obj
+articles		I-Obj
+
+He threatens us and we are all afraid of him and he does n't believe in the religion of Islam . " .
+he		B-Subj
+does		B-Pred
+n't		O
+believe		I-Pred
+in		I-Pred
+the		B-Obj
+religion		I-Obj
+of		I-Obj
+Islam		I-Obj
+
+The episode was written by Kevin Murphy and Kevin Etten and directed by David Grossman .
+The		B-Subj
+episode		I-Subj
+was		B-Pred
+written		I-Pred
+by		I-Pred
+Kevin		B-Obj
+Murphy		I-Obj
+and		I-Obj
+Kevin		B-Obj
+Etten		I-Obj
+
+As Commanding General of the newly formed Eighth Army , he led the invasion of the Philippines clearing the islands of Mindoro , Marinduque , Panay , Negros , Cebu and Bohol .
+he		B-Subj
+led		B-Pred
+the		B-Obj
+invasion		I-Obj
+of		I-Obj
+the		B-Obj
+Philippines		I-Obj
+
+However , he only ran the team for one game before National League president Chub Feeney told him that managers are not allowed to own financial interest in their club .
+he		B-Subj
+However		B-Pred
+only		I-Pred
+ran		I-Pred
+the		B-Obj
+team		I-Obj
+before		B-enabler
+National		I-enabler
+League		I-enabler
+president		I-enabler
+Chub		I-enabler
+Feeney		I-enabler
+told		I-enabler
+him		I-enabler
+that		I-enabler
+managers		I-enabler
+are		I-enabler
+not		I-enabler
+allowed		I-enabler
+to		I-enabler
+own		I-enabler
+financial		I-enabler
+interest		I-enabler
+in		I-enabler
+their		I-enabler
+club		I-enabler
+
+When Rick Perry became Governor of Texas in January 2001 , he tapped Connor to serve as the Deputy Secretary in the office of the Texas Secretary of State .
+Rick		B-Subj
+Perry		I-Subj
+became		B-Pred
+Governor		I-Pred
+of		I-Pred
+Texas		B-Obj
+
+As the band struggled to find support slots on upcoming tours without the help of a booking agent , they played locally in Southern California throughout the winter of 2004 and the spring of 2005 .
+they		B-Subj
+played		B-Pred
+locally		I-Pred
+in		I-Pred
+Southern		B-Obj
+California		I-Obj
+As		B-enabler
+the		I-enabler
+band		I-enabler
+struggled		I-enabler
+to		I-enabler
+find		I-enabler
+support		I-enabler
+slots		I-enabler
+on		I-enabler
+upcoming		I-enabler
+tours		I-enabler
+without		I-enabler
+the		I-enabler
+help		I-enabler
+of		I-enabler
+a		I-enabler
+booking		I-enabler
+agent		I-enabler
+
+A collection of her art was displayed at an exhibition in Tehran by supporters campaigning to release her .
+A		B-Subj
+collection		I-Subj
+of		I-Subj
+her		I-Subj
+art		I-Subj
+was		B-Pred
+displayed		I-Pred
+at		I-Pred
+an		B-Obj
+exhibition		I-Obj
+
+In 1864 , the Australian Black Swan was introduced to New Zealand as an ornamental waterfowl , and populations are now common on larger coastal or inland lakes , especially Rotorua Lakes , Lake Wairarapa and Lake Ellesmere , and the Chatham Islands .
+the		B-Subj
+Australian		I-Subj
+Black		I-Subj
+Swan		I-Subj
+was		B-Pred
+introduced		I-Pred
+to		I-Pred
+New		B-Obj
+Zealand		I-Obj
+
+In 2005 , the airline launched codeshare flights with Lufthansa to Germany from Shanghai .
+the		B-Subj
+airline		I-Subj
+launched		B-Pred
+codeshare		I-Pred
+flights		I-Pred
+with		I-Pred
+Lufthansa		I-Pred
+to		I-Pred
+Germany		B-Obj
+
+While in the CF , he completed the year-long course at the Canadian Forces Command and Staff College and received a Master of Arts in war studies degree from Royal Military College of Canada , student # G0053 in 1980 .
+he		B-Subj
+completed		B-Pred
+the		I-Pred
+year-long		O
+course		I-Pred
+at		I-Pred
+the		B-Obj
+Canadian		I-Obj
+Forces		I-Obj
+Command		I-Obj
+and		I-Obj
+Staff		I-Obj
+College		I-Obj
+
+She has practiced law with Boult , Cummings , Conners & Berry , PLC in Nashville ; Cunningham , Mitchell , Hicks & McMillan , in Clarksville ; and with her husband in McMillan and McMillan , the Clarksville firm they founded .
+She		B-Subj
+has		B-Pred
+practiced		I-Pred
+law		B-Obj
+
+Another historian , Robert Jan Van Pelt , wrote a report on the gassing facilities at Auschwitz , and Browning wrote a report on the evidence for the extermination of the Jews on a wider scale .
+Browning		B-Subj
+wrote		B-Pred
+a		B-Obj
+report		I-Obj
+
+He died in Washington , D.C. on April 10 , 1907 and was interred in Lakeside Cemetery in Bryant Pond , Maine .
+He		B-Subj
+died		B-Pred
+in		I-Pred
+Washington		B-Obj
+
+He then was able to appoint all new leaders for this land , most of the people he appointed as governors were young men , some were his friends , like Matsukata Masayoshi , and others were the rare Japanese who had gained some education in Europe or America .
+his		B-Subj
+friends		I-Subj
+,		O
+like		I-Subj
+Matsukata		I-Subj
+Masayoshi		I-Subj
+,		O
+and		I-Subj
+others		I-Subj
+were		B-Pred
+the		B-Obj
+rare		I-Obj
+Japanese		I-Obj
+
+He played eleven seasons in the majors as an outfielder for the Milwaukee Braves , Houston Astros , Cleveland Indians , Washington Senators , and Chicago White Sox .
+He		B-Subj
+played		B-Pred
+eleven		I-Pred
+seasons		I-Pred
+in		I-Pred
+the		B-Obj
+majors		I-Obj
+
+He also scored the second and decisive try against Munster when Tigers retained the cup the following year .
+Tigers		B-Subj
+retained		B-Pred
+the		B-Obj
+cup		I-Obj
+
