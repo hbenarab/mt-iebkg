@@ -57,7 +57,7 @@ def _get_spo(extractions):
     return spo_words, spo_extraction_prep
 
 
-def _get_words_groups(extractions):
+def _get_words_groups(extractions,is_groundtruth):
     [spo_words, spo_extraction] = _get_spo(extractions)
     # context_words = []
     # context_label = ''
@@ -65,7 +65,10 @@ def _get_words_groups(extractions):
     if len(extractions) > 1:
         contexts=extractions[1:]
         for cont in contexts:
-            [context_label, context_words] = cont.split(':')
+            if is_groundtruth:
+                [context_label, context_words] = cont.split(':')
+            else:
+                [context_label, context_words] = cont.split('=')
             context_words=context_words.strip()
             not_prep_words=context_words.split(' ')
             prep_words=[]
@@ -105,8 +108,11 @@ def _add_spo_tags(elem, spo_extraction):
     return to_write
 
 
-def _add_context_tags(word, cont_dict):
-    cont_labels_dictionary={'a':'attrib','e':'enabler','l':'location','t':'time'}
+def _add_context_tags(word, cont_dict,is_groundtruth):
+    if is_groundtruth:
+        cont_labels_dictionary={'a':'attrib','e':'enabler','l':'location','t':'time'}
+    else:
+        cont_labels_dictionary={'attrib':'attrib','enabler':'enabler','l':'location','t':'time'}
     to_write=''
     cont_keys=list(cont_dict.keys())
     cont_values=list(cont_dict.values())
@@ -129,9 +135,9 @@ def _add_context_tags(word, cont_dict):
     return to_write
 
 
-def get_iob(sentence, extractions):
+def get_iob(sentence, extractions,is_groundtruth):
     to_write = ''
-    [spo_words, spo_extraction, cont_dict] = _get_words_groups(extractions)
+    [spo_words, spo_extraction, cont_dict] = _get_words_groups(extractions,is_groundtruth)
     cont_dict_values=list(cont_dict.values())
     assert len(cont_dict_values)==len(list(cont_dict.keys()))
     cont_words=[]
@@ -142,7 +148,7 @@ def get_iob(sentence, extractions):
         if word in spo_words:
             to_write += _add_spo_tags(word, spo_extraction)
         elif word in cont_words:
-            to_write += _add_context_tags(word, cont_dict)
+            to_write += _add_context_tags(word, cont_dict,is_groundtruth=is_groundtruth)
         else:
             to_write += word + '\t\t' + 'O'+'\n'
 

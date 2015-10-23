@@ -1,12 +1,12 @@
 __author__ = 'heni'
 
 import os
-import argparse
+import ollie_comparison.utils.tools
 
 
 def _ollie_output_to_log(ollie_groundtruth_file,log_file_name):
     ollie_groundtruth=open(ollie_groundtruth_file,'r')
-    ollie_sentences=open('data/Ollie-trainingdata/ollie_trainset.txt','w')
+    ollie_sentences=open('data/ollie_trainset.txt','w')
 
     groundtruth_lines=ollie_groundtruth.readlines()
     written_sentences=[]
@@ -90,30 +90,23 @@ def _context_to_iob(context_extraction):
 
 
 def _write_to_output(ollie_output_file_iob,sentence_bloc):
-    ollie_output_file_iob.write(sentence_bloc[0])
+    # ollie_output_file_iob.write(sentence_bloc[0])
+    sentence_words=sentence_bloc[0].split(' ')
     if sentence_bloc[1]=='No extractions found.\n':
-        ollie_output_file_iob.write('No extractions found.\n')
+        # ollie_output_file_iob.write('No extractions found.\n')
+        to_write=''
+        for word in sentence_words:
+            to_write+=word+'\t\t'+'O'+'\n'
+        ollie_output_file_iob.write(sentence_bloc[0]+to_write)
+
     else:
-        extraction=sentence_bloc[1]
-        spo_cont_separation=extraction.split(')[')
-        # ollie_output_file_iob.write(extraction.split(': (')[0] + '\t')
-        spo_extraction=spo_cont_separation[0].split(': (')[1].split(';')
+        extraction=sentence_bloc[1].split(': (')[1:]
+        assert len(extraction)==1
+        spo_cont_separation=extraction[0].split(')[')
+        spo_extraction=spo_cont_separation[0].split(';')
         assert len(spo_extraction)==3
-        spo_ext_prep=[]
-        for phrase in spo_extraction:
-            if not phrase[0].isalnum():
-                phrase=phrase[1:]
-            if not phrase[-1].isalnum():
-                phrase=phrase[:-2]
-
-            spo_ext_prep.append(phrase)
-
-        assert len(spo_ext_prep)==3
-        if len(spo_cont_separation)==1:
-            ollie_output_file_iob.write(_spo_to_iob(spo_ext_prep))
-        else:
-            context_extraction=spo_cont_separation[1]
-            ollie_output_file_iob.write(_spo_to_iob(spo_ext_prep)+_context_to_iob(context_extraction))
+        to_write=ollie_comparison.utils.tools.get_iob(sentence_bloc[0][:-1],spo_cont_separation,is_groundtruth=False)
+        ollie_output_file_iob.write(sentence_bloc[0]+to_write)
 
     ollie_output_file_iob.write('\n')
 
@@ -141,13 +134,4 @@ def ollie_output_to_iob(ollie_groundtruth_file,ollie_log_file,ollie_output_iob):
     ollie_output_file_iob.close()
 
 
-ollie_output_to_iob('data/Ollie-trainingdata/ollie-scored.txt','data/Ollie-trainingdata/ollie_log.txt',
-                    'data/Ollie-trainingdata/ollie_output.iob.txt')
-
-# parser=argparse.ArgumentParser(description='Experiments on Ollie using the IOB format')
-# parser.add_argument('-g','--groundtruth', help='groundtruth',required=True)
-# parser.add_argument('-l','--log', help='log file of the Ollie output',required=True)
-# parser.add_argument('-o','--output', help='output file under the IOB format',required=True)
-# args = parser.parse_args()
-#
-# ollie_output_to_iob(args.groundtruth,args.log,args.output)
+ollie_output_to_iob('data/ollie-scored.txt','data/ollie_log.txt','data/ollie_output.iob.txt')

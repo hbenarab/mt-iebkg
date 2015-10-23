@@ -20,7 +20,7 @@ def convert_to_iob(ollie_input_file, ollie_output_file):
         except:
             continue
 
-        to_write=ollie_comparison.utils.tools.get_iob(line_elements[-1][:-1],spo_cont_separation)
+        to_write=ollie_comparison.utils.tools.get_iob(line_elements[-1][:-1],spo_cont_separation,is_groundtruth=True)
         iob_schema_file.write(line_elements[-1]+to_write)
         iob_schema_file.write('\n')
 
