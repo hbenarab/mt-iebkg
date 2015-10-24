@@ -1464,11 +1464,6 @@ While in the CF , he completed the year-long course at the Canadian Forces Comma
 0.678: (he; received; a Master of Arts)
 0.301: (student; be Royal Military College of; Canada)
 
-She has practiced law with Boult , Cummings , Conners & Berry , PLC in Nashville ; Cunningham , Mitchell , Hicks & McMillan , in Clarksville ; and with her husband in McMillan and McMillan , the Clarksville firm they founded .
-0.703: (She; has practiced; law)
-0.383: (PLC; has practiced law with; Boult)
-0.168: (McMillan and McMillan; be her husband in; the Clarksville firm)
-
 Another historian , Robert Jan Van Pelt , wrote a report on the gassing facilities at Auschwitz , and Browning wrote a report on the evidence for the extermination of the Jews on a wider scale .
 0.871: (Browning; wrote; a report)
 0.85: (Browning; wrote on; the evidence)

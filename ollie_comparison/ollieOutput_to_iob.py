@@ -5,24 +5,24 @@ import ollie_comparison.utils.tools
 
 
 def _ollie_output_to_log(ollie_groundtruth_file,log_file_name):
-    ollie_groundtruth=open(ollie_groundtruth_file,'r')
-    ollie_sentences=open('data/ollie_trainset.txt','w')
+    # ollie_groundtruth=open(ollie_groundtruth_file,'r')
+    # ollie_sentences=open('data/ollie_trainset.txt','r')
 
-    groundtruth_lines=ollie_groundtruth.readlines()
-    written_sentences=[]
-    for line in groundtruth_lines:
-        parts=line.split('\t')
-        sentence=parts[3]
-        if sentence not in written_sentences:
-            ollie_sentences.write(sentence)
-            written_sentences.append(sentence)
+    # groundtruth_lines=ollie_groundtruth.readlines()
+    # written_sentences=[]
+    # for line in groundtruth_lines:
+    #     parts=line.split('\t')
+    #     sentence=parts[3]
+    #     if sentence not in written_sentences:
+    #         ollie_sentences.write(sentence)
+    #         written_sentences.append(sentence)
 
-    ollie_sentences.close()
-    ollie_groundtruth.close()
+    # ollie_sentences.close()
+    # ollie_groundtruth.close()
 
-    os.system("cd ../ollie/ && java -Xmx512m -jar ollie-app-latest.jar "
-              "../evaluation/data/Ollie-trainingdata/ollie_trainset.txt >"
-              " ../evaluation/"+log_file_name)
+    os.system("cd ollie/ && java -Xmx512m -jar ollie-app-latest.jar "
+              "../data/ollie_trainset.txt >"
+              " ../"+log_file_name)
 
 
 def _spo_to_iob(spo_bloc):
@@ -91,7 +91,7 @@ def _context_to_iob(context_extraction):
 
 def _write_to_output(ollie_output_file_iob,sentence_bloc):
     # ollie_output_file_iob.write(sentence_bloc[0])
-    sentence_words=sentence_bloc[0].split(' ')
+    sentence_words=sentence_bloc[0][:-1].split(' ')
     if sentence_bloc[1]=='No extractions found.\n':
         # ollie_output_file_iob.write('No extractions found.\n')
         to_write=''

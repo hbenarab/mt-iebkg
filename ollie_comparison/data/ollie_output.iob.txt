@@ -56,8 +56,7 @@ a		O
 few		O
 with		O
 bacteria		O
-.
-		O
+.		O
 
 Source C. S. Henry et al . , The inheritance of mating songs in two cryptic , sibling lacewing species , Genetica 116 :269-289 .
 Source		O
@@ -93,8 +92,7 @@ made		O
 up		O
 of		O
 elements		O
-.
-		O
+.		O
 
 On the one hand , we cannot fully explain a higher level of order by breaking it down into its parts .
 On		O
@@ -139,8 +137,7 @@ energy		O
 under		O
 standard		O
 conditions		O
-.
-		O
+.		O
 
 Capillaries in the brain , heart , kidneys , and liver are usually filled to capacity , but at many other sites the blood supply varies over time as blood is diverted from one destination to another .
 Capillaries		B-Subj
@@ -547,8 +544,7 @@ of		O
 both		O
 animal		O
 trees		O
-.
-		O
+.		O
 
 Relative to other mammals , primates have a large brain and short jaws , giving them a flat face .
 Relative		O
@@ -1134,8 +1130,7 @@ herbivores		O
 the		O
 primary		O
 consumers		O
-.
-		O
+.		O
 
 The first step after sequencing the molecules is to align comparable sequences from the species being studied .
 The		B-Subj
@@ -1516,8 +1511,7 @@ in		O
 the		O
 phylum		O
 Zygomycota		O
-.
-		O
+.		O
 
 Cephalopods are the only molluscs with a closed circulatory system , in which the blood remains separate from fluid in the body cavity .
 Cephalopods		B-Subj
@@ -1722,8 +1716,7 @@ and		O
 the		O
 extracellular		O
 fluid		O
-.
-		O
+.		O
 
 The other major communication and control system is the nervous system , a network of specialized cells -- neurons -- that transmit signals along dedicated pathways .
 The		B-Subj
@@ -1961,8 +1954,7 @@ from		O
 other		O
 living		O
 apes		O
-.
-		O
+.		O
 
 But this approach , called reverse genetics , poses a new challenge : determining the phenotype from the genotype .
 But		O
@@ -2008,8 +2000,7 @@ refinement		O
 during		O
 the		O
 1600s		O
-.
-		O
+.		O
 
 Because of the high surface-to-volume ratio that goes with small size , deer mice lose body heat rapidly and must constantly generate metabolic heat to maintain body temperature .
 Because		O
@@ -2668,8 +2659,7 @@ share		O
 a		O
 year		O
 earlier		O
-.
-		O
+.		O
 
 Singer Bette Midler won a $ 400,000 federal court jury verdict against Young & Rubicam in a case that threatens a popular advertising industry practice of using `` sound-alike '' performers to tout products .
 Singer		B-Subj
@@ -3047,8 +3037,7 @@ to		O
 $		O
 200		O
 million		O
-.
-		O
+.		O
 
 Terry L. Haines , formerly general manager of Canadian operations , was elected to the new position of vice president , North American sales , of this plastics concern .
 Terry		B-Subj
@@ -4530,8 +4519,7 @@ were		O
 annexed		O
 by		O
 Italy		O
-.
-		O
+.		O
 
 On June 10 , the Reds were playing the first place St . Louis Cardinals at Crosley Field and trailing 13-0 in the ninth inning when Manager Bill McKechnie called on Nuxhall to enter the game .
 On		O
@@ -5624,8 +5612,7 @@ for		O
 a		O
 new		O
 EP		O
-.
-		O
+.		O
 
 His season was cut short when on September 1 , he was hit on the hand by Texas Rangers pitcher C.J. Wilson .
 His		O
@@ -7765,51 +7752,6 @@ student		O
 G0053		O
 in		O
 1980		O
-.		O
-
-She has practiced law with Boult , Cummings , Conners & Berry , PLC in Nashville ; Cunningham , Mitchell , Hicks & McMillan , in Clarksville ; and with her husband in McMillan and McMillan , the Clarksville firm they founded .
-She		B-Subj
-has		B-Pred
-practiced		I-Pred
-law		O
-with		O
-Boult		O
-,		O
-Cummings		O
-,		O
-Conners		O
-&		O
-Berry		O
-,		O
-PLC		O
-in		O
-Nashville		O
-;		O
-Cunningham		O
-,		O
-Mitchell		O
-,		O
-Hicks		O
-&		O
-McMillan		O
-,		O
-in		O
-Clarksville		O
-;		O
-and		O
-with		O
-her		O
-husband		O
-in		O
-McMillan		O
-and		O
-McMillan		O
-,		O
-the		O
-Clarksville		O
-firm		O
-they		O
-founded		O
 .		O
 
 Another historian , Robert Jan Van Pelt , wrote a report on the gassing facilities at Auschwitz , and Browning wrote a report on the evidence for the extermination of the Jews on a wider scale .
