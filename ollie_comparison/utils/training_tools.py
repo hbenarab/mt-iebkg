@@ -8,7 +8,8 @@ from preprocess.labeledText import LabeledText
 from rnn.elman_model import Elman
 
 
-def get_data_from_iob(iob_dataset_file):
+def get_data_from_iob(iob_dataset_path):
+    iob_dataset_file=open(iob_dataset_path,'r')
     lines = iob_dataset_file.readlines()
     data_to_add = [[], []]
     data_to_add[0].append([])
@@ -29,13 +30,14 @@ def get_data_from_iob(iob_dataset_file):
         assert len(data_to_add[0]) == len(data_to_add[1])
 
     assert len(data_to_add[0]) == len(data_to_add[1])
+    iob_dataset_file.close()
     return data_to_add
 
 
-def get_labeled_data(iob_dataset_file):
+def get_labeled_data(iob_dataset_path):
     labeled_data=LabeledText()
     data_length=[]
-    data_to_add = get_data_from_iob(iob_dataset_file)
+    data_to_add = get_data_from_iob(iob_dataset_path)
     labeled_data.addData(data_to_add)
     data_length.append(len(labeled_data.getData()[0]))
 
@@ -57,8 +59,8 @@ def create_network(settings, classes_number, vocab_size, folder):
     return rnn,rnn_fold
 
 
-def get_dict_from_iob(iob_dataset_file, wordEmb):
-
+def get_dict_from_iob(iob_dataset_path, wordEmb):
+    iob_dataset_file=open(iob_dataset_path,'r')
     print('The .iob file for %s has been found and a word2index dictionary will be created')
     lines = iob_dataset_file.readlines()
     i = 0
@@ -71,17 +73,17 @@ def get_dict_from_iob(iob_dataset_file, wordEmb):
             i += 1
         else:
             i += 1
-
+    iob_dataset_file.close()
     return wordEmb
 
 
-def create_word2ind(iob_dataset_file):
+def create_word2ind(iob_dataset_path):
     indices={
         'wordIndex': WordEmbeddings(),
         'labelIndex': WordEmbeddings()
     }
     print('Creating word embeddings for the Ollie groundtruth')
-    indices['wordIndex'].merge(get_dict_from_iob(iob_dataset_file,indices)['wordIndex'])
-    indices['wordIndex'].merge(get_dict_from_iob(iob_dataset_file,indices)['labelIndex'])
+    indices['wordIndex'].merge(get_dict_from_iob(iob_dataset_path,indices)['wordIndex'])
+    indices['wordIndex'].merge(get_dict_from_iob(iob_dataset_path,indices)['labelIndex'])
     print('Word embeddings dictionary created for the Ollie groundtruth')
     return indices

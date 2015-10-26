@@ -3,12 +3,10 @@ __author__ = 'heni'
 import datetime
 import math
 import numpy
-import time
-import sklearn.metrics
 
 from utils.tools import get_accuracy
 from ollie_comparison.utils.training_tools import create_word2ind,create_network,get_labeled_data
-from utils.tools import shuffle, minibatch, contextwin
+from utils.tools import shuffle
 
 
 def run_on_ollie_dataset(iob_ollie_dataset_path,use_cross_validation):
@@ -25,8 +23,8 @@ def run_on_ollie_dataset(iob_ollie_dataset_path,use_cross_validation):
                 'emb_dimension': 100,  # dimension of word embedding
                 'nepochs': 50}
 
-    iob_ollie_dataset_file=open(iob_ollie_dataset_path,'r')
-    indices=create_word2ind(iob_ollie_dataset_file)
+    # iob_ollie_dataset_file=open(iob_ollie_dataset_path,'r')
+    indices=create_word2ind(iob_ollie_dataset_path)
     words_index=indices['wordIndex']
     labels_index=indices['labelIndex']
     word2index = words_index.getCurrentIndex()
@@ -40,7 +38,7 @@ def run_on_ollie_dataset(iob_ollie_dataset_path,use_cross_validation):
     rnn,model_folder=create_network(settings,nclasses,vocsize,new_network_folder)
     print('RNN model created and saved under %s' % model_folder)
 
-    [labeled_data,labeled_data_size]=get_labeled_data(iob_ollie_dataset_file)
+    [labeled_data,labeled_data_size]=get_labeled_data(iob_ollie_dataset_path)
     print('Labeled data size for articles: ',labeled_data_size)
     sentences_list, labels_list = labeled_data.getData()
     while [] in sentences_list:
@@ -168,6 +166,8 @@ def run_on_ollie_dataset(iob_ollie_dataset_path,use_cross_validation):
         if current_learning_rate<1e-5: break
 
     print('BEST RESULT: epoch ', best_epoch, 'with best accuracy: ', best_accuracy, '.',)
+    # iob_ollie_dataset_file.close()
 
-
-
+# import sys
+# sys.path.append('/home/heni/git/masterThesisKG/mt-iebkg')
+run_on_ollie_dataset('data/ollie-scored.iob.txt',use_cross_validation=False)
