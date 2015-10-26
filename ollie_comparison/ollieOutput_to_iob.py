@@ -1,7 +1,7 @@
 __author__ = 'heni'
 
 import os
-import ollie_comparison.utils.tools
+import ollie_comparison.utils.preprocess_tools
 
 
 def _ollie_output_to_log(ollie_groundtruth_file,log_file_name):
@@ -105,7 +105,7 @@ def _write_to_output(ollie_output_file_iob,sentence_bloc):
         spo_cont_separation=extraction[0].split(')[')
         spo_extraction=spo_cont_separation[0].split(';')
         assert len(spo_extraction)==3
-        to_write=ollie_comparison.utils.tools.get_iob(sentence_bloc[0][:-1],spo_cont_separation,is_groundtruth=False)
+        to_write=ollie_comparison.utils.preprocess_tools.get_iob(sentence_bloc[0][:-1],spo_cont_separation,is_groundtruth=False)
         ollie_output_file_iob.write(sentence_bloc[0]+to_write)
 
     ollie_output_file_iob.write('\n')

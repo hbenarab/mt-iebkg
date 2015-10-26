@@ -153,3 +153,5 @@ def get_iob(sentence, extractions,is_groundtruth):
             to_write += word + '\t\t' + 'O'+'\n'
 
     return to_write
+
+

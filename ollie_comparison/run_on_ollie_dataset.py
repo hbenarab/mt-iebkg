@@ -1,124 +1,17 @@
 __author__ = 'heni'
 
-import os.path
-import pickle
-import numpy
 import datetime
 import math
+import numpy
 import time
 import sklearn.metrics
 
-from preprocess.wordemb import WordEmbeddings, create_word_index
-from preprocess.preprocess import get_iob
-from rnn.elman_model import Elman
-from preprocess.labeledText import LabeledText
-from utils.tools import get_accuracy,shuffle, minibatch, contextwin
-
-# this function aims to train a RNN
-# it takes as input:
-#   network_path: path to folder containing specific RNN configuration
-#   articles: list of articles on which the network will make his training
+from utils.tools import get_accuracy
+from ollie_comparison.utils.training_tools import create_word2ind,create_network,get_labeled_data
+from utils.tools import shuffle, minibatch, contextwin
 
 
-def create_network(settings, classes_number, vocab_size, folder):
-    print('Building RNN model...')
-    numpy.random.seed(settings['seed'])
-    rnn = Elman(nh=settings['nhidden'],
-                nc=classes_number,
-                ne=vocab_size,
-                de=settings['emb_dimension'],
-                cs=settings['win'])
-    rnn_fold = os.path.join('./data/rnnElman', folder)
-    os.makedirs(rnn_fold)
-    rnn.save(rnn_fold)
-    return rnn,rnn_fold
-
-
-def get_data_from_iob(article_name):
-    try:
-        article = open('./data/iob/' + str(article_name) + '.iob', 'r')
-    except:
-        raise Exception('No .iob file found for: %s .' % article_name)
-    # labeled_data=[[],[]]
-    lines = article.readlines()
-    # beg=0
-    # end=lines.index('\n')
-    data_to_add = [[], []]
-    data_to_add[0].append([])
-    data_to_add[1].append([])
-    print('Getting labeled data from the Wikipedia article: %s' % article_name)
-    for i in range(0, len(lines)):
-        line = lines[i]
-        if line == '\n':  # new sentence
-            data_to_add[0].append([])
-            data_to_add[1].append([])
-            assert len(data_to_add[0]) == len(data_to_add[1])
-            continue
-        if '\t\t' not in line:
-            continue
-        w_l = line.split('\t\t')
-        data_to_add[0][len(data_to_add[0]) - 1].append(w_l[0])
-        data_to_add[1][len(data_to_add[1]) - 1].append(w_l[1].replace('\n', ''))
-        assert len(data_to_add[0]) == len(data_to_add[1])
-
-    assert len(data_to_add[0]) == len(data_to_add[1])
-    return data_to_add
-
-
-# This function allows to create a dictionary from an already generated .iob file
-def get_dict_from_iob(article_name, wordEmb):
-    try:
-        article = open('./data/iob/' + str(article_name) + '.iob', 'r')
-    except:
-        print('No .iob file found for: %s .' % article_name)
-
-    print('The .iob file for %s has been found and a word2index dictionary will be created' % article_name)
-    lines = article.readlines()
-    i = 0
-    while i < len(lines):
-        line = lines[i]
-        if '\t\t' in line:
-            w_l = line.split('\t\t')
-            wordEmb['wordIndex'].add_word(w_l[0])
-            wordEmb['labelIndex'].add_word(w_l[1].replace('\n', ''))
-            i += 1
-        else:
-            i += 1
-
-    return wordEmb
-
-
-def create_word2ind(articles):
-    indices={
-        'wordIndex': WordEmbeddings(),
-        'labelIndex': WordEmbeddings()
-    }
-    for i in range(0,len(articles)):
-        article=articles[i]
-        get_iob(article)
-        print('Creating word embeddings for the article %s' %article)
-        indices['wordIndex'].merge(get_dict_from_iob(article,indices)['wordIndex'])
-        indices['wordIndex'].merge(get_dict_from_iob(article,indices)['labelIndex'])
-    print('Word embeddings dictionary created for input the %i input article' % len(articles))
-    return indices
-
-
-def get_labeled_data(articles):
-    labeled_data=LabeledText()
-    data_length=[]
-    for i in range(0,len(articles)):
-        article=articles[i]
-        data_to_add = get_data_from_iob(article)
-        labeled_data.addData(data_to_add)
-        print ('labeled_data for %s: ' % article,len(data_to_add[0]))
-        data_length.append(len(labeled_data.getData()[0]))
-
-    print('Labeled data for the %i articles is created' % len(articles))
-    return labeled_data,data_length
-
-
-# main process: taking as input a list of articles to be processed
-def run_process(articles,use_cross_validation):
+def run_on_ollie_dataset(iob_ollie_dataset_path,use_cross_validation):
     settings = {'partial_training': 0.8,
                 'partial_testing': 0.2,
                 'fold': 10,  # 5 folds 0,1,2,3,4
@@ -132,52 +25,38 @@ def run_process(articles,use_cross_validation):
                 'emb_dimension': 100,  # dimension of word embedding
                 'nepochs': 50}
 
-    indices=create_word2ind(articles)
-    word_index = indices['wordIndex']
-    label_index = indices['labelIndex']
-    word2index = word_index.getCurrentIndex()
-    index2word = word_index.getIndex2Word()
-    label2index = label_index.getCurrentIndex()
-    index2label = label_index.getIndex2Word()
-    vocsize = len(word2index)
-    nclasses = len(label2index)
+    iob_ollie_dataset_file=open(iob_ollie_dataset_path,'r')
+    indices=create_word2ind(iob_ollie_dataset_file)
+    words_index=indices['wordIndex']
+    labels_index=indices['labelIndex']
+    word2index = words_index.getCurrentIndex()
+    index2word = words_index.getIndex2Word()
+    label2index = labels_index.getCurrentIndex()
+    index2label = labels_index.getIndex2Word()
 
+    vocsize=len(word2index)
+    nclasses=len(label2index)
     new_network_folder = datetime.datetime.now().strftime('%Y-%m-%d_%Hh%M')
     rnn,model_folder=create_network(settings,nclasses,vocsize,new_network_folder)
     print('RNN model created and saved under %s' % model_folder)
 
-    labeled_data=get_labeled_data(articles)[0]
-    labeled_data_size_for_each_article=get_labeled_data(articles)[1]
-    print('Labeled data sizes for articles: ',labeled_data_size_for_each_article)
+    [labeled_data,labeled_data_size]=get_labeled_data(iob_ollie_dataset_file)
+    print('Labeled data size for articles: ',labeled_data_size)
     sentences_list, labels_list = labeled_data.getData()
     while [] in sentences_list:
-        print('Empty sentences found. They will be removed')
+        print('Empty sentences were found. They will be removed')
         empty=sentences_list.index([])
         sentences_list.pop(empty)
         labels_list.pop(empty)
     assert len(sentences_list)==len(labels_list)
     number_labeled_sentences = len(sentences_list)
 
-    # for i in range(0, len(articles)):
-    # article = articles[i]
-    print('Training for ', articles,' will begin now')
+    print('The training phase of the RNN model on the Ollie dataset will begin now')
     rnn=rnn.load(model_folder)
-    #use_cross_validation=False
-    ###############################################
-    # specific articles for training and testing #
-    ###############################################
-    # train_sentences = sentences_list[0:labeled_data_size_for_each_article[2]]
-    # train_labels = labels_list[0:labeled_data_size_for_each_article[2]]
-    #
-    # test_sentences = sentences_list[labeled_data_size_for_each_article[2]:]
-    # test_labels = labels_list[labeled_data_size_for_each_article[2]:]
-    # print('Training + validation size: [0:{0}]={0}'.format(labeled_data_size_for_each_article[2]))
-    # print('Testing size: [{0}:{1}]={2}'.format(labeled_data_size_for_each_article[2],len(sentences_list),
-    #                                            len(sentences_list)-labeled_data_size_for_each_article[2]))
 
-    ############################################################
-    # training and testing according to parameters in settings #
-    ############################################################
+    #########################################################
+    # training with consideration to parameters in settings #
+    #########################################################
     if not use_cross_validation:
         print('No cross-validation techniques will be used in this training process')
         shuffle([sentences_list, labels_list], settings['seed'])
@@ -201,10 +80,12 @@ def run_process(articles,use_cross_validation):
     best_accuracy = -numpy.inf
     current_learning_rate = settings['lr']
     best_epoch = 0
+
     for e in range(0, settings['nepochs']):
         print('Epoch {0}'.format(e))
         print('----------------------------------------------')
         shuffle([train_sentences, train_labels], settings['seed'])
+
         if use_cross_validation:
             ####################
             # validation phase #
@@ -287,9 +168,6 @@ def run_process(articles,use_cross_validation):
         if current_learning_rate<1e-5: break
 
     print('BEST RESULT: epoch ', best_epoch, 'with best accuracy: ', best_accuracy, '.',)
-    # print('BEST VALIDATION ACCURACY: %2.2f%%' % best_validation_accuracy)
-    # rnn.save(model_folder)
 
 
-#run_process(['Obama','Paris','Alcohol'])
-run_process(['Aikido'],use_cross_validation=False)
+
