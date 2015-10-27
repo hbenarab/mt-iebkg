@@ -43,9 +43,10 @@ class Elman(object):
         self.names  = ['embeddings', 'Wx', 'Wh', 'W', 'bh', 'b', 'h0']
         idxs = T.imatrix() # as many columns as context window size/lines as words in the sentence
         x = self.emb[idxs].reshape((idxs.shape[0], de*cs))
-        y    = T.iscalar('y') # label
+        y = T.iscalar('y') # label
+        pos=T.iscalar('pos') # POS tag index
 
-        def recurrence(x_t, h_tm1):
+        def recurrence(x_t, h_tm1,):
             h_t = T.nnet.sigmoid(T.dot(x_t, self.Wx) + T.dot(h_tm1, self.Wh) + self.bh)
             s_t = T.nnet.softmax(T.dot(h_t, self.W) + self.b)
             return [h_t, s_t]
@@ -58,14 +59,14 @@ class Elman(object):
 
         # cost and gradients and learning rate
         lr = T.scalar('lr')
-        nll = -T.mean(T.log(p_y_given_x_lastword)[y])
+        nll = -T.mean(T.log(p_y_given_x_lastword)[y]+pos)
         gradients = T.grad( nll, self.params )
         updates = OrderedDict(( p, p-lr*g ) for p, g in zip( self.params , gradients))
 
         # theano functions
         self.classify = theano.function(inputs=[idxs], outputs=y_pred)
 
-        self.train = theano.function( inputs  = [idxs, y, lr],
+        self.train = theano.function( inputs  = [idxs, pos, y, lr],
                                       outputs = nll,
                                       updates = updates )
 

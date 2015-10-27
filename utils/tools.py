@@ -5,7 +5,7 @@ import math
 import time
 import numpy
 import sklearn.metrics
-from preprocess.wordemb import WordEmbeddings
+import nltk
 
 
 def shuffle(lol, seed):
@@ -54,6 +54,46 @@ def contextwin(l, win):
     return out
 
 
+def _get_pos_tags(sentence):
+    pos_tags = []
+    # tokens=nltk.word_tokenize(sentence)
+    words_tags=nltk.pos_tag(sentence)
+    for doublet in words_tags:
+        pos_tags.append(doublet[1])
+
+    assert len(pos_tags)==len(sentence)
+    return pos_tags
+
+
+def _get_pos_indices(pos_tags,pos2ind_dict):
+    pos_indices=[]
+
+    for tag in pos_tags:
+        pos_indices.append(pos2ind_dict[tag])
+
+    return pos_indices
+
+
+def _update_pos2ind_dict(pos_tags,pos2ind_dict):
+
+    # keys=list(pos2ind_dict.keys())
+    # values=list(pos2ind_dict.values())
+
+    if not list(pos2ind_dict.values()):
+        max_value=0
+    else:
+        max_value=max(list(pos2ind_dict.values()))
+
+    for tag in pos_tags:
+        if tag in list(pos2ind_dict.keys()):
+            continue
+        else:
+            pos2ind_dict[tag]=max_value+1
+            max_value+=1
+
+    assert max(list(pos2ind_dict.values()))==max_value
+
+
 def get_accuracy(rnn,train_set,test_set,word2index,label2index,settings,learning_rate,e,index2label,is_validation):
     train_sentences=train_set['sentences']
     train_labels=train_set['labels']
@@ -64,38 +104,27 @@ def get_accuracy(rnn,train_set,test_set,word2index,label2index,settings,learning
 
     number_train_labels_toGuess = sum([len(x) for x in test_labels])
 
-    # word2index=indices_dicts['words']
-    # label2index=indices_dicts['labels']
-
+    pos2ind_dict={}
     tic = time.time()
     for i in range(0, len(train_sentences)):
         # print(i)
-        indexed_sentence = [word2index[w] for w in train_sentences[i]]
+        sentence=train_sentences[i]
+        indexed_sentence = [word2index[w] for w in sentence]
         indexed_labels = [label2index[l] for l in train_labels[i]]
         cs_window = contextwin(indexed_sentence, settings['win'])
         words = map(lambda x: numpy.asarray(x).astype('int32'), minibatch(cs_window, settings['bs']))
-        # words=[]
-        # mini_batch=minibatch(cs_window,settings['bs'])
-        # to_array=lambda x:numpy.asarray(x).astype('int32')
-        # for i in range(0,len(mini_batch)):
-        #     words.append(to_array(mini_batch[i]))
-        # assert len(words)==len(indexed_labels)
-        for word, label in zip(words, indexed_labels):
-            rnn.train(word, label, learning_rate)
+        pos_tags=_get_pos_tags(sentence)
+        _update_pos2ind_dict(pos_tags,pos2ind_dict)
+        pos_tags_indices=_get_pos_indices(pos_tags,pos2ind_dict)
+        for word, pos, label in zip(words, pos_tags_indices, indexed_labels):
+            rnn.train(word, pos, label, learning_rate)
             rnn.normalize()
-        # print(str(i)+' trained and normalized')
     if settings['verbose'] and not is_validation:
-        # print('verbose')
         print('[learning] epoch %i >> %2.2f%%' % (e, (i + 1) * 100. / len(train_sentences)),
               'completed in %.2f (sec) <<\r' % (time.time() - tic),flush=True)
     if settings['verbose'] and is_validation:
         print('[Validation] epoch %i >> %2.2f%%' % (e, (i + 1) * 100. / len(train_sentences)),
               'completed in %.2f (sec) <<\r' % (time.time() - tic),flush=True)
-
-    # test_predictions=list(map(lambda x:index2label[x],
-    #                   rnn.classify(numpy.asarray(contextwin(x,settings['win'])).astype('int32')))
-    #                       for x in [[word2index[word] for word in sentence] for sentence in test_sentences])
-
     test_predictions=[]
     for sent in test_sentences:
         ind_sent=[word2index[w] for w in sent]
@@ -120,3 +149,5 @@ def get_accuracy(rnn,train_set,test_set,word2index,label2index,settings,learning
 
     accuracy=sklearn.metrics.accuracy_score(flat_truth,flat_predictions)*100
     return accuracy
+
+
