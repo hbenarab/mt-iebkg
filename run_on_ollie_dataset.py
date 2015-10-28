@@ -66,14 +66,18 @@ def run_on_ollie_dataset(iob_ollie_dataset_path,use_cross_validation):
         print('Testing size: [{0}:{1}] = {2}'.format(training_size, training_size + testing_size, testing_size))
         test_sentences = sentences_list[training_size:training_size + testing_size]
         test_labels = labels_list[training_size:training_size + testing_size]
+    else:
+        print('Cross validation will be used')
+
+
 
     ####################
     # training process #
     ####################
-    number_train_sentences = len(train_sentences)
-    number_train_labels_toGuess = sum([len(x) for x in test_labels])
-    print('Starting training with {0} labeled sentences in total for {1} epochs.'.
-          format(number_train_sentences, settings['nepochs']))
+    # number_train_sentences = len(train_sentences)
+    # number_train_labels_toGuess = sum([len(x) for x in test_labels])
+    # print('Starting training with {0} labeled sentences in total for {1} epochs.'.
+    #       format(number_train_sentences, settings['nepochs']))
 
     best_accuracy = -numpy.inf
     current_learning_rate = settings['lr']
@@ -82,7 +86,6 @@ def run_on_ollie_dataset(iob_ollie_dataset_path,use_cross_validation):
     for e in range(0, settings['nepochs']):
         print('Epoch {0}'.format(e))
         print('----------------------------------------------')
-        shuffle([train_sentences, train_labels], settings['seed'])
 
         if use_cross_validation:
             ####################
@@ -144,6 +147,7 @@ def run_on_ollie_dataset(iob_ollie_dataset_path,use_cross_validation):
         # Training phase #
         ##################
         else:
+            shuffle([train_sentences, train_labels], settings['seed'])
             print('Training in progress')
             # rnn=rnn.load(model_folder)
             # print('RNN saved during the validation phase has been loaded')
@@ -170,4 +174,4 @@ def run_on_ollie_dataset(iob_ollie_dataset_path,use_cross_validation):
 
 # import sys
 # sys.path.append('/home/heni/git/masterThesisKG/mt-iebkg')
-run_on_ollie_dataset('data/ollie-scored.iob.txt',use_cross_validation=False)
+run_on_ollie_dataset('data/ollie-scored.iob.txt',use_cross_validation=True)
