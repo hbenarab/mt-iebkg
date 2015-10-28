@@ -94,7 +94,22 @@ def _update_pos2ind_dict(pos_tags,pos2ind_dict):
     assert max(list(pos2ind_dict.values()))==max_value
 
 
-def get_accuracy(rnn,train_set,test_set,word2index,label2index,settings,learning_rate,e,index2label,is_validation):
+def _get_cs_pos_tags(word,pos2ind_dict,index2word):
+    cs_tags=[]
+    for elem in word[0]:
+        if elem==-1:
+            cs_tags.append(-1)
+        else:
+            w=index2word[elem]
+            pos_tag=nltk.pos_tag([w])[0][1]
+            cs_tags.append(pos2ind_dict[pos_tag])
+
+    assert len(word[0])==len(cs_tags)
+
+    return cs_tags
+
+
+def get_accuracy(rnn,train_set,test_set,word2index,label2index,settings,learning_rate,e,index2word,is_validation):
     train_sentences=train_set['sentences']
     train_labels=train_set['labels']
     assert len(train_sentences)==len(train_labels)
@@ -115,9 +130,10 @@ def get_accuracy(rnn,train_set,test_set,word2index,label2index,settings,learning
         words = map(lambda x: numpy.asarray(x).astype('int32'), minibatch(cs_window, settings['bs']))
         pos_tags=_get_pos_tags(sentence)
         _update_pos2ind_dict(pos_tags,pos2ind_dict)
-        pos_tags_indices=_get_pos_indices(pos_tags,pos2ind_dict)
-        for word, pos, label in zip(words, pos_tags_indices, indexed_labels):
-            rnn.train(word, pos, label, learning_rate)
+        # pos_tags_indices=_get_pos_indices(pos_tags,pos2ind_dict)
+        for word, label in zip(words, indexed_labels):
+            cs_pos_tags=_get_cs_pos_tags(word,pos2ind_dict,index2word)
+            rnn.train(word, [cs_pos_tags], label, learning_rate)
             rnn.normalize()
     if settings['verbose'] and not is_validation:
         print('[learning] epoch %i >> %2.2f%%' % (e, (i + 1) * 100. / len(train_sentences)),

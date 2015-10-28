@@ -125,7 +125,7 @@ def run_on_ollie_dataset(iob_ollie_dataset_path,use_cross_validation):
 
                 print('Training the fold number %i will begin now' % (j+1))
                 current_validation_accuracy=get_accuracy(rnn,train_dict,validation_dict,word2index,label2index,settings,
-                                                         current_learning_rate,e,index2label,is_validation=True)
+                                                         current_learning_rate,e,index2word,is_validation=True)
 
                 all_validation_accuracies.append(current_validation_accuracy)
             assert len(all_validation_accuracies)==settings['fold']
@@ -150,7 +150,7 @@ def run_on_ollie_dataset(iob_ollie_dataset_path,use_cross_validation):
             training_dict={'sentences':train_sentences,'labels':train_labels}
             testing_dict={'sentences':test_sentences,'labels':test_labels}
             testing_accuracy=get_accuracy(rnn,training_dict,testing_dict,word2index,label2index,settings,
-                                          current_learning_rate,e,index2label,is_validation=False)
+                                          current_learning_rate,e,index2word,is_validation=False)
 
             print('Accuracy during the testing phase (number of correct guessed labels) at %2.2f%%.' % testing_accuracy)
 
