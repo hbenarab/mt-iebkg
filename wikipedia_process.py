@@ -245,7 +245,7 @@ def run_process(articles,use_cross_validation):
                 validation_dict={'sentences':val_sent,'labels':val_labels}
 
                 print('Training the fold number %i will begin now' % (j+1))
-                current_validation_accuracy=get_accuracy(rnn,train_dict,validation_dict,word2index,label2index,settings,
+                [current_validation_accuracy,f1,conf_mat]=get_accuracy(rnn,train_dict,validation_dict,word2index,label2index,settings,
                                                          current_learning_rate,e,index2label,is_validation=True)
 
                 all_validation_accuracies.append(current_validation_accuracy)
@@ -270,7 +270,7 @@ def run_process(articles,use_cross_validation):
             # print('RNN saved during the validation phase has been loaded')
             training_dict={'sentences':train_sentences,'labels':train_labels}
             testing_dict={'sentences':test_sentences,'labels':test_labels}
-            testing_accuracy=get_accuracy(rnn,training_dict,testing_dict,word2index,label2index,settings,
+            [testing_accuracy,f1,conf_mat]=get_accuracy(rnn,training_dict,testing_dict,word2index,label2index,settings,
                                           current_learning_rate,e,index2label,is_validation=False)
 
             print('Accuracy during the testing phase (number of correct guessed labels) at %2.2f%%.' % testing_accuracy)

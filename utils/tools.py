@@ -162,8 +162,11 @@ def get_accuracy(rnn,train_set,test_set,word2index,label2index,settings,learning
     flat_truth=[item for sublist in indexed_test_labels for item in sublist]
     flat_predictions=[item for sublist in test_predictions for item in sublist]
     assert len(flat_predictions)==len(flat_truth)
-
+    labels=['B-Subj','I-Subj','B-Pred','I-Pred','B-Obj','I-Obj','B-enabler','I-enabler','B-attrib','I-attrib',
+            'B-time','I-time','B-location','I-location','O']
     accuracy=sklearn.metrics.accuracy_score(flat_truth,flat_predictions)*100
-    return accuracy
+    f1=sklearn.metrics.f1_score(flat_truth,flat_predictions,labels=labels,average='weighted')*100
+    conf_mat=sklearn.metrics.confusion_matrix(flat_truth,flat_predictions,labels=labels)
+    return accuracy,f1,conf_mat
 
 

@@ -3,6 +3,7 @@ __author__ = 'heni'
 import datetime
 import math
 import numpy
+import pickle
 
 from utils.tools import get_accuracy
 from ollie_comparison.utils.training_tools import create_word2ind,create_network,get_labeled_data
@@ -83,6 +84,9 @@ def run_on_ollie_dataset(iob_ollie_dataset_path,use_cross_validation):
     current_learning_rate = settings['lr']
     best_epoch = 0
 
+    f1_of_best_acc=0
+    conf_mat_of_best_acc=None
+
     for e in range(0, settings['nepochs']):
         print('Epoch {0}'.format(e))
         print('----------------------------------------------')
@@ -107,12 +111,13 @@ def run_on_ollie_dataset(iob_ollie_dataset_path,use_cross_validation):
                 ex_tr_sent=sentences_in_folds[:]
                 ex_tr_labels=labels_in_folds[:]
 
-                val_sent=sentences_in_folds[j]
-                val_labels=labels_in_folds[j]
-                assert len(val_sent)==len(val_labels)
+                # val_sent=sentences_in_folds[j]
+                # val_labels=labels_in_folds[j]
+                # assert len(val_sent)==len(val_labels)
 
-                ex_tr_sent.pop(j)
-                ex_tr_labels.pop(j)
+                val_sent=ex_tr_sent.pop(j)
+                val_labels=ex_tr_labels.pop(j)
+                assert len(val_sent)==len(val_labels)
                 assert len(ex_tr_sent)==len(ex_tr_labels)
 
                 tr_sent=[]
@@ -127,7 +132,7 @@ def run_on_ollie_dataset(iob_ollie_dataset_path,use_cross_validation):
                 validation_dict={'sentences':val_sent,'labels':val_labels}
 
                 print('Training the fold number %i will begin now' % (j+1))
-                current_validation_accuracy=get_accuracy(rnn,train_dict,validation_dict,word2index,label2index,settings,
+                [current_validation_accuracy,f1,conf_mat]=get_accuracy(rnn,train_dict,validation_dict,word2index,label2index,settings,
                                                          current_learning_rate,e,index2word,is_validation=True)
 
                 all_validation_accuracies.append(current_validation_accuracy)
@@ -135,13 +140,15 @@ def run_on_ollie_dataset(iob_ollie_dataset_path,use_cross_validation):
             mean_validation=sum(all_validation_accuracies)/len(all_validation_accuracies)
             if mean_validation>best_accuracy:
                 best_accuracy=mean_validation
+                f1_of_best_acc=f1
+                conf_mat_of_best_acc=conf_mat
                 print('New best validation accuracy: %2.2f%%' % best_accuracy)
-                rnn.save(model_folder)
+                # rnn.save(model_folder)
                 print('A new RNN has been saved.')
             else:
                 print('Validation phase did not come up with a better accuracy (only %2.2f%%).'
                       '. A new epoch will begin' % mean_validation)
-                rnn=rnn.load(model_folder)
+                # rnn=rnn.load(model_folder)
                 #continue
         ##################
         # Training phase #
@@ -153,7 +160,7 @@ def run_on_ollie_dataset(iob_ollie_dataset_path,use_cross_validation):
             # print('RNN saved during the validation phase has been loaded')
             training_dict={'sentences':train_sentences,'labels':train_labels}
             testing_dict={'sentences':test_sentences,'labels':test_labels}
-            testing_accuracy=get_accuracy(rnn,training_dict,testing_dict,word2index,label2index,settings,
+            [testing_accuracy,f1,conf_mat]=get_accuracy(rnn,training_dict,testing_dict,word2index,label2index,settings,
                                           current_learning_rate,e,index2word,is_validation=False)
 
             print('Accuracy during the testing phase (number of correct guessed labels) at %2.2f%%.' % testing_accuracy)
@@ -162,6 +169,8 @@ def run_on_ollie_dataset(iob_ollie_dataset_path,use_cross_validation):
             if testing_accuracy> best_accuracy:
                 best_accuracy = testing_accuracy
                 best_epoch = e
+                f1_of_best_acc=f1
+                conf_mat_of_best_acc=conf_mat
                 print('Better testing accuracy !!')
 
         if abs(best_epoch-e)>=5:
@@ -171,7 +180,8 @@ def run_on_ollie_dataset(iob_ollie_dataset_path,use_cross_validation):
 
     print('BEST RESULT: epoch ', best_epoch, 'with best accuracy: ', best_accuracy, '.',)
     # iob_ollie_dataset_file.close()
+    pickle.dump([best_accuracy,f1_of_best_acc,conf_mat_of_best_acc],open('perf.pck','wb'))
 
 # import sys
 # sys.path.append('/home/heni/git/masterThesisKG/mt-iebkg')
-run_on_ollie_dataset('data/ollie-scored.iob.txt',use_cross_validation=True)
+run_on_ollie_dataset('data/ollie-scored.iob.txt',use_cross_validation=False)
