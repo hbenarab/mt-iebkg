@@ -171,7 +171,10 @@ def run_on_ollie_dataset(iob_ollie_dataset_path,use_cross_validation):
                 best_epoch = e
                 f1_of_best_acc=f1
                 conf_mat_of_best_acc=conf_mat
+                rnn.save(model_folder)
                 print('Better testing accuracy !!')
+            else:
+                rnn=rnn.load(model_folder)
 
         if abs(best_epoch-e)>=5:
             current_learning_rate*=0.5
