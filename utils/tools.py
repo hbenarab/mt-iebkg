@@ -165,8 +165,12 @@ def get_accuracy(rnn,train_set,test_set,word2index,label2index,settings,learning
     labels=['B-Subj','I-Subj','B-Pred','I-Pred','B-Obj','I-Obj','B-enabler','I-enabler','B-attrib','I-attrib',
             'B-time','I-time','B-location','I-location','O']
     accuracy=sklearn.metrics.accuracy_score(flat_truth,flat_predictions)*100
-    f1=sklearn.metrics.f1_score(flat_truth,flat_predictions,labels=labels,average='weighted')*100
-    conf_mat=sklearn.metrics.confusion_matrix(flat_truth,flat_predictions,labels=labels)
+    try:
+        f1=sklearn.metrics.f1_score(flat_truth,flat_predictions,labels=labels,average='weighted')*100
+        conf_mat=sklearn.metrics.confusion_matrix(flat_truth,flat_predictions,labels=labels)
+    except:
+        f1=sklearn.metrics.f1_score(flat_truth,flat_predictions,average='weighted')*100
+        conf_mat=sklearn.metrics.confusion_matrix(flat_truth,flat_predictions)
     return accuracy,f1,conf_mat
 
 
