@@ -164,7 +164,7 @@ def get_accuracy(rnn,train_set,test_set,word2index,label2index,settings,learning
     assert len(flat_predictions)==len(flat_truth)
     labels=['B-Subj','I-Subj','B-Pred','I-Pred','B-Obj','I-Obj','B-enabler','I-enabler','B-attrib','I-attrib',
             'B-time','I-time','B-location','I-location','O']
-    labels_ind=[label2index(tag) for tag in labels]
+    labels_ind=[label2index[tag] for tag in labels]
     accuracy=sklearn.metrics.accuracy_score(flat_truth,flat_predictions)*100
     try:
         f1=sklearn.metrics.f1_score(flat_truth,flat_predictions,labels=labels_ind,average='weighted')*100
