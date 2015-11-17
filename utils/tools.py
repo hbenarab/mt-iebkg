@@ -133,8 +133,11 @@ def get_accuracy(rnn,train_set,test_set,word2index,label2index,settings,learning
         pos_tags_indices=_get_pos_indices(pos_tags,pos2ind_dict)
         for word, pos, label in zip(words, pos_tags_indices, indexed_labels):
             # cs_pos_tags=_get_cs_pos_tags(word,pos2ind_dict,index2word)
-            rnn.train(word, pos, label, learning_rate)
-            rnn.normalize()
+            try:
+                rnn.train(word, pos, label, learning_rate)
+                rnn.normalize()
+            except:
+                continue
     if settings['verbose'] and not is_validation:
         print('[learning] epoch %i >> %2.2f%%' % (e, (i + 1) * 100. / len(train_sentences)),
               'completed in %.2f (sec) <<\r' % (time.time() - tic),flush=True)
